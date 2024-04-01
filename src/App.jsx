@@ -6,9 +6,9 @@ function App() {
 
   return (
     <>
-     <Container className="main">
       <NavBar/>
-      <h1>A dar lo mejor de cada uno y muchos exitos !💪</h1>
+     <Container  className="main">
+     
      </Container>
     </>
   )

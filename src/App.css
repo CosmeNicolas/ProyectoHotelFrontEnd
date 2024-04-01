@@ -7,3 +7,73 @@
 .main {
   flex-grow: 1;
 }
+/* Estilos NavBar */
+.img-nav{
+  width: 100px;
+  height: 100px;
+}
+
+.barraDeNavegacion{
+background: rgba(0, 0, 0, 0.116);
+box-shadow: 0 8px 32px 0 rgba(129, 129, 129, 0);
+backdrop-filter: blur( 0px );
+-webkit-backdrop-filter: blur( 0px );
+
+}
+.icono-ubicacion{
+  margin-left: 69%;
+  font-size: x-large;
+  color: rgba(202, 128, 37, 0.788);
+}
+
+.icono-ubicacion:hover {
+  animation: ubicacion 1s ease 0s 1 normal forwards;
+}
+
+
+@keyframes ubicacion {
+	0%,
+	100% {
+		transform: rotate(0deg);
+		transform-origin: 50% 50%;
+	}
+
+	10% {
+		transform: rotate(8deg);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: rotate(-10deg);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: rotate(10deg);
+	}
+
+	80% {
+		transform: rotate(-8deg);
+	}
+
+	90% {
+		transform: rotate(8deg);
+	}
+}
+
+/* Estilos NavBar */
+
+/* Media queris  */
+@media screen and (max-width: 767px) {
+  .icono-ubicacion{
+    margin-left: 30%;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px){
+  .icono-ubicacion{
+    margin-left: 30%;
+  }
+}
