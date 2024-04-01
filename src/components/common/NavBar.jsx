@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from '.././../assets/logo-sf.png'
+import logo from '.././../assets/logo-sinmarco.png'
 import { ImLocation2 } from "react-icons/im";
 
 const NavBar = () => {
