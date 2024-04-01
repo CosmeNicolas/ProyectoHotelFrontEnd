@@ -10,6 +10,7 @@ function App() {
    <NavBar/>
    <Routes>
     <Route>
+      {/* falta agregar la pagina de inicio y en su clase contenedora colocar la clase main para bajar el footer */}
     </Route>
    </Routes>
    </BrowserRouter>
