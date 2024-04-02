@@ -122,6 +122,23 @@ backdrop-filter: blur( 0px );
 	font-family: "Montserrat", sans-serif;
 	color: #747373;
 }
+.imagen-relax-inicio{
+	object-fit: fill;
+	width: 50%;
+}
+.fuente-titulo-relax{
+	font-family: "Dancing Script", cursive;
+	font-weight: 900;
+}
+.fuente-descripcion-relax{
+	font-family: "Montserrat", sans-serif;
+	text-align: center;
+	font-style: italic;
+	font-weight: 400;
+}
+.contenedor-foto-descripcion{
+	background-color: #EADEC5;
+}
 /* FIN pagina principal  */
 
 
@@ -144,6 +161,14 @@ backdrop-filter: blur( 0px );
   .text-icons{
 	font-size: 15px;
   }
+  .contenedor-foto-descripcion{
+	display: flex;
+	flex-direction: column;
+  }
+  .imagen-relax-inicio{
+	object-fit: fill;
+	width: 100%;
+}
 }
 
 @media all and (min-width: 768px) and (max-width: 991px){
@@ -153,5 +178,13 @@ backdrop-filter: blur( 0px );
   .img-banner {
 	object-fit: cover;
 	height: 300px;
+}
+.contenedor-foto-descripcion{
+	display: flex;
+	flex-direction: column;
+  }
+  .imagen-relax-inicio{
+	object-fit: fill;
+	width: 100%;
 }
 }
