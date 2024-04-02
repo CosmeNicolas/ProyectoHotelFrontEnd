@@ -3,15 +3,14 @@ import {Container} from 'react-bootstrap'
 import NavBar from './components/common/NavBar';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css'
+import Inicio from './components/pages/Inicio';
 function App() {
 
   return (
    <BrowserRouter>
    <NavBar/>
    <Routes>
-    <Route>
-      {/* falta agregar la pagina de inicio y en su clase contenedora colocar la clase main para bajar el footer */}
-    </Route>
+    <Route exact path='/' element={<Inicio/>}/>
    </Routes>
    </BrowserRouter>
 

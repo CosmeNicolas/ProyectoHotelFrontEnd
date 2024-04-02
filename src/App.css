@@ -32,11 +32,11 @@ font-family: "Dancing Script", cursive;
 }
 /* Estilos NavBar */
 .img-nav{
-  width: 110px;
+  width: 70px;
 }
 
 .barraDeNavegacion{
-background: hsla(0, 0%, 0%, 0.096);
+background: hsla(0, 0%, 0%, 0.667);
 box-shadow: 0 8px 32px 0 rgba(129, 129, 129, 0);
 backdrop-filter: blur( 0px );
 -webkit-backdrop-filter: blur( 0px );
@@ -44,11 +44,11 @@ backdrop-filter: blur( 0px );
 
 .fuente-nav{
   font-family: "Montserrat", sans-serif;
-  color: black;
+  color: #E6E6E6;
 }
 
 .icono-ubicacion{
-  margin-left: 43%;
+  margin-right: auto;
   font-size: x-large;
   color: #B79B63;
 }
@@ -96,13 +96,53 @@ backdrop-filter: blur( 0px );
 		transform: rotate(8deg);
 	}
 }
+/* FIN Estilos NavBar */
 
-/* Estilos NavBar */
+
+/* Estilos Pagina Principal */
+
+.img-banner{
+	object-fit: cover;
+	height: 450px;
+}
+
+.fuente-slogan-principal{
+	font-family: "Dancing Script", cursive;
+	font-size: 50px;
+	color: #4D4D4D;
+}
+.fuente-slogan-secundario{
+	color: #303030;
+}
+.estilo-principal{
+	background-color: #E6E6E6;
+}
+.iconos-servicios{
+	font-size: xx-large;
+	font-family: "Montserrat", sans-serif;
+	color: #747373;
+}
+/* FIN pagina principal  */
+
+
 
 /* Media queris  */
 @media screen and (max-width: 767px) {
   .icono-ubicacion{
     margin-left: 50px;
+  }
+  .img-banner {
+  	object-fit: cover;
+  	height: 300px;
+  }
+  .fuente-slogan-principal{
+	font-size: 30px;
+  }
+  .fuente-slogan-secundario{
+	font-size: 15px;
+  }
+  .text-icons{
+	font-size: 15px;
   }
 }
 
@@ -110,4 +150,8 @@ backdrop-filter: blur( 0px );
   .icono-ubicacion{
     margin-left: 65%;
   }
+  .img-banner {
+	object-fit: cover;
+	height: 300px;
+}
 }
