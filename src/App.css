@@ -1,3 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Fuente
+font-family: "Montserrat", sans-serif;
+font-family: "Dancing Script", cursive;
+*/
+
+/* colores 
+#FFFFFF
+
+#303030
+
+#B79B63
+
+#60195D
+
+#4D4D4D
+
+#EADEC5
+
+#E6E6E6
+*/
+
+
 #root {
   min-height: 100vh;
   display: flex;
@@ -6,4 +29,85 @@
 
 .main {
   flex-grow: 1;
+}
+/* Estilos NavBar */
+.img-nav{
+  width: 110px;
+}
+
+.barraDeNavegacion{
+background: hsla(0, 0%, 0%, 0.096);
+box-shadow: 0 8px 32px 0 rgba(129, 129, 129, 0);
+backdrop-filter: blur( 0px );
+-webkit-backdrop-filter: blur( 0px );
+}
+
+.fuente-nav{
+  font-family: "Montserrat", sans-serif;
+  color: black;
+}
+
+.icono-ubicacion{
+  margin-left: 43%;
+  font-size: x-large;
+  color: #B79B63;
+}
+
+.reserva-nav{
+  display: inline;
+  border: 1px #B79B63 solid ;
+  background-color: #B79B63;
+  color: #E6E6E6;
+}
+
+.icono-ubicacion:hover {
+  animation: ubicacion 1s ease 0s 1 normal forwards;
+}
+
+
+@keyframes ubicacion {
+	0%,
+	100% {
+		transform: rotate(0deg);
+		transform-origin: 50% 50%;
+	}
+
+	10% {
+		transform: rotate(8deg);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: rotate(-10deg);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: rotate(10deg);
+	}
+
+	80% {
+		transform: rotate(-8deg);
+	}
+
+	90% {
+		transform: rotate(8deg);
+	}
+}
+
+/* Estilos NavBar */
+
+/* Media queris  */
+@media screen and (max-width: 767px) {
+  .icono-ubicacion{
+    margin-left: 50px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px){
+  .icono-ubicacion{
+    margin-left: 65%;
+  }
 }
