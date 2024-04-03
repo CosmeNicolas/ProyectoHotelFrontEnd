@@ -6,7 +6,7 @@ const Inicio = () => {
   return (
     <>
       <section className="main ">
-        <article className="estilo-principal">
+        <article>
           <img className="img-banner img-fluid w-100" src={banner} alt="" />
           <h2 className="fuente-slogan-principal text-center mt-5 py-2">
             "Tu escape perfecto comienza aquí."

@@ -32,7 +32,7 @@ font-family: "Dancing Script", cursive;
 }
 /* Estilos NavBar */
 .img-nav{
-  width: 70px;
+  width: 100px;
   position: absolute;
   transform: translatex(0%);
 }
@@ -51,10 +51,10 @@ backdrop-filter: blur( 0px );
 }
 
 .icono-ubicacion{
-  margin-right: auto;
   font-size: x-large;
   color: #B79B63;
 }
+
 
 .reserva-nav{
   display: inline;
@@ -68,7 +68,7 @@ backdrop-filter: blur( 0px );
 }
 
 
-@keyframes ubicacion {
+/* @keyframes ubicacion {
 	0%,
 	100% {
 		transform: rotate(0deg);
@@ -98,7 +98,7 @@ backdrop-filter: blur( 0px );
 	90% {
 		transform: rotate(8deg);
 	}
-}
+} */
 /* FIN Estilos NavBar */
 
 
@@ -116,9 +116,6 @@ backdrop-filter: blur( 0px );
 }
 .fuente-slogan-secundario{
 	color: #303030;
-}
-.estilo-principal{
-	background-color: #E6E6E6;
 }
 .iconos-servicios{
 	font-size: xx-large;
@@ -150,7 +147,6 @@ backdrop-filter: blur( 0px );
 }
 .contenedor-Card{
 	width: 258px;
-	
 }
 /* Fin Estilo Card Inicio  */
 
@@ -209,4 +205,5 @@ backdrop-filter: blur( 0px );
 	position: relative;
 	transform: translatex(0%);
   }
+
 }
