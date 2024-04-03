@@ -9,7 +9,7 @@ const Cardhabitaciones = () => {
     <Col xs={6} md={3}>
     <Card className="contenedor-Card" >
       <Card.Img  variant="top" src={Room} />
-      <Card.Body>
+      <Card.Body className="body-card">
         <Card.Title>Habitacion Premium</Card.Title>
         <Card.Text>
         Una habitación tranquila con una cama grande y comodidades modernas.

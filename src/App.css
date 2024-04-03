@@ -148,6 +148,9 @@ backdrop-filter: blur( 0px );
 .contenedor-Card{
 	width: 258px;
 }
+.body-card{
+	background-color: #E6E6E6;
+}
 /* Fin Estilo Card Inicio  */
 
 /* Media queris  */
