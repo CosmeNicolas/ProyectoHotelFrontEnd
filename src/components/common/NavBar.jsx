@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from '.././../assets/logo-sinmarco.png'
+import logo from '.././../assets/logo.png'
 import { BsFillGeoAltFill } from "react-icons/bs";
 
 const NavBar = () => {
@@ -9,7 +9,7 @@ const NavBar = () => {
     <Navbar fixed="top"  data-bs-theme="dark"  expand="lg" className="barraDeNavegacion">
     <Container>
       <Navbar.Brand href="#home"><span><img className='img-nav' src={logo} alt="imagen-prueba" /></span></Navbar.Brand>
-      <BsFillGeoAltFill className='icono-ubicacion' />
+     {/*  <BsFillGeoAltFill className='icono-ubicacion' /> */}
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto">

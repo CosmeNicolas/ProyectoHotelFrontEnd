@@ -33,7 +33,10 @@ font-family: "Dancing Script", cursive;
 /* Estilos NavBar */
 .img-nav{
   width: 70px;
+  position: absolute;
+  transform: translatex(0%);
 }
+
 
 .barraDeNavegacion{
 background: hsla(0, 0%, 0%, 0.667);
@@ -141,7 +144,15 @@ backdrop-filter: blur( 0px );
 }
 /* FIN pagina principal  */
 
-
+/* Estilo Card Inicio */
+.btn-inicio-card{
+	background-color:#60195D;
+}
+.contenedor-Card{
+	width: 258px;
+	
+}
+/* Fin Estilo Card Inicio  */
 
 /* Media queris  */
 @media screen and (max-width: 767px) {
@@ -169,6 +180,12 @@ backdrop-filter: blur( 0px );
 	object-fit: fill;
 	width: 100%;
 }
+.img-nav{
+	width: 70px;
+	position: relative;
+	transform: translatex(0%);
+  }
+  
 }
 
 @media all and (min-width: 768px) and (max-width: 991px){
@@ -187,4 +204,9 @@ backdrop-filter: blur( 0px );
 	object-fit: fill;
 	width: 100%;
 }
+.img-nav{
+	width: 70px;
+	position: relative;
+	transform: translatex(0%);
+  }
 }

@@ -1,6 +1,7 @@
 import banner from "../../assets/Banner-rollingResort1.gif";
 import SectionIConosInicio from "../common/SectionIConosInicio";
 import SectionImagenInicio from "../common/SectionImagenInicio";
+import Cardhabitaciones from './habitaciones/CardHabitaciones'
 const Inicio = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const Inicio = () => {
          <SectionImagenInicio/>
          <hr className="mx-4" />
         </article>
+        <Cardhabitaciones/>
       </section>
     </>
   );
