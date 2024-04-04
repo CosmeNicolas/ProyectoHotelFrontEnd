@@ -32,8 +32,11 @@ font-family: "Dancing Script", cursive;
 }
 /* Estilos NavBar */
 .img-nav{
-  width: 70px;
+  width: 100px;
+  position: absolute;
+  transform: translatex(0%);
 }
+
 
 .barraDeNavegacion{
 background: hsla(0, 0%, 0%, 0.667);
@@ -48,10 +51,10 @@ backdrop-filter: blur( 0px );
 }
 
 .icono-ubicacion{
-  margin-right: auto;
   font-size: x-large;
   color: #B79B63;
 }
+
 
 .reserva-nav{
   display: inline;
@@ -65,7 +68,7 @@ backdrop-filter: blur( 0px );
 }
 
 
-@keyframes ubicacion {
+/* @keyframes ubicacion {
 	0%,
 	100% {
 		transform: rotate(0deg);
@@ -95,7 +98,7 @@ backdrop-filter: blur( 0px );
 	90% {
 		transform: rotate(8deg);
 	}
-}
+} */
 /* FIN Estilos NavBar */
 
 
@@ -113,9 +116,6 @@ backdrop-filter: blur( 0px );
 }
 .fuente-slogan-secundario{
 	color: #303030;
-}
-.estilo-principal{
-	background-color: #E6E6E6;
 }
 .iconos-servicios{
 	font-size: xx-large;
@@ -140,6 +140,7 @@ backdrop-filter: blur( 0px );
 	background-color: #EADEC5;
 }
 /* FIN pagina principal  */
+
 
 /* Estilos Footer */
 .icono-instagram{
@@ -174,6 +175,17 @@ backdrop-filter: blur( 0px );
 
 
 
+/* Estilo Card Inicio */
+.btn-inicio-card{
+	background-color:#60195D;
+}
+.contenedor-Card{
+	width: 258px;
+}
+.body-card{
+	background-color: #E6E6E6;
+}
+/* Fin Estilo Card Inicio  */
 
 /* Media queris  */
 @media screen and (max-width: 767px) {
@@ -201,6 +213,12 @@ backdrop-filter: blur( 0px );
 	object-fit: fill;
 	width: 100%;
 }
+.img-nav{
+	width: 70px;
+	position: relative;
+	transform: translatex(0%);
+  }
+  
 }
 
 @media all and (min-width: 768px) and (max-width: 991px){
@@ -219,4 +237,10 @@ backdrop-filter: blur( 0px );
 	object-fit: fill;
 	width: 100%;
 }
+.img-nav{
+	width: 70px;
+	position: relative;
+	transform: translatex(0%);
+  }
+
 }

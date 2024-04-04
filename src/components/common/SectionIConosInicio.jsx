@@ -24,6 +24,7 @@ const SectionIConosInicio = () => {
           </Col>
         </Row>
       </Container>
+    
     </>
   );
 };
