@@ -7,20 +7,22 @@ import ItemUsuario from './usuario/ItemUsuario';
 const Administrador = () => {
   return (
     <>
-      <Container fluid  className="main">
-       
-        <div className="d-flex justify-content-between mt-5 pt-5 ">
-          <h1 className=" fuente-slogan-principal">Habitaciones disponibles</h1>
-          <Button className="color-boton-admnistrador" variant="dark">
+      <Container  fluid className="contenedorAdministrador p-1">
+        <div  className="section-administrador d-flex justify-content-around pt-5 w-100 ">
+          <h1 className=" titulo-administrador text-light">Habitaciones disponibles</h1>
+          <Button className="color-boton-admnistrador my-1" variant="dark">
             <BsFillCalendar2PlusFill />
           </Button>
         </div>
-        <hr />
+       
+        <br />
 
         {/* Tabla Habitaciones */}
-        <Accordion defaultActiveKey="0">
-        <Accordion.Item eventKey="0">
-        <Accordion.Header>Habitaciones</Accordion.Header>
+        <article className='mx-3'>
+
+        <Accordion  defaultActiveKey="0">
+        <Accordion.Item className='boton-acordion'   eventKey="0">
+        <Accordion.Header >Habitaciones</Accordion.Header>
         <Accordion.Body>
         <Table responsive  striped bordered hover>
           <thead>
@@ -44,8 +46,8 @@ const Administrador = () => {
         </Accordion.Item>
         </Accordion>
         {/* Tabla Ususarios */}
-        <Accordion defaultActiveKey="1">
-        <Accordion.Item eventKey="1">
+        <Accordion className='mt-2' defaultActiveKey="1">
+        <Accordion.Item className='boton-acordion' eventKey="1">
         <Accordion.Header>Usuarios</Accordion.Header>
         <Accordion.Body>
         <Table responsive striped bordered hover>
@@ -68,6 +70,7 @@ const Administrador = () => {
         </Accordion.Body>
         </Accordion.Item>
         </Accordion>
+        </article>
      
         
       </Container>

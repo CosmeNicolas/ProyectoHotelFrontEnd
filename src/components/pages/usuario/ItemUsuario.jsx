@@ -15,10 +15,10 @@ const ItemUsuario = () => {
               <td>Administrador</td>
               <td>Habilitado</td>
                 <td>
-                <Button variant="warning" className="p-3" >
+                <Button variant="warning" className="p-3 mx-1" >
                 <FaEdit  />
                 </Button>
-                <Button variant="danger" className="p-3">
+                <Button variant="danger" className="p-3 mx-1 text-center">
                 <MdDelete />
                 </Button>
                 </td>

@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 /* colores 
+
 #FFFFFF
 
 #303030
@@ -13,10 +15,28 @@
 
 #E6E6E6
 */
+/* Fuente
+font-family: "Montserrat", sans-serif;
+font-family: "Dancing Script", cursive;
+*/
+.contenedorAdministrador{
+    flex-grow: 1;
+}
 
 .color-boton-admnistrador{
     background-color:#60195D ;
 }
 .section-administrador{
-    background-image: url(https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size: cover; 
+    background-image: url(./assets/living1.jpg);
+    background-repeat: no-repeat; 
+    
+}
+.boton-acordion  {
+    background-color: #f8e7c59d;  
+}
+
+.titulo-administrador{
+    font-family: "Dancing Script", cursive;
+    
 }

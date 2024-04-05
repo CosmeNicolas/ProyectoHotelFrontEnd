@@ -23,7 +23,7 @@ const Footer = () => {
                     </div>
                 </section>
                 <section className="container mt-3">
-                    <div className="row mb-4">
+                    <div className="row  mb-4">
                         <div className="col text-center">
                         <Link to="/error404" className="footer-link text-decoration-none me-2 fs-5">Habitaciones |</Link>
                             <Link to="/error404" className="footer-link text-decoration-none me-2 fs-5">Galería |</Link>

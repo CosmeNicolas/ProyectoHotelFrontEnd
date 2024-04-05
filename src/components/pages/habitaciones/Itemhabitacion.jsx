@@ -17,10 +17,10 @@ const ItemHabitacion = () => {
                 <img src="🛌" alt="" />
                 </td>
                 <td>
-                <Button variant="warning" className="p-3" >
+                <Button variant="warning" className="p-3 mx-1" >
                 <FaEdit  />
                 </Button>
-                <Button variant="danger" className="p-3">
+                <Button variant="danger" className="p-3 mx-1">
                 <MdDelete />
                 </Button>
                 </td>
