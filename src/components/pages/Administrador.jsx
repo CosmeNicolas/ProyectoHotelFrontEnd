@@ -1,5 +1,5 @@
-import Accordion from 'react-bootstrap/Accordion';
-import { Container, Button, Table } from "react-bootstrap";
+
+import { Container, Button, Table, Tab, Tabs } from "react-bootstrap";
 import { BsFillCalendar2PlusFill } from "react-icons/bs";
 import ItemHabitacion from "./habitaciones/Itemhabitacion";
 import ItemUsuario from './usuario/ItemUsuario';
@@ -19,11 +19,12 @@ const Administrador = () => {
 
         {/* Tabla Habitaciones */}
         <article className='mx-3'>
-
-        <Accordion  defaultActiveKey="0">
-        <Accordion.Item className='boton-acordion'   eventKey="0">
-        <Accordion.Header >Habitaciones</Accordion.Header>
-        <Accordion.Body>
+        <Tabs variant="underline" fill defaultActiveKey='habitaciones'>
+          <Tab eventKey='habitaciones' title='Habitaciones'>
+            <div className="d-flex align-items-center justify-content-between my-2">
+              <h2 className="fs-1 fw-bold text-center titulos">Habitaciones</h2>
+            </div>
+            <hr />
         <Table responsive  striped bordered hover>
           <thead>
             <tr>
@@ -42,14 +43,14 @@ const Administrador = () => {
             <ItemHabitacion/>
           </tbody>
         </Table>
-        </Accordion.Body>
-        </Accordion.Item>
-        </Accordion>
+        </Tab>
+       
         {/* Tabla Ususarios */}
-        <Accordion className='mt-2' defaultActiveKey="1">
-        <Accordion.Item className='boton-acordion' eventKey="1">
-        <Accordion.Header>Usuarios</Accordion.Header>
-        <Accordion.Body>
+        <Tab  eventKey='usuarios' title='Usuarios'>
+            <div className="d-flex align-items-center justify-content-between my-2">
+              <h2 className="fs-1 fw-bold titulos">Usuarios</h2>
+            </div>
+            <hr />
         <Table responsive striped bordered hover>
           <thead>
             <tr>
@@ -67,9 +68,8 @@ const Administrador = () => {
             <ItemUsuario/>
           </tbody>
         </Table>
-        </Accordion.Body>
-        </Accordion.Item>
-        </Accordion>
+        </Tab>
+        </Tabs>
         </article>
      
         
