@@ -1,6 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { BsSnow, BsBinoculars, BsGem, BsPersonArmsUp } from "react-icons/bs";
 
+
 const SectionIConosInicio = () => {
   return (
     <>
