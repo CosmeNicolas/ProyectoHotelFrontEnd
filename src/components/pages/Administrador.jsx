@@ -7,7 +7,8 @@ import ItemUsuario from './usuario/ItemUsuario';
 const Administrador = () => {
   return (
     <>
-      <Container  className="main">
+      <Container fluid  className="main">
+       
         <div className="d-flex justify-content-between mt-5 pt-5 ">
           <h1 className=" fuente-slogan-principal">Habitaciones disponibles</h1>
           <Button className="color-boton-admnistrador" variant="dark">
@@ -21,7 +22,7 @@ const Administrador = () => {
         <Accordion.Item eventKey="0">
         <Accordion.Header>Habitaciones</Accordion.Header>
         <Accordion.Body>
-        <Table striped bordered hover>
+        <Table responsive  striped bordered hover>
           <thead>
             <tr>
               <th>Cod</th>
@@ -47,7 +48,7 @@ const Administrador = () => {
         <Accordion.Item eventKey="1">
         <Accordion.Header>Usuarios</Accordion.Header>
         <Accordion.Body>
-        <Table striped bordered hover>
+        <Table responsive striped bordered hover>
           <thead>
             <tr>
               <th>Cod</th>
@@ -67,7 +68,10 @@ const Administrador = () => {
         </Accordion.Body>
         </Accordion.Item>
         </Accordion>
+     
+        
       </Container>
+      <hr />
     </>
   );
 };
