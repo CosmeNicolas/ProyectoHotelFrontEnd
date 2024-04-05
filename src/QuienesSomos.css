@@ -37,3 +37,57 @@ font-family: "Dancing Script", cursive;
 margin-top: 100px;
 }
 
+.texto-somos{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.titulo-somos{
+  text-align: center;
+}
+
+.img-somos{
+	object-fit: cover;
+	height: 200px;
+  filter:blur(3px)
+  
+}
+
+.image-container {
+  position: relative;
+  text-align: center;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semi-transparente */
+}
+
+.text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.centered-text {
+  max-width: 90%; 
+  text-align: center;
+
+  
+}
+
+.img-somos2{
+  object-fit:cover;
+  height: 400px;
+}
