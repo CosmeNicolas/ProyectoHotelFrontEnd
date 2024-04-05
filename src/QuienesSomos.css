@@ -50,7 +50,7 @@ margin-top: 100px;
 .img-somos{
 	object-fit: cover;
 	height: 200px;
-  filter:blur(3px)
+  filter:grayscale()
   
 }
 
@@ -65,7 +65,7 @@ margin-top: 100px;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semi-transparente */
+  background-color: rgba(0, 0, 0, 0.5); 
 }
 
 .text-overlay {

@@ -30,7 +30,7 @@ const QuienesSomos = () => {
       <section className="  ">
         
         <hr />
-        <section className="d-flex container">
+        <section className="d-flex container flex-wrap">
           <article className="  fuente-descripcion-relax mx-2">
             <FaHotel className="iconos-servicios mb-2" />
             <p>
@@ -76,16 +76,17 @@ const QuienesSomos = () => {
 
       <hr className="mx-4" />
 
-      <section className="d-flex justify-content-evenly ">
+      <section className="d-flex justify-content-evenly flex-wrap">
           <div className="  fuente-descripcion-relax ">
             <FaHotel className="iconos-servicios mb-2" /><h3>Habitaciontes con:</h3>
             <p>
              <ul>
-                <li>Baño Privado</li>
+                
                 <li>Aire Acondicionado</li>
                 <li>Sommier</li>
                 <li>Tv por Cable</li>
                 <li>Telefono</li>
+                <li>Baño Privado</li>
                 </ul>
             </p>
           </div>
@@ -93,10 +94,11 @@ const QuienesSomos = () => {
             <TbMassage  className="iconos-servicios mb-2" /><h3>Area de Spa:</h3>
             <p>
              <ul>
+             <li>Ducha Escocesa</li>
                 <li>Sauna</li>
                 <li>Mini Piscina</li>
                 <li>Baño Turco</li>
-                <li>Ducha Escocesa</li>
+              
                 </ul>
             </p>
           </div>
@@ -108,7 +110,7 @@ const QuienesSomos = () => {
                 <li>Fichas gratis con reserva</li>
                 <li>Barra de Bar</li>
                 <li>Expectaculos</li>
-                <li>Cambios a monedas extrangeras</li>
+                <li>Cambios a monedas <br></br>extrangeras</li>
                 </ul>
             </p>
           </div>
