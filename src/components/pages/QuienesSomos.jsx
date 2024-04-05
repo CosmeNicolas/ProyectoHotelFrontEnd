@@ -28,7 +28,6 @@ const QuienesSomos = () => {
       </div>
 
       <section className="  ">
-        
         <hr />
         <section className="d-flex container flex-wrap">
           <article className="  fuente-descripcion-relax mx-2">
@@ -63,7 +62,6 @@ const QuienesSomos = () => {
 
         <hr />
         <div className="container contenedor-foto-descripcion p-3 ">
-          
           <div className="col-md-12">
             <img
               className="img-somos w-100 mt-2 "
@@ -77,58 +75,58 @@ const QuienesSomos = () => {
       <hr className="mx-4" />
 
       <section className="d-flex justify-content-evenly flex-wrap">
-          <div className="  fuente-descripcion-relax ">
-            <FaHotel className="iconos-servicios mb-2" /><h3>Habitaciontes con:</h3>
-            <p>
-             <ul>
-                
-                <li>Aire Acondicionado</li>
-                <li>Sommier</li>
-                <li>Tv por Cable</li>
-                <li>Telefono</li>
-                <li>Baño Privado</li>
-                </ul>
-            </p>
-          </div>
-          <div className="  fuente-descripcion-relax  ">
-            <TbMassage  className="iconos-servicios mb-2" /><h3>Area de Spa:</h3>
-            <p>
-             <ul>
-             <li>Ducha Escocesa</li>
-                <li>Sauna</li>
-                <li>Mini Piscina</li>
-                <li>Baño Turco</li>
-              
-                </ul>
-            </p>
-          </div>
+        <div className="  fuente-descripcion-relax ">
+          <FaHotel className="iconos-servicios mb-2" />
+          <h3>Habitaciontes con:</h3>
 
-          <div className="fuente-descripcion-relax  ">
-            <MdCasino  className="iconos-servicios mb-2" /><h3>Casino:</h3>
-            <p>
-             <ul>
-                <li>Fichas gratis con reserva</li>
-                <li>Barra de Bar</li>
-                <li>Expectaculos</li>
-                <li>Cambios a monedas <br></br>extrangeras</li>
-                </ul>
-            </p>
-          </div>
-          <div className="fuente-descripcion-relax  ">
-            <GiStarsStack  className="iconos-servicios mb-2" /><h3>Extras:</h3>
-            <p>
-             <ul>
-                <li>Servicios de Masajes</li>
-                <li>Gym</li>
-                <li>Excursiones</li>
-                <li>Babysitter</li>
-                <li>Caja de Seguridad</li>
-                <li>Y mucho mas...</li>
-                </ul>
-            </p>
-          </div>
-        </section>
-        <hr className="mx-4" />
+          <ul>
+            <li>Aire Acondicionado</li>
+            <li>Sommier</li>
+            <li>Tv por Cable</li>
+            <li>Telefono</li>
+            <li>Baño Privado</li>
+          </ul>
+        </div>
+        <div className="  fuente-descripcion-relax  ">
+          <TbMassage className="iconos-servicios mb-2" />
+          <h3>Area de Spa:</h3>
+
+          <ul>
+            <li>Ducha Escocesa</li>
+            <li>Sauna</li>
+            <li>Mini Piscina</li>
+            <li>Baño Turco</li>
+          </ul>
+        </div>
+
+        <div className="fuente-descripcion-relax  ">
+          <MdCasino className="iconos-servicios mb-2" />
+          <h3>Casino:</h3>
+
+          <ul>
+            <li>Fichas gratis con reserva</li>
+            <li>Barra de Bar</li>
+            <li>Expectaculos</li>
+            <li>
+              Cambios a monedas <br></br>extrangeras
+            </li>
+          </ul>
+        </div>
+        <div className="fuente-descripcion-relax  ">
+          <GiStarsStack className="iconos-servicios mb-2" />
+          <h3>Extras:</h3>
+
+          <ul>
+            <li>Servicios de Masajes</li>
+            <li>Gym</li>
+            <li>Excursiones</li>
+            <li>Babysitter</li>
+            <li>Caja de Seguridad</li>
+            <li>Y mucho mas...</li>
+          </ul>
+        </div>
+      </section>
+      <hr className="mx-4" />
     </>
   );
 };
