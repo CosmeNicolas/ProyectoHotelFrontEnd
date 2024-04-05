@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Fuente
+font-family: "Montserrat", sans-serif;
+font-family: "Dancing Script", cursive;
+*/
+
+/* colores 
+#FFFFFF
+
+#303030
+
+#B79B63
+
+#60195D
+
+#4D4D4D
+
+#EADEC5
+
+#E6E6E6
+*/
+
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+  
+}
+
+.somos{
+ 
+margin-top: 100px;
+}
+
