@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css'
 import Inicio from './components/pages/Inicio';
 import Footer from './components/common/Footer';
+import QuienesSomos from './components/pages/QuienesSomos';
 function App() {
 
   return (
@@ -11,6 +12,7 @@ function App() {
    <NavBar/>
    <Routes>
     <Route exact path='/' element={<Inicio/>}/>
+    <Route exact path='/QuienesSomos' element={<QuienesSomos/>}/>
    </Routes>
    <Footer></Footer>
    </BrowserRouter>
