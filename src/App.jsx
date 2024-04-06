@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css'
 import Inicio from './components/pages/Inicio';
 import Footer from './components/common/Footer';
+import Error404 from './components/pages/Error404';
 function App() {
 
   return (
@@ -11,6 +12,7 @@ function App() {
    <NavBar/>
    <Routes>
     <Route exact path='/' element={<Inicio/>}/>
+    <Route path='*' element={<Error404/>}/>
    </Routes>
    <Footer></Footer>
    </BrowserRouter>
