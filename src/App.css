@@ -143,6 +143,8 @@ backdrop-filter: blur( 0px );
 
 
 /* Estilos Footer */
+
+
 .icono-instagram{
 	color: #B79B63;
 	width: 50px;
@@ -238,7 +240,7 @@ backdrop-filter: blur( 0px );
 	width: 100%;
 }
 .img-nav{
-	width: 70px;
+	width: 50px;
 	position: relative;
 	transform: translatex(0%);
   }
@@ -262,7 +264,7 @@ backdrop-filter: blur( 0px );
 	width: 100%;
 }
 .img-nav{
-	width: 70px;
+	width: 50px;
 	position: relative;
 	transform: translatex(0%);
   }
