@@ -44,10 +44,7 @@ font-family: "Dancing Script", cursive;
     margin-top: 55px ;
     flex-grow: 1;
     background-image: url('./assets/living3.jpg');
-    background-size: 100%;
-    background-position: center;
-    
-    
+    background-size: cover;
 }
 
 .container-login {
@@ -56,6 +53,7 @@ font-family: "Dancing Script", cursive;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
+    
   }
 
   .boton-login{
