@@ -4,7 +4,7 @@ import { Link} from "react-router-dom";
 const Login = () => {
   return (
     <>
-      <section className="fondo-login w-100">
+      <section className="fondo-login ">
         <h1 className="fuente-login text-center  text-light mt-3">Login</h1>
 
         <div className="d-flex justify-content-center ">
