@@ -21,7 +21,7 @@ const FormularioUsuario = () => {
                 className=" mb-3 text-light"
                 controlId="formNombreCompleto"
               >
-                <Form.Label>Nombre Completo</Form.Label>
+                <Form.Label>Nombre y Apellido</Form.Label>
                 <Form.Control
                   className="py-2"
                   type="text"
