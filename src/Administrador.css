@@ -38,5 +38,47 @@ font-family: "Dancing Script", cursive;
 
 .titulo-administrador{
     font-family: "Dancing Script", cursive;
+}
+/*! login estilos */
+.fondo-login{
+    margin-top: 55px ;
+    flex-grow: 1;
+    background-image: url('./assets/living3.jpg');
+    background-size: 100%;
+    background-position: center;
+    
     
 }
+
+.container-login {
+    background: rgba(44, 46, 52, 0.529);
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+  }
+
+  .boton-login{
+    border: #B79B63;
+    background-color: #B79B63;
+    transition: background-color 0.3s ease;
+  }
+  .fuente-crear-cuenta{
+    color: #B79B63;
+  }
+
+.fuente-login{
+    font-family: "Dancing Script", cursive;
+}
+
+  @media screen and (max-width: 767px) {
+    .fondo-login{
+        margin-top: 64px ;
+    }
+  }
+  
+  @media all and (min-width: 768px) and (max-width: 991px){
+    .fondo-login{
+        margin-top: 64px ;
+    }
+  }
