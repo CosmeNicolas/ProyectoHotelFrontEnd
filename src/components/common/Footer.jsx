@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="text-light px-4">
+        <footer className="footer-fondo text-light px-4">
             <div className="container">
                 <section className="row align-items-center">
                     <div className="col-lg-3 mt-3 text-center text-lg-start">
@@ -18,8 +18,8 @@ const Footer = () => {
                         <Link to="/error404" className="icono-link"><FaTwitter className="icono-twitter" /></Link>
                     </div>
                     <div className="col-lg-3 mt-3 d-flex justify-content-center justify-content-lg-end">
-                        <img src={logoTripAdvisor} alt="logo de trip advisor" className="img-fluid me-lg-3" width={120} />
-                        <img src={logoTravellerChoice} alt="logo de traveller's choice 2024" className="img-fluid" width={100} />
+                        <img src={logoTripAdvisor} alt="logo de trip advisor" className="logo-trip-advisor img-fluid me-lg-3" width={120} />
+                        <img src={logoTravellerChoice} alt="logo de traveller's choice 2024" className="logo-trip-advisor img-fluid" width={100} />
                     </div>
                 </section>
                 <section className="container mt-3">

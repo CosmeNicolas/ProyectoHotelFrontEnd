@@ -143,7 +143,13 @@ backdrop-filter: blur( 0px );
 
 
 /* Estilos Footer */
+.logo-trip-advisor{
+	border-radius: 20%;
+}
 
+.footer-fondo{
+	background-color: #303030;
+}
 
 .icono-instagram{
 	color: #B79B63;
@@ -164,7 +170,7 @@ backdrop-filter: blur( 0px );
 }
 
 .footer-link {
-    color: #000; 
+    color: #fff; 
 }
 
 .footer-link:hover {
