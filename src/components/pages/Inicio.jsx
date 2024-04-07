@@ -5,7 +5,7 @@ import Cardhabitaciones from './habitaciones/CardHabitaciones'
 const Inicio = () => {
   return (
     <>
-      <section className="main ">
+      <section className="main">
         <article>
           <img className="img-banner img-fluid w-100" src={banner} alt="" />
           <h2 className="fuente-slogan-principal text-center mt-5 py-2">
