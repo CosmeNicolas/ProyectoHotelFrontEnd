@@ -10,10 +10,15 @@ import QuienesSomos from "./components/pages/QuienesSomos";
 import "./Administrador.css";
 import Administrador from "./components/pages/Administrador";
 import Login from "./components/pages/Login";
+import { useState } from "react";
 function App() {
+  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || ''
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuario)
+
+
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado} />
       <Routes>
         <Route exact path="/" element={<Inicio />} />
         <Route path="*" element={<Error404 />} />

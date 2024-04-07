@@ -1,7 +1,24 @@
 import {  Form, Button, Card } from "react-bootstrap";
-import { Link} from "react-router-dom";
+import { useForm } from "react-hook-form";
+import {login} from '../../helpers/queries.js'
+import { Link, useNavigate} from "react-router-dom";
 
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+const navegacionInicio = useNavigate()
+
+const onSubmit = (usuario)=>{
+  if(login(usuario) === true ){
+    alert('usuario logueado')
+  }else{
+    alert('usuario no logueado')
+  }
+}
+
   return (
     <>
       <section className="fondo-login ">
