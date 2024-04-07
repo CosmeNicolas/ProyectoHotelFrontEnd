@@ -10,6 +10,8 @@ import QuienesSomos from "./components/pages/QuienesSomos";
 import "./Administrador.css";
 import Administrador from "./components/pages/Administrador";
 import Login from "./components/pages/Login";
+import FormularioUsuario from "./components/pages/usuario/FormularioUsuario";
+import "./Usuario.css";
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +22,7 @@ function App() {
         <Route exact path="/QuienesSomos" element={<QuienesSomos />} />
         <Route exact path="/administrador" element={<Administrador />} />
         <Route exact path="/login" element={<Login />} />
+        <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -42,7 +42,7 @@ const Login = () => {
               <div className="d-flex flex-column">
                 <Form.Text className=" text-light  ">
                   Don't Have an Account
-                  <Link to="/" className="fuente-crear-cuenta  ms-2">
+                  <Link to="/crearUsuario" className="fuente-crear-cuenta  ms-2">
                     Create Account
                   </Link>
                 </Form.Text>
