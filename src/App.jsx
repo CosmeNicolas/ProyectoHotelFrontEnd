@@ -10,6 +10,7 @@ import QuienesSomos from "./components/pages/QuienesSomos";
 import "./Administrador.css";
 import Administrador from "./components/pages/Administrador";
 import Login from "./components/pages/Login";
+import Habitaciones from "./components/pages/Habitaciones";
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Inicio />} />
         <Route path="*" element={<Error404 />} />
+        <Route exact path="/Habitaciones" element={<Habitaciones />} />
         <Route exact path="/QuienesSomos" element={<QuienesSomos />} />
         <Route exact path="/administrador" element={<Administrador />} />
         <Route exact path="/login" element={<Login />} />
