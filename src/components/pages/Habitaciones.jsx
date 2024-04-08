@@ -6,7 +6,7 @@ import living1img from "../../assets/living1.jpg";
 const Habitaciones = () => {
   return (
     <>
-      <section className="text-center">
+      <section>
         <div className="mt-5">
           <h2 className="texto-tituloHTop text-center">
             Habitaciones Doble Deluxe
@@ -28,10 +28,10 @@ const Habitaciones = () => {
             <img
               src={living1img}
               alt="habitacionDeLujo"
-              className="img-habitacionCard img-fluid mt-3 "
+              className="img-fluid mt-3"
             />
           </div>
-          <div className="col-sm-12 col-md-6 my-3 pt-5">
+          <div className="col-sm-12 col-md-6 my-3 pt-5 text-center">
             <h3>Servicios de lujo</h3>
             <ul>
               <li>
@@ -52,9 +52,9 @@ const Habitaciones = () => {
               RESERVAR
             </Link>
           </div>
-          <hr className="separador-habitacion container" />
+          <hr className="separador-habitacion container"/>
         </div>
-        <div className="">
+        <div>
           <h2 className="texto-tituloH text-center">
             Habitaciones Doble Premiun
           </h2>
