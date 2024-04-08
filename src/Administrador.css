@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* colores 
 
 #FFFFFF
@@ -19,52 +20,56 @@
 font-family: "Montserrat", sans-serif;
 font-family: "Dancing Script", cursive;
 */
-.contenedorAdministrador{
-    flex-grow: 1;
+.contenedorAdministrador {
+  flex-grow: 1;
 }
 
-.color-boton-admnistrador{
-    background-color:#60195D ;
-}
-.section-administrador{
-    background-size: cover; 
-    background-image: url(./assets/living1.jpg);
-    background-repeat: no-repeat; 
-    
-}
-.boton-acordion  {
-    background-color: #f8e7c59d;  
+.color-boton-admnistrador {
+  background-color: #60195D;
 }
 
-.titulo-administrador{
-    font-family: "Dancing Script", cursive;
+.section-administrador {
+  background-size: cover;
+  background-image: url(./assets/living1.jpg);
+  background-repeat: no-repeat;
+
 }
+
+.boton-acordion {
+  background-color: #f8e7c59d;
+}
+
+.titulo-administrador {
+  font-family: "Dancing Script", cursive;
+}
+
 /*! login estilos */
-.fondo-login{
-    flex-grow: 1;
-    background-image: url('./assets/living3.jpg');
-    background-size: cover;
+.fondo-login {
+  flex-grow: 1;
+  background-image: url('./assets/living3.jpg');
+  background-size: cover;
 }
 
 .container-login {
-    background: rgba(44, 46, 52, 0.529);
-    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: 10px;
-    margin-top: 70px;
-    margin-bottom: 30px;
-  }
+  background: rgba(44, 46, 52, 0.529);
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
 
-  .boton-login{
-    border: #B79B63;
-    background-color: #B79B63;
-    transition: background-color 0.3s ease;
-  }
-  .fuente-crear-cuenta{
-    color: #B79B63;
-  }
+.boton-login {
+  border: #B79B63;
+  background-color: #B79B63;
+  transition: background-color 0.3s ease;
+}
 
-.fuente-login{
-    font-family: "Dancing Script", cursive;
+.fuente-crear-cuenta {
+  color: #B79B63;
+}
+
+.fuente-login {
+  font-family: "Dancing Script", cursive;
 }
