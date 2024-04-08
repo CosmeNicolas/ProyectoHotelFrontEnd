@@ -265,8 +265,26 @@ backdrop-filter: blur( 0px );
   .tamaño-letra{
 	font-size: 1.3rem;
   }
-  
 
+/* Estilos para dispositivos medianos */
+@media (min-width: 768px) {
+	.servicios-section {
+	  display: flex;
+	  flex-direction: column;
+	}
+  }
+  
+  /* Estilos para dispositivos grandes */
+  @media (min-width: 992px) {
+	.servicios-section {
+	  flex-direction: row;
+	}
+	.servicios-section .imagen-fondo {
+	  order: 1; 
+	}
+  }
+  
+  
 /* Fin de estilos servicios */
 
 /* Media queris  */

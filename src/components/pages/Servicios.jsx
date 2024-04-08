@@ -21,12 +21,12 @@ const Servicios = () => {
 
       {/* Casino */}
       <Row className="justify-content-center align-items-center servicios-section">
-        <Col md={6} className="order-md-2">
+        <Col md={12} lg={6} className="order-lg-1">
           <div className="imagen-fondo">
             <img src={casino} alt="casino" className="img-fluid" />
           </div>
         </Col>
-        <Col md={6} className="order-md-1">
+        <Col md={12} lg={6} className="order-lg-2">
           <div className="p-4">
             <h2 className="servicios-titulo">Casino 🃜 🃚</h2>
             <p className="tamaño-letra">
@@ -53,12 +53,12 @@ const Servicios = () => {
 
       {/* Excursiones */}
       <Row className="justify-content-center align-items-center servicios-section">
-        <Col md={6}>
+        <Col md={12} lg={6} className="order-lg-2">
           <div className="imagen-fondo">
             <img src={excursiones} alt="excursiones" className="img-fluid" />
           </div>
         </Col>
-        <Col md={6}>
+        <Col md={12} lg={6} className="order-lg-1">
           <div className="p-4">
             <h2 className="servicios-titulo">Excursiones 𓅰</h2>
             <p className="tamaño-letra">
@@ -84,12 +84,12 @@ const Servicios = () => {
 
       {/* Spa */}
       <Row className="justify-content-center align-items-center servicios-section">
-        <Col md={6} className="order-md-2">
+        <Col md={12} lg={6} className="order-lg-1">
           <div className="imagen-fondo">
             <img src={spa} alt="spa" className="img-fluid" />
           </div>
         </Col>
-        <Col md={6} className="order-md-1">
+        <Col md={12} lg={6} className="order-lg-2">
           <div className="p-4">
             <h2 className="servicios-titulo">Spa ᶻ 𝗓 𐰁 .ᐟ</h2>
             <p className="tamaño-letra">
@@ -115,12 +115,12 @@ const Servicios = () => {
 
       {/* Centro de Ski */}
       <Row className="justify-content-center align-items-center servicios-section">
-        <Col md={6}>
+        <Col md={12} lg={6} className="order-lg-2">
           <div className="imagen-fondo">
             <img src={centroSki} alt="centro-ski" className="img-fluid" />
           </div>
         </Col>
-        <Col md={6}>
+        <Col md={12} lg={6} className="order-lg-1">
           <div className="p-4">
             <h2 className="servicios-titulo">Centro de Ski ☃︎</h2>
             <p className="tamaño-letra">
