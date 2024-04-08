@@ -25,10 +25,9 @@ const onSubmit = (usuario)=>{
   return (
     <>
       <section className="fondo-login ">
-        <h1 className="fuente-login text-center  text-light mt-3">Login</h1>
-
         <div className="d-flex justify-content-center ">
-          <Card className="container-login  p-3 my-4  d-flex flex-column align-content-center justify-content-center">
+          <Card className="container-login p-4  d-flex flex-column align-content-center justify-content-center">
+        <h1 className="fuente-login text-center  text-light ">Login</h1>
             <Form className="p-3" onSubmit={handleSubmit(onSubmit)}>
               {/* email */}
               <Form.Group

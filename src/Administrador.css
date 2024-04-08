@@ -41,7 +41,6 @@ font-family: "Dancing Script", cursive;
 }
 /*! login estilos */
 .fondo-login{
-    margin-top: 55px ;
     flex-grow: 1;
     background-image: url('./assets/living3.jpg');
     background-size: cover;
@@ -53,7 +52,8 @@ font-family: "Dancing Script", cursive;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
-    
+    margin-top: 70px;
+    margin-bottom: 30px;
   }
 
   .boton-login{
@@ -68,15 +68,3 @@ font-family: "Dancing Script", cursive;
 .fuente-login{
     font-family: "Dancing Script", cursive;
 }
-
-  @media screen and (max-width: 767px) {
-    .fondo-login{
-        margin-top: 64px ;
-    }
-  }
-  
-  @media all and (min-width: 768px) and (max-width: 991px){
-    .fondo-login{
-        margin-top: 64px ;
-    }
-  }
