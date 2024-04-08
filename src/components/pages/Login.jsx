@@ -4,7 +4,7 @@ import {login} from '../../helpers/queries.js'
 import {useNavigate , Link} from 'react-router-dom'
 
 
-const Login = ({usuarioLogueado, setUsuarioLogueado}) => {
+const Login = ({setUsuarioLogueado}) => {
   const {
     register,
     handleSubmit,
