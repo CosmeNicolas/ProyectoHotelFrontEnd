@@ -220,6 +220,14 @@ backdrop-filter: blur( 0px );
 /* Fin de estilo error 404*/
 
 /* Estilos servicios */
+.servicios-titulo-principal{
+	font-family: "Dancing Script", cursive;
+	text-align: center;
+    margin-top: 40px; 
+	color: #60195D;
+	font-weight: 600;
+    font-size: 2.6rem;
+}
 
 
 .servicios-section {
