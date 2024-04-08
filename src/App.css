@@ -264,7 +264,7 @@ backdrop-filter: blur( 0px );
 .descripcion-habitacion li{
 	font-family: "Montserrat", sans-serif;
 	font-weight: 300;
-	font-size: small;
+	font-size:medium;
 	color:#303030;
 	text-align: start;
 	margin-bottom: 10px;

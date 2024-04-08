@@ -1,4 +1,4 @@
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button, Card, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import habitacion1img from "../../assets/habitacion1.jpg";
 import living1img from "../../assets/living1.jpg";
@@ -6,8 +6,8 @@ import living1img from "../../assets/living1.jpg";
 const Habitaciones = () => {
   return (
     <>
-      <section>
-        <div className="mt-5">
+      <Container fluid>
+        <div className="mt-5 text-center">
           <h2 className="texto-tituloHTop text-center">
             Habitaciones Doble Deluxe
           </h2>
@@ -24,7 +24,7 @@ const Habitaciones = () => {
           className="img-habitacion img-fluid mt-3"
         />
         <div className="descripcion-habitacion row py-5 px-5">
-          <div className="col-sm-12 col-md-6 my-3">
+          <div className="col-sm-12 col-md-6 my-3 text-center">
             <img
               src={living1img}
               alt="habitacionDeLujo"
@@ -106,7 +106,7 @@ const Habitaciones = () => {
           </div>
           <hr className="separador-habitacion container" />
         </div>
-      </section>
+      </Container>
     </>
   );
 };
