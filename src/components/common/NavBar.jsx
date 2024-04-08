@@ -32,7 +32,7 @@ const NavBar = () => {
             <NavLink className="nav-link fuente-nav" href="#link">
               Galeria
             </NavLink>
-            <NavLink className="nav-link fuente-nav" href="#link">
+            <NavLink className="nav-link fuente-nav" to="/quienessomos">
               Quienes Somos
             </NavLink>
             <NavLink className="nav-link fuente-nav" href="#link">

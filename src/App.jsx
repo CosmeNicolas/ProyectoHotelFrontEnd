@@ -11,17 +11,26 @@ import "./Administrador.css";
 import Administrador from "./components/pages/Administrador";
 import Login from "./components/pages/Login";
 import Habitaciones from "./components/pages/Habitaciones";
+import { useState } from "react";
+import FormularioUsuario from "./components/pages/usuario/FormularioUsuario";
+import "./Usuario.css";
+
 function App() {
+  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || ''
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuario)
+
+
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado} />
       <Routes>
         <Route exact path="/" element={<Inicio />} />
         <Route path="*" element={<Error404 />} />
         <Route exact path="/Habitaciones" element={<Habitaciones />} />
         <Route exact path="/QuienesSomos" element={<QuienesSomos />} />
         <Route exact path="/administrador" element={<Administrador />} />
-        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado} />} />
+        <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
       </Routes>
       <Footer />
     </BrowserRouter>
