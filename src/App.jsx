@@ -24,7 +24,7 @@ function App() {
         <Route path="*" element={<Error404 />} />
         <Route exact path="/QuienesSomos" element={<QuienesSomos />} />
         <Route exact path="/administrador" element={<Administrador />} />
-        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado} />} />
       </Routes>
       <Footer />
     </BrowserRouter>
