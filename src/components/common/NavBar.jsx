@@ -11,8 +11,12 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
   const direccionar = useNavigate()
   const logOut = ()=>{
     Swal.fire({
-      title: "Administrador deslogueado",
-      icon: "success"
+      title: "Administrador Deslogueado",
+      icon: "success",
+      confirmButtonColor: '#B79B63',
+      customClass: {
+        popup: 'contenedor-sweet'
+      }
     });
    sessionStorage.removeItem("inicioHotel");
    setUsuarioLogueado('');

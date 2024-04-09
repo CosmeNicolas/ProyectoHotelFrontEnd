@@ -11,17 +11,20 @@ const Login = ({setUsuarioLogueado}) => {
     handleSubmit,
     formState: { errors },
   } = useForm()
-const navegacionInicio = useNavigate()
+ const navegacionInicio = useNavigate()
 
 const onSubmit = (usuario)=>{
   if(login(usuario) === true ){
-    Swal.fire({
-      title: "Administrador Logueado",
-      text: "Enter",
-      icon: "success"
-    });
     setUsuarioLogueado(usuario.email);
     navegacionInicio("/administrador")
+    Swal.fire({
+      title: "Administrador Logueado",
+      icon: "success",
+      confirmButtonColor: '#B79B63',
+      customClass: {
+        popup: 'contenedor-sweet'
+      }
+    });
     
   }else{
     Swal.fire({
