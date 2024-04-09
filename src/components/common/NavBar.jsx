@@ -3,9 +3,17 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from ".././../assets/logo.png";
 import { BsFillGeoAltFill } from "react-icons/bs";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate} from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
+  /* console.log(usuarioLogueado, setUsuarioLogueado) */
+  const direccionar = useNavigate()
+  const logOut = ()=>{
+   sessionStorage.removeItem("inicioHotel");
+   setUsuarioLogueado('');
+   direccionar('/')
+  }
+
   return (
     <Navbar
       fixed="top"
@@ -14,7 +22,7 @@ const NavBar = () => {
       className="barraDeNavegacion"
     >
       <Container>
-        <Navbar.Brand to="/" href="/">
+        <Navbar.Brand as={Link} to="/" href="/">
           <span>
             <img className="img-nav" src={logo} alt="imagen-prueba" />
           </span>
@@ -38,12 +46,22 @@ const NavBar = () => {
             <NavLink className="nav-link fuente-nav" href="#link">
               Contacto
             </NavLink>
-            <NavLink className="nav-link fuente-nav" to="/login">
-              Login
-            </NavLink>
+            {
+              usuarioLogueado.length > 0 ? (
+                <>
             <NavLink className="nav-link fuente-nav" to="/administrador">
               Administrador
             </NavLink>
+            <Link onClick={logOut} variant="link" className="nav-link fuente-nav" to="/login">
+            LogOut
+            </Link>
+          </>
+              ):(
+            <NavLink className="nav-link fuente-nav" to="/login">
+              Login
+            </NavLink>
+              )
+            }
             <Nav.Link >
               <span className="nav-link text-decoration-none reserva-nav p-2">Reserva</span>
             </Nav.Link>
