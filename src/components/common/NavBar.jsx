@@ -41,6 +41,9 @@ const NavBar = () => {
             <NavLink className="nav-link fuente-nav" to="/login">
               Login
             </NavLink>
+            <NavLink className="nav-link fuente-nav" to="/administrador">
+              Administrador
+            </NavLink>
             <Nav.Link >
               <span className="nav-link text-decoration-none reserva-nav p-2">Reserva</span>
             </Nav.Link>
