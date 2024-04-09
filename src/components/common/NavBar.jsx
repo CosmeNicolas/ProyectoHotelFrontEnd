@@ -7,7 +7,6 @@ import { Link, NavLink, useNavigate} from "react-router-dom";
 import Swal from 'sweetalert2'
 
 const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
-  /* console.log(usuarioLogueado, setUsuarioLogueado) */
   const direccionar = useNavigate()
   const logOut = ()=>{
     Swal.fire({
