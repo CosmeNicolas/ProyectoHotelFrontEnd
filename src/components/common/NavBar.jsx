@@ -4,11 +4,16 @@ import Navbar from "react-bootstrap/Navbar";
 import logo from ".././../assets/logo.png";
 import { BsFillGeoAltFill } from "react-icons/bs";
 import { Link, NavLink, useNavigate} from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
   /* console.log(usuarioLogueado, setUsuarioLogueado) */
   const direccionar = useNavigate()
   const logOut = ()=>{
+    Swal.fire({
+      title: "Administrador deslogueado",
+      icon: "success"
+    });
    sessionStorage.removeItem("inicioHotel");
    setUsuarioLogueado('');
    direccionar('/')

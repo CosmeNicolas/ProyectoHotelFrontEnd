@@ -2,6 +2,7 @@ import {  Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import {login} from '../../helpers/queries.js'
 import {useNavigate , Link} from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 
 const Login = ({setUsuarioLogueado}) => {
@@ -14,11 +15,20 @@ const navegacionInicio = useNavigate()
 
 const onSubmit = (usuario)=>{
   if(login(usuario) === true ){
+    Swal.fire({
+      title: "Administrador Logueado",
+      text: "Enter",
+      icon: "success"
+    });
     setUsuarioLogueado(usuario.email);
-    navegacionInicio("/")
-    alert('usuario logueado')
+    navegacionInicio("/administrador")
+    
   }else{
-    alert('usuario no logueado')
+    Swal.fire({
+      title: "Error al loguearse!",
+      text: "Enter!",
+      icon: "error"
+    });
   }
 }
 
