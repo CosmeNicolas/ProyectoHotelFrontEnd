@@ -12,6 +12,7 @@ import Administrador from "./components/pages/Administrador";
 import Login from "./components/pages/Login";
 import { useState } from "react";
 import FormularioUsuario from "./components/pages/usuario/FormularioUsuario";
+import Servicios from "./components/pages/Servicios";
 import "./Usuario.css";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/administrador" element={<Administrador />} />
         <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado} />} />
         <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
+        <Route exact path="/servicios" element={<Servicios />} />
       </Routes>
       <Footer />
     </BrowserRouter>
