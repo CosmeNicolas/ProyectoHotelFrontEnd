@@ -13,6 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./QuienesSomos.css";
 import "./Administrador.css";
+import Servicios from "./components/pages/Servicios";
 import "./Usuario.css";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         />
         <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado} />} />
         <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
+        <Route exact path="/servicios" element={<Servicios />} />
       </Routes>
       <Footer />
     </BrowserRouter>

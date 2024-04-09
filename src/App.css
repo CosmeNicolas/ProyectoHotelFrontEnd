@@ -220,6 +220,74 @@ backdrop-filter: blur( 0px );
 }
 /* Fin de estilo error 404*/
 
+/* Estilos servicios */
+.servicios-titulo-principal{
+	font-family: "Dancing Script", cursive;
+	text-align: center;
+    margin-top: 40px; 
+	color: #60195D;
+	font-weight: 600;
+    font-size: 2.6rem;
+}
+
+
+.servicios-section {
+    margin-bottom: 80px;
+	margin-top: 80px;
+}
+
+.imagen-fondo{
+    background-color: #B79B63;
+    padding: 12px;
+}
+
+
+.servicios-titulo {
+	color: #60195D;
+	font-family: "Montserrat", sans-serif;
+	font-size: 2.3rem;
+	margin: 10px;
+  }
+
+  .servicios-info{
+	font-family: "Montserrat", sans-serif;
+	font-size: 1.5rem;
+	margin: 10px;
+  }
+  
+
+  .servicios-info h4 {
+	color: #60195D;
+	font-family: "Montserrat", sans-serif;
+	font-size: 2.1rem;
+	margin: 10px;
+  }
+
+  .tamaño-letra{
+	font-size: 1.3rem;
+  }
+
+/* Estilos para dispositivos medianos */
+@media (min-width: 768px) {
+	.servicios-section {
+	  display: flex;
+	  flex-direction: column;
+	}
+  }
+  
+  /* Estilos para dispositivos grandes */
+  @media (min-width: 992px) {
+	.servicios-section {
+	  flex-direction: row;
+	}
+	.servicios-section .imagen-fondo {
+	  order: 1; 
+	}
+  }
+  
+  
+/* Fin de estilos servicios */
+
 /* Media queris  */
 @media screen and (max-width: 767px) {
   .icono-ubicacion{
