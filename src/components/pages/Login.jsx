@@ -2,6 +2,7 @@ import {  Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import {login} from '../../helpers/queries.js'
 import {useNavigate , Link} from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 
 const Login = ({setUsuarioLogueado}) => {
@@ -10,25 +11,36 @@ const Login = ({setUsuarioLogueado}) => {
     handleSubmit,
     formState: { errors },
   } = useForm()
-const navegacionInicio = useNavigate()
+ const navegacionInicio = useNavigate()
 
 const onSubmit = (usuario)=>{
   if(login(usuario) === true ){
     setUsuarioLogueado(usuario.email);
-    navegacionInicio("/")
-    alert('usuario logueado')
+    navegacionInicio("/administrador")
+    Swal.fire({
+      title: "Administrador Logueado",
+      icon: "success",
+      confirmButtonColor: '#B79B63',
+      customClass: {
+        popup: 'contenedor-sweet'
+      }
+    });
+    
   }else{
-    alert('usuario no logueado')
+    Swal.fire({
+      title: "Error al loguearse!",
+      text: "Enter!",
+      icon: "error"
+    });
   }
 }
 
   return (
     <>
       <section className="fondo-login ">
-        <h1 className="fuente-login text-center  text-light mt-3">Login</h1>
-
         <div className="d-flex justify-content-center ">
-          <Card className="container-login  p-3 my-4  d-flex flex-column align-content-center justify-content-center">
+          <Card className="container-login p-4  d-flex flex-column align-content-center justify-content-center">
+        <h1 className="fuente-login text-center  text-light ">Login</h1>
             <Form className="p-3" onSubmit={handleSubmit(onSubmit)}>
               {/* email */}
               <Form.Group

@@ -39,6 +39,7 @@ font-family: "Dancing Script", cursive;
 
 
 .barraDeNavegacion{
+	width: 100%;
 background: hsla(0, 0%, 0%, 0.667);
 box-shadow: 0 8px 32px 0 rgba(129, 129, 129, 0);
 backdrop-filter: blur( 0px );
