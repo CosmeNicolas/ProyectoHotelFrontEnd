@@ -1,3 +1,5 @@
+const URI_USUARIOS = import.meta.env.VITE_API_USUARIOS;
+
 //! Login 
 const admin = {
     email: "admin@usuario.com",
@@ -11,3 +13,18 @@ export const login = (usuario)=>{
         return false
     };
 }
+
+export const crearUsuario = async (usuario) => {
+    try {
+      const respuesta = await fetch(URI_USUARIOS + "/registrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(usuario),
+      });
+      return respuesta;
+    } catch (error) {
+      console.log(error);
+    }
+  };
