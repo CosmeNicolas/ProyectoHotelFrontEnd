@@ -16,7 +16,7 @@ export const login = (usuario)=>{
 
 export const crearUsuario = async (usuario) => {
     try {
-      const respuesta = await fetch(URI_USUARIOS + "/registrar", {
+      const respuesta = await fetch(URI_USUARIOS +"/registrar"  , {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
