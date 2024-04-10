@@ -14,6 +14,7 @@ import "./App.css";
 import "./QuienesSomos.css";
 import "./Administrador.css";
 import Servicios from "./components/pages/Servicios";
+import Contacto from "./components/pages/Contacto";
 import "./Usuario.css";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado} />} />
         <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
         <Route exact path="/servicios" element={<Servicios />} />
+        <Route exact path="/contacto" element={<Contacto />} />
       </Routes>
       <Footer />
     </BrowserRouter>

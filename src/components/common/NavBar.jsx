@@ -51,7 +51,7 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
             <NavLink className="nav-link fuente-nav" to="/quienessomos">
               Quienes Somos
             </NavLink>
-            <NavLink className="nav-link fuente-nav" href="#link">
+            <NavLink className="nav-link fuente-nav" href="/contacto">
               Contacto
             </NavLink>
             {
