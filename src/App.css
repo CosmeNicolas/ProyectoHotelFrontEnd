@@ -225,7 +225,7 @@ backdrop-filter: blur( 0px );
 	font-weight: 200;
 	color: #B79B63;
 	letter-spacing: .2rem;
-	padding-top: 55px;
+	padding-top: 95px;
 }
 .texto-tituloH{
 	font-family: "Montserrat", sans-serif;
@@ -237,6 +237,7 @@ backdrop-filter: blur( 0px );
 .texto-textoH{
 	font-family: "Montserrat", sans-serif;
 	font-weight: 300;
+	font-size: large;
 	color:#303030;
 	letter-spacing: .1rem;
 }
@@ -252,7 +253,7 @@ backdrop-filter: blur( 0px );
 	align-items: center;
 }
 .descripcion-habitacion img{
-	max-height: 320px;
+	max-height: 400px;
 }
 .descripcion-habitacion h3{
 	font-family: "Montserrat", sans-serif;
@@ -276,13 +277,13 @@ backdrop-filter: blur( 0px );
 	background-color: #60195D;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 50px;
     cursor: pointer;
     border-radius: 0px;
     transition: background-color 0.3s;
 }
 .separador-habitacion{
-	color: #B79B63;	
+	color: #B79B63;
 }
 
 /* Media queris  */
