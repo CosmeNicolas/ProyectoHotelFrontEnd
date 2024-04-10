@@ -26,16 +26,16 @@ const Habitaciones = () => {
         />
         <Row className="descripcion-habitacion text-center">
           <Col xs={{ span: 12, order: 2 }} md={6}>
-            <img
+            <Image
               src={living1img}
               alt="habitacionDeLujo"
-              className="img-fluid mt-3"
+              fluid
             />
           </Col>
           <Col
             xs={{ span: 12, order: 1 }}
             md={{ span: 6, order: 2 }}
-            className="px-5"
+            className="px-5 py-4"
           >
             <h3>Servicios de lujo</h3>
             <ul>

@@ -225,7 +225,7 @@ backdrop-filter: blur( 0px );
 	font-weight: 200;
 	color: #B79B63;
 	letter-spacing: .2rem;
-	padding-top: 95px;
+	padding-top: 9rem;
 }
 .texto-tituloH{
 	font-family: "Montserrat", sans-serif;
@@ -238,6 +238,7 @@ backdrop-filter: blur( 0px );
 	font-family: "Montserrat", sans-serif;
 	font-weight: 300;
 	font-size: large;
+	padding-bottom: 2rem;
 	color:#303030;
 	letter-spacing: .1rem;
 }
