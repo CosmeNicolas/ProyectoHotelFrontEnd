@@ -16,7 +16,7 @@ const Contacto = () => {
         </Container>
         <Image
           src={pileta}
-          alt="hpileta descanzo"
+          alt="pileta"
           className=" mt-3"
           fluid
         />
