@@ -15,6 +15,7 @@ import "./QuienesSomos.css";
 import "./Administrador.css";
 import Servicios from "./components/pages/Servicios";
 import "./Usuario.css";
+import Galeria from "./components/pages/Galeria";
 
 function App() {
   const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || ''
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado} />} />
         <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
         <Route exact path="/servicios" element={<Servicios />} />
+        <Route exact path="/galeria" element={<Galeria />} />
       </Routes>
       <Footer />
     </BrowserRouter>

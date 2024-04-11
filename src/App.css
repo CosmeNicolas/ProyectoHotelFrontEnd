@@ -288,6 +288,38 @@ backdrop-filter: blur( 0px );
   
 /* Fin de estilos servicios */
 
+
+/* Estilos de Galeria*/
+
+
+.galeria-section {
+    margin-bottom: 190px;
+}
+
+.galeria-img {
+    width: 200px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.galeria-titulo-principal{
+	color: #60195D;
+	font-family: "Montserrat", sans-serif;
+	font-size: 2.3rem;
+	margin: 10px;
+}
+
+.galeria-subtitulos{
+	color: #60195D;
+	font-family: "Montserrat", sans-serif;
+	font-size: 1.8rem;
+}
+
+
+/* Fin de estilos Galeria*/
+
+
 /* Media queris  */
 @media screen and (max-width: 767px) {
   .icono-ubicacion{
