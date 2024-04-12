@@ -316,6 +316,29 @@ backdrop-filter: blur( 0px );
 	font-size: 1.8rem;
 }
 
+.galeria-img:hover {
+	filter: brightness(50%);
+	transition: filter 0.3s ease;
+}
+
+.galeria-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.icono-corazon{
+	position: absolute;
+    bottom: 28px;
+    left: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+	color: white;
+	font-size: 28px
+}
+
+.galeria-item:hover .icono-corazon {
+    opacity: 1;
+}
 
 /* Fin de estilos Galeria*/
 
