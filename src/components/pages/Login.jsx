@@ -1,23 +1,3 @@
-/*  if(usuarioEncontrado(usuario)){
-    setUsuarioLogueado(usuario.email);
-    navegacionInicio("/")
-    Swal.fire({
-      title: "Administrador Logueado",
-      icon: "success",
-      confirmButtonColor: '#B79B63',
-      customClass: {
-        popup: 'contenedor-sweet'
-      }
-    });
-    
-  }else{
-    Swal.fire({
-      title: "Error al loguearse!",
-      text: "Enter!",
-      icon: "error"
-    });
-  } */
-
 import { Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { iniciarSesion } from "../../helpers/queries.js";
@@ -43,19 +23,39 @@ const Login = ({ setUsuarioLogueado }) => {
           sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol}))
           setUsuarioLogueado(dato);
           navegacion("/");
-          alert("usuario logueado");
+          Swal.fire({
+            title: `Bienvenido ${dato.usuario}`,
+            icon: "success",
+            confirmButtonColor: '#B79B63',
+            customClass: {
+              popup: 'contenedor-sweet'
+            }
+          });
+          
         } else if (dato.rol === "Administrador") {
           console.log(dato.rol)
+          sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol}))
           setUsuarioLogueado(dato.email);
-          alert('admin logueado')
           navegacion("/administrador");
+          Swal.fire({
+            title: `Bienvenido ${dato.usuario}`,
+            icon: "success",
+            confirmButtonColor: '#B79B63',
+            customClass: {
+              popup: 'contenedor-sweet'
+            }
+          });
         } else {
           alert("ocurrrio un error al loguearse ");
         }
       }
     } catch (error) {
       console.log(error);
-      alert("todo mal maquina");
+      Swal.fire({
+        title: "Error al loguearse!",
+        text: "Intente Nuevamente",
+        icon: "error"
+      });
     }
   };
 

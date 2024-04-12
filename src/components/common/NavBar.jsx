@@ -18,7 +18,7 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
       }
     });
    sessionStorage.removeItem("inicioHotel");
-   setUsuarioLogueado('');
+   setUsuarioLogueado({});
    direccionar('/')
   }
 

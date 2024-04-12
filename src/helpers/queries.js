@@ -1,6 +1,6 @@
 const URI_USUARIOS = import.meta.env.VITE_API_USUARIOS;
 
-//! Login 
+/* //! Login 
 const admin = {
     email: "admin@usuario.com",
     password: "A12345678a",
@@ -13,7 +13,7 @@ export const login = (usuario)=>{
     }else{
         return false
     };
-}
+} */
 
 export const crearUsuario = async (usuario) => {
     try {
