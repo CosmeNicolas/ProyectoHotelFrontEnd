@@ -271,7 +271,7 @@ backdrop-filter: blur( 0px );
 .texto-tituloContacto{
 	position: absolute;
 	color: #fff;
-    top: 60%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
 	text-shadow: 1px 1px 2px black;
@@ -306,7 +306,6 @@ backdrop-filter: blur( 0px );
     transition: background-color 0.3s;
 }
 
-
 .img-piletaContacto{
 	/* width: 100%;
 	clip-path: inset(20% 0 20% 0);
@@ -315,6 +314,12 @@ backdrop-filter: blur( 0px );
 	height: 500px;
 	object-fit: cover;
 }
+
+.icono-ubicacionContacto{
+	font-size: x-large;
+	color: #B79B63;
+	margin: 20px;
+  }
 
 
 /* Estilos para dispositivos medianos */
@@ -370,6 +375,21 @@ backdrop-filter: blur( 0px );
 	transform: translatex(0%);
   }
   
+}
+/* queries contacto */
+@media (max-width: 770px) {
+	.texto-tituloContacto{
+		top: 40%;
+	}
+	.texto-tituloContacto h2{
+
+		font-size: 3rem;
+
+	}
+	.texto-tituloContacto p{
+
+		font-size: 2rem;
+	}
 }
 
 @media all and (min-width: 768px) and (max-width: 991px){

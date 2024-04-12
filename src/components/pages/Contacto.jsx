@@ -1,5 +1,6 @@
 import { Button, Row, Col, Container, Image, Form } from "react-bootstrap";
 import pileta from "../../assets/pileta.jpeg";
+import { BsFillGeoAltFill } from "react-icons/bs";
 
 const Contacto = () => {
   return (
@@ -31,6 +32,7 @@ const Contacto = () => {
             ></iframe>
           </Col>
           <Col  xs={12} sm={6} className="py-3">
+            <h4><BsFillGeoAltFill className="icono-ubicacionContacto" />Av. Gral. Paz 576, San Miguel de Tucuman</h4>
             <Form className="text-center">
               <Form.Group class="input-group mb-3">
                 <Form.Label class="input-group-text" id="regNombre">
