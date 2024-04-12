@@ -1,22 +1,6 @@
-import {  Form, Button, Card } from "react-bootstrap";
-import { useForm } from "react-hook-form";
-import {login} from '../../helpers/queries.js'
-import {useNavigate , Link} from 'react-router-dom'
-import Swal from 'sweetalert2'
-
-
-const Login = ({setUsuarioLogueado}) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm()
- const navegacionInicio = useNavigate()
-
-const onSubmit = (usuario)=>{
-  if(login(usuario) === true ){
+/*  if(usuarioEncontrado(usuario)){
     setUsuarioLogueado(usuario.email);
-    navegacionInicio("/administrador")
+    navegacionInicio("/")
     Swal.fire({
       title: "Administrador Logueado",
       icon: "success",
@@ -32,8 +16,40 @@ const onSubmit = (usuario)=>{
       text: "Enter!",
       icon: "error"
     });
-  }
-}
+  } */
+
+import {  Form, Button, Card } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import {login, iniciarSesion} from '../../helpers/queries.js'
+import {useNavigate , Link} from 'react-router-dom'
+import Swal from 'sweetalert2'
+
+
+const Login = ({setUsuarioLogueado}) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+  const navegacion = useNavigate()
+
+
+  const onSubmit = async (usuario) => {
+    try {
+      const respuesta = await iniciarSesion(usuario);
+      if(respuesta.status === 200){
+        const usuario = await respuesta.json()
+        console.log(usuario)
+        return usuario
+     }
+     
+    } catch (error) {
+      console.log(error)
+      alert('todo mal maquina')
+    }
+  };
+
+
 
   return (
     <>
@@ -110,14 +126,14 @@ const onSubmit = (usuario)=>{
               {/* formText */}
               <div className="d-flex flex-column">
                 <Form.Text className=" text-light  ">
-                  Don't Have an Account
+                  No tengo Cuenta
                   <Link to="/crearUsuario" className="fuente-crear-cuenta  ms-2">
-                    Create Account
+                    Crear una cuenta
                   </Link>
                 </Form.Text>
 
                 <Button
-                  /* onClick={handleSubmit} */ className="boton-login my-2 ms-2"
+                  onClick={handleSubmit}  className="boton-login my-2 ms-2"
                   variant="dark"
                   type="submit"
                 >
