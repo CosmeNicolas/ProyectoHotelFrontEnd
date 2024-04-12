@@ -18,45 +18,53 @@
     });
   } */
 
-import {  Form, Button, Card } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import {login, iniciarSesion} from '../../helpers/queries.js'
-import {useNavigate , Link} from 'react-router-dom'
-import Swal from 'sweetalert2'
+import { iniciarSesion } from "../../helpers/queries.js";
+import { useNavigate, Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-
-const Login = ({setUsuarioLogueado}) => {
+const Login = ({ setUsuarioLogueado }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
-  const navegacion = useNavigate()
-
+  } = useForm();
+  const navegacion = useNavigate();
 
   const onSubmit = async (usuario) => {
     try {
       const respuesta = await iniciarSesion(usuario);
-      if(respuesta.status === 200){
-        const usuario = await respuesta.json()
-        console.log(usuario)
-        return usuario
-     }
-     
+      if (respuesta.status === 200) {
+        const dato = await respuesta.json();
+
+        if (dato.rol === "Usuario") {
+          console.log(dato.rol)
+          sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol}))
+          setUsuarioLogueado(dato);
+          navegacion("/");
+          alert("usuario logueado");
+        } else if (dato.rol === "Administrador") {
+          console.log(dato.rol)
+          setUsuarioLogueado(dato.email);
+          alert('admin logueado')
+          navegacion("/administrador");
+        } else {
+          alert("ocurrrio un error al loguearse ");
+        }
+      }
     } catch (error) {
-      console.log(error)
-      alert('todo mal maquina')
+      console.log(error);
+      alert("todo mal maquina");
     }
   };
-
-
 
   return (
     <>
       <section className="fondo-login ">
         <div className="d-flex justify-content-center ">
           <Card className="container-login p-4  d-flex flex-column align-content-center justify-content-center">
-        <h1 className="fuente-login text-center  text-light ">Login</h1>
+            <h1 className="fuente-login text-center  text-light ">Login</h1>
             <Form className="p-3" onSubmit={handleSubmit(onSubmit)}>
               {/* email */}
               <Form.Group
@@ -102,24 +110,25 @@ const Login = ({setUsuarioLogueado}) => {
                   className="py-2"
                   type="password"
                   placeholder="Password"
-                  {...register("password",{
-                    required:"El password es obligatorio",
-                    minLength:{
-                      value:8,
-                      message:'El valor minimo es de 8 caracteres',
+                  {...register("password", {
+                    required: "El password es obligatorio",
+                    minLength: {
+                      value: 8,
+                      message: "El valor minimo es de 8 caracteres",
                     },
                     maxLength: {
                       value: 12,
-                      message:'El valor maximo es de 12 caracteres',
+                      message: "El valor maximo es de 12 caracteres",
                     },
                     pattern: {
                       value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
-                      message:'El password debe contener al menos una letra mayúscula, una letra minúscula y un número',
+                      message:
+                        "El password debe contener al menos una letra mayúscula, una letra minúscula y un número",
                     },
                   })}
                 />
                 <Form.Text className="text-danger">
-                {errors.password?.message}
+                  {errors.password?.message}
                 </Form.Text>
               </Form.Group>
 
@@ -127,13 +136,16 @@ const Login = ({setUsuarioLogueado}) => {
               <div className="d-flex flex-column">
                 <Form.Text className=" text-light  ">
                   No tengo Cuenta
-                  <Link to="/crearUsuario" className="fuente-crear-cuenta  ms-2">
+                  <Link
+                    to="/crearUsuario"
+                    className="fuente-crear-cuenta  ms-2"
+                  >
                     Crear una cuenta
                   </Link>
                 </Form.Text>
 
                 <Button
-                  onClick={handleSubmit}  className="boton-login my-2 ms-2"
+                  className="boton-login my-2 ms-2"
                   variant="dark"
                   type="submit"
                 >
