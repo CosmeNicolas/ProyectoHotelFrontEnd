@@ -1,46 +1,70 @@
-import {  Form, Button, Card } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import {login} from '../../helpers/queries.js'
-import {useNavigate , Link} from 'react-router-dom'
-import Swal from 'sweetalert2'
+import { iniciarSesion } from "../../helpers/queries.js";
+import { useNavigate, Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-
-const Login = ({setUsuarioLogueado}) => {
+const Login = ({ setUsuarioLogueado }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
- const navegacionInicio = useNavigate()
+  } = useForm();
+  const navegacion = useNavigate();
 
-const onSubmit = (usuario)=>{
-  if(login(usuario) === true ){
-    setUsuarioLogueado(usuario.email);
-    navegacionInicio("/administrador")
-    Swal.fire({
-      title: "Administrador Logueado",
-      icon: "success",
-      confirmButtonColor: '#B79B63',
-      customClass: {
-        popup: 'contenedor-sweet'
+  const onSubmit = async (usuario) => {
+    try {
+      const respuesta = await iniciarSesion(usuario);
+      if (respuesta.status === 200) {
+        const dato = await respuesta.json();
+
+        if (dato.rol === "Usuario") {
+          console.log(dato.rol)
+          sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol}))
+          setUsuarioLogueado(dato);
+          navegacion("/");
+          Swal.fire({
+            title: `Bienvenido ${dato.usuario}`,
+            icon: "success",
+            confirmButtonColor: '#B79B63',
+            customClass: {
+              popup: 'contenedor-sweet'
+            }
+          });
+          
+        } else if (dato.rol === "Administrador") {
+          console.log(dato.rol)
+          sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol}))
+          setUsuarioLogueado(dato.email);
+          navegacion("/administrador");
+          Swal.fire({
+            title: `Bienvenido ${dato.usuario}`,
+            icon: "success",
+            confirmButtonColor: '#B79B63',
+            customClass: {
+              popup: 'contenedor-sweet'
+            }
+          });
+        } else {
+          alert("ocurrrio un error al loguearse ");
+        }
       }
-    });
-    
-  }else{
-    Swal.fire({
-      title: "Error al loguearse!",
-      text: "Enter!",
-      icon: "error"
-    });
-  }
-}
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        title: "Error al loguearse!",
+        text: "Intente Nuevamente",
+        icon: "error"
+      });
+    }
+  };
 
   return (
     <>
       <section className="fondo-login ">
         <div className="d-flex justify-content-center ">
           <Card className="container-login p-4  d-flex flex-column align-content-center justify-content-center">
-        <h1 className="fuente-login text-center  text-light ">Login</h1>
+            <h1 className="fuente-login text-center  text-light ">Login</h1>
             <Form className="p-3" onSubmit={handleSubmit(onSubmit)}>
               {/* email */}
               <Form.Group
@@ -86,38 +110,42 @@ const onSubmit = (usuario)=>{
                   className="py-2"
                   type="password"
                   placeholder="Password"
-                  {...register("password",{
-                    required:"El password es obligatorio",
-                    minLength:{
-                      value:8,
-                      message:'El valor minimo es de 8 caracteres',
+                  {...register("password", {
+                    required: "El password es obligatorio",
+                    minLength: {
+                      value: 8,
+                      message: "El valor minimo es de 8 caracteres",
                     },
                     maxLength: {
                       value: 12,
-                      message:'El valor maximo es de 12 caracteres',
+                      message: "El valor maximo es de 12 caracteres",
                     },
                     pattern: {
                       value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
-                      message:'El password debe contener al menos una letra mayúscula, una letra minúscula y un número',
+                      message:
+                        "El password debe contener al menos una letra mayúscula, una letra minúscula y un número",
                     },
                   })}
                 />
                 <Form.Text className="text-danger">
-                {errors.password?.message}
+                  {errors.password?.message}
                 </Form.Text>
               </Form.Group>
 
               {/* formText */}
               <div className="d-flex flex-column">
                 <Form.Text className=" text-light  ">
-                  Don't Have an Account
-                  <Link to="/crearUsuario" className="fuente-crear-cuenta  ms-2">
-                    Create Account
+                  No tengo Cuenta
+                  <Link
+                    to="/crearUsuario"
+                    className="fuente-crear-cuenta  ms-2"
+                  >
+                    Crear una cuenta
                   </Link>
                 </Form.Text>
 
                 <Button
-                  /* onClick={handleSubmit} */ className="boton-login my-2 ms-2"
+                  className="boton-login my-2 ms-2"
                   variant="dark"
                   type="submit"
                 >
