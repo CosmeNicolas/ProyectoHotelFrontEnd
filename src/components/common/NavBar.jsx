@@ -7,8 +7,12 @@ import { Link, NavLink, useNavigate} from "react-router-dom";
 import Swal from 'sweetalert2'
 
 const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
-  console.log(usuarioLogueado)
-  console.log(setUsuarioLogueado)
+  let estiloActivo = {
+    textDecoration: 'underline',
+    fontWeigth: 'bold'
+  }
+
+ 
   const direccionar = useNavigate()
   const logOut = ()=>{
     Swal.fire({
@@ -44,32 +48,35 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <NavLink className="nav-link fuente-nav" to="/" href="#home">
+          <NavLink  className="nav-link fuente-nav" to="/"  style={({isActive})=>(isActive ? estiloActivo : undefined )}>
+              Inicio
+            </NavLink>
+            <NavLink  className="nav-link fuente-nav" to="/habitaciones"  style={({isActive})=>(isActive ? estiloActivo : undefined )}>
               Habitaciones
             </NavLink>
-            <NavLink className="nav-link fuente-nav" href="#link">
+            <NavLink className="nav-link fuente-nav" to="/galeria" style={({isActive})=>(isActive ? estiloActivo : undefined)}>
               Galeria
             </NavLink>
-            <NavLink className="nav-link fuente-nav" to="/quienessomos">
+            <NavLink className="nav-link fuente-nav" to="/quienessomos" style={({isActive})=>(isActive ? estiloActivo : undefined )}>
               Quienes Somos
             </NavLink>
-            <NavLink className="nav-link fuente-nav" href="#link">
+            <NavLink className="nav-link fuente-nav" to="/contacto" style={({isActive})=>(isActive ? estiloActivo : undefined )}>
               Contacto
             </NavLink>
             {/* admin y usuario */}
             {
                usuarioLogueado && usuarioLogueado.rol === "Administrador" ? (
             <>
-            <NavLink className="nav-link fuente-nav" to="/administrador">
+            <NavLink className="nav-link fuente-nav" to="/administrador" style={({isActive})=>(isActive ? estiloActivo : undefined )}>
             {usuarioLogueado.rol}
             </NavLink>
-            <Link onClick={logOut} variant="link" className="nav-link fuente-nav" to="/login">
+            <Link onClick={logOut} variant="link" className="nav-link fuente-nav" to="/login" >
             LogOut
             </Link>
           </>
               ): usuarioLogueado ? (
                 <>
-                <NavLink className="nav-link fuente-nav" to="/">
+                <NavLink className="nav-link fuente-nav" to="/" >
                   {usuarioLogueado.usuario}
                 </NavLink>
                 <Link
@@ -82,7 +89,7 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
                 </Link>
               </>
             ) : (
-              <NavLink className="nav-link fuente-nav" to="/login">
+              <NavLink className="nav-link fuente-nav" to="/login" style={({isActive})=>(isActive ? estiloActivo : undefined )}>
                 Login
               </NavLink>
             )
