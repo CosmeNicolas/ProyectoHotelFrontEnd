@@ -2,7 +2,7 @@
 import { Navigate} from 'react-router-dom'
 
 const RutasProtegidas = ({children}) => {
-    const admin = JSON.parse(sessionStorage.getItem("inicioHotel")) || null
+    const admin = JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
     //si es el administrador
     if(!admin || admin.rol!== 'Administrador'){
         return <Navigate to='/login' />

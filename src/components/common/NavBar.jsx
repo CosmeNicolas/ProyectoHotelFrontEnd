@@ -7,10 +7,12 @@ import { Link, NavLink, useNavigate} from "react-router-dom";
 import Swal from 'sweetalert2'
 
 const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
+  console.log(usuarioLogueado)
+  console.log(setUsuarioLogueado)
   const direccionar = useNavigate()
   const logOut = ()=>{
     Swal.fire({
-      title: "Administrador Deslogueado",
+      title: `Hasta Pronto mi Rey ${usuarioLogueado.usuario} 👑`,
       icon: "success",
       confirmButtonColor: '#B79B63',
       customClass: {
@@ -18,7 +20,7 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
       }
     });
    sessionStorage.removeItem("inicioHotel");
-   setUsuarioLogueado({});
+   setUsuarioLogueado(null);
    direccionar('/')
   }
 
@@ -54,21 +56,36 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
             <NavLink className="nav-link fuente-nav" href="#link">
               Contacto
             </NavLink>
+            {/* admin y usuario */}
             {
-              usuarioLogueado.length > 0 ? (
-                <>
+               usuarioLogueado && usuarioLogueado.rol === "Administrador" ? (
+            <>
             <NavLink className="nav-link fuente-nav" to="/administrador">
-              Administrador
+            {usuarioLogueado.rol}
             </NavLink>
             <Link onClick={logOut} variant="link" className="nav-link fuente-nav" to="/login">
             LogOut
             </Link>
           </>
-              ):(
-            <NavLink className="nav-link fuente-nav" to="/login">
-              Login
-            </NavLink>
-              )
+              ): usuarioLogueado ? (
+                <>
+                <NavLink className="nav-link fuente-nav" to="/">
+                  {usuarioLogueado.usuario}
+                </NavLink>
+                <Link
+                  onClick={logOut}
+                  variant="link"
+                  className="nav-link fuente-nav"
+                  to="/login"
+                >
+                  LogOut
+                </Link>
+              </>
+            ) : (
+              <NavLink className="nav-link fuente-nav" to="/login">
+                Login
+              </NavLink>
+            )
             }
             <Nav.Link >
               <span className="nav-link text-decoration-none reserva-nav p-2">Reserva</span>

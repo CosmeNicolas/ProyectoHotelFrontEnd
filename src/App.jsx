@@ -17,7 +17,7 @@ import Servicios from "./components/pages/Servicios";
 import "./Usuario.css";
 
 function App() {
-  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
+  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || '';
   const [usuarioLogueado, setUsuarioLogueado] = useState(usuario)
 
 
