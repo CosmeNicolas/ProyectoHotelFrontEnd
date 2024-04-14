@@ -1,4 +1,5 @@
 const URI_USUARIOS = import.meta.env.VITE_API_USUARIOS;
+const URI_HABITACIONES= import.meta.env.VITE_API_HABITACIONES
 
 /* //! Login 
 const admin = {
@@ -45,3 +46,14 @@ export const iniciarSesion = async(usuario) => {
     return null;
   }
 }
+
+/* //?Habitaciones */
+export const leerHabitacionesAPI = async()=>{
+  try {
+    const respuesta = await fetch(URI_HABITACIONES)
+    const listarHabitaciones = await respuesta.json()
+    return listarHabitaciones
+  } catch (error) {
+    console.log(error)
+  }
+};

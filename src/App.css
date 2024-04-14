@@ -107,7 +107,7 @@ backdrop-filter: blur( 0px );
 
 .img-banner{
 	object-fit: cover;
-	height: 450px;
+	height: 600px;
 }
 
 .fuente-slogan-principal{
@@ -124,7 +124,7 @@ backdrop-filter: blur( 0px );
 	color: #747373;
 }
 .imagen-relax-inicio{
-	object-fit: fill;
+	object-fit: cover;
 	width: 50%;
 }
 .fuente-titulo-relax{
@@ -189,7 +189,7 @@ backdrop-filter: blur( 0px );
 	background-color:#60195D;
 }
 .contenedor-Card{
-	width: 258px;
+	width: 100%;
 }
 .body-card{
 	background-color: #E6E6E6;

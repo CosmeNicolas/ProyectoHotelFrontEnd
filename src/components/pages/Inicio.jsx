@@ -1,8 +1,36 @@
-import banner from "../../assets/Banner-rollingResort1.gif";
+import { useEffect, useState } from "react";
+import banner from "../../assets/Wonderful3.gif";
 import SectionIConosInicio from "../common/SectionIConosInicio";
 import SectionImagenInicio from "../common/SectionImagenInicio";
 import Cardhabitaciones from './habitaciones/CardHabitaciones'
+import { leerHabitacionesAPI } from "../../helpers/queries";
 const Inicio = () => {
+
+  const [habitaciones, setHabitaciones] = useState([])
+
+  useEffect(() => {
+    leerHabitacionesInicio()
+  }, [])
+  
+
+  const leerHabitacionesInicio = async()=>{
+    try {
+      const respuesta = await leerHabitacionesAPI();
+      if(respuesta.status === 200){
+        const habitacionesAPIinicio = await respuesta
+        setHabitaciones(habitacionesAPIinicio)
+      }
+      const habitacionesAPIinicio = await respuesta;
+      setHabitaciones(habitacionesAPIinicio)
+    } catch (error) {
+      console.log(error)
+      alert('tenes un error facha')
+    }
+  }
+
+
+
+
   return (
     <>
       <section className="main">
@@ -19,7 +47,7 @@ const Inicio = () => {
          <SectionImagenInicio/>
          <hr className="mx-4" />
         </article>
-        <Cardhabitaciones/>
+        <Cardhabitaciones  habitaciones={habitaciones}/>
       </section>
     </>
   );

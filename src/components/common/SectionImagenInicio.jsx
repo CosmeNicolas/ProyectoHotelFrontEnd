@@ -1,4 +1,4 @@
-import relaxRoom from "../../assets/relaxRoom.jpg";
+import relaxRoom from "../../assets/habitacion3.jpeg";
 
 const SectionImagenInicio = () => {
   return (
