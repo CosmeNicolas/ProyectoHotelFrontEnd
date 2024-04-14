@@ -1,25 +1,33 @@
-import { Container, Card, Button, Row, Col  } from "react-bootstrap"
-import Room from "../../../assets/relaxRoom.jpg";
+import { Container, Card, Button, Row, Col, ListGroup  } from "react-bootstrap"
 
-const Cardhabitaciones = () => {
+
+const Cardhabitaciones = ({habitaciones}) => {
   return (
     <>
     <Container >
-    <Row className="mt-5">
-    <Col xs={6} md={3}>
-    <Card className="contenedor-Card" >
-      <Card.Img  variant="top" src={Room} />
+      <h1 className="fuente-slogan-principal text-center">Nuestras Habitaciones</h1>
+    <Row className="mt-2 justify-content-between">
+      {habitaciones.map((habitacion)=>(
+
+    <Col key={habitacion._id} xs={12} md={6} lg={4}>
+    <Card className=" my-1" >
+      <Card.Img className='contenedor-Card' variant="top" src={habitacion.imagen} />
       <Card.Body className="body-card">
-        <Card.Title>Habitacion Premium</Card.Title>
-        <Card.Text>
-        Una habitación tranquila con una cama grande y comodidades modernas.
-        </Card.Text>
+        <Card.Title>Habitacion {habitacion.tipo}</Card.Title>
+        <ListGroup variant="flush">
+        
+        <ListGroup.Item>Disponible: {habitacion && habitacion.disponible ? '✅' : '❌'}</ListGroup.Item>
+        {/* <ListGroup.Item>Fecha Ingreso: {habitacion.fechaIngreso}</ListGroup.Item>
+        <ListGroup.Item>Fecha Salida: {habitacion.fechaSalida}</ListGroup.Item> */}
+      </ListGroup>
         <div className="text-center">
-        <Button className="btn-inicio-card" variant="dark">Go somewhere</Button>
+        {habitacion && habitacion.disponible ? ( <Button className="btn-inicio-card mt-3" variant="dark">Reservar</Button>) : <Button className="opacity-25 mt-3" variant="dark">No disponible</Button>}
+        
         </div>
       </Card.Body>
     </Card>
     </Col>
+      ))}
     </Row>
     </Container>
     </>
