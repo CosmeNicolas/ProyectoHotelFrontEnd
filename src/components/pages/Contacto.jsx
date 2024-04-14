@@ -1,4 +1,4 @@
-import { Button, Row, Col, Container, Image, Form } from "react-bootstrap";
+import { Button, Row, Col, Container, Image, Form, InputGroup, FloatingLabel } from "react-bootstrap";
 import pileta from "../../assets/pileta.jpeg";
 import { BsFillGeoAltFill } from "react-icons/bs";
 
@@ -18,7 +18,7 @@ const Contacto = () => {
             <p>Lo estaremos esperando</p>
           </div>
         </div>
-      <Container fluid className="texto-FormContacto py-5">
+      <Container  className="py-5">
         <Row>
           <Col xs={12} sm={6}>
             <iframe
@@ -31,66 +31,42 @@ const Contacto = () => {
               height="100%"
             ></iframe>
           </Col>
-          <Col  xs={12} sm={6} className="py-3">
+          <Col  xs={12} sm={6} className="texto-FormContacto py-3">
             <h4><BsFillGeoAltFill className="icono-ubicacionContacto" />Av. Gral. Paz 576, San Miguel de Tucuman</h4>
             <Form className="text-center">
-              <Form.Group class="input-group mb-3">
-                <Form.Label class="input-group-text" id="regNombre">
-                  Nombre
-                </Form.Label>
+              <Form.Group>
+                <InputGroup className="py-3">
+                <InputGroup.Text id="nombreContacto">Nombre</InputGroup.Text>
                 <Form.Control
-                  type="text"
-                  aria-label="regNombre"
-                  class="form-control"
-                  placeholder="Ejemplo: Juan"
-                  maxlength="15"
-                  required
+                placeholder="Juan"
+                aria-label="nombre"
                 />
-              </Form.Group>
-              <Form.Group class="input-group mb-3">
-                <Form.Label class="input-group-text" id="regApellido">
-                  Apellido
-                </Form.Label>
-
+                </InputGroup>
+                <InputGroup>
+                <InputGroup.Text id="apellidoContacto">Apellido</InputGroup.Text>
                 <Form.Control
-                  type="text"
-                  aria-label="regApellido"
-                  class="form-control"
-                  placeholder="Ejemplo: Perez"
-                  maxlength="20"
-                  required
+                placeholder="Garcia"
+                aria-label="apellido"
                 />
-              </Form.Group>
-
-              <Form.Group class="input-group mb-3">
-                <Form.Label class="input-group-text" id="contEmail">
-                  Email
-                </Form.Label>
+                </InputGroup>
+                <InputGroup className="py-3">
+                <InputGroup.Text id="emailContacto">E-mail</InputGroup.Text>
                 <Form.Control
-                  type="email"
-                  class="form-control"
-                  placeholder="ejemplo@ejemplo.com"
-                  aria-label="contEmail"
-                  aria-describedby="ingrese su email"
-                  required
+                placeholder="email@email.com"
+                aria-label="email"
+                type="email"
                 />
+                </InputGroup>
+                <FloatingLabel controlId="consultaContacto" label="Consulta">
+        <Form.Control
+          as="textarea"
+          placeholder="Deje su consulta"
+          style={{ height: '100px' }}
+        />
+      </FloatingLabel>
+          
               </Form.Group>
-
-              <Form.Group class="mb-3">
-                <Form.Label for="contConsulta" class="form-Form.Label">
-                  Consulta
-                </Form.Label>
-                <Form.Control
-                  as="textarea"
-                  id="contConsulta"
-                  aria-describedby="ingrese su consulta"
-                  maxlength="150"
-                  required
-                >
-                  Ingrese su consulta, responderemos a la brevedad
-                </Form.Control>
-              </Form.Group>
-              <Button type="submit" class="btn-Contacto">
+              <Button type="submit" className="btn-Contacto my-3">
                 Enviar
               </Button>
             </Form>

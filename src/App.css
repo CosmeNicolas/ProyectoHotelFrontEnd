@@ -291,7 +291,8 @@ backdrop-filter: blur( 0px );
 }
 .texto-FormContacto{
 	font-family: "Montserrat", sans-serif;
-	font-weight: 300;
+	font-size: medium;
+	font-weight: 400;
 }
 .btn-Contacto{
 	font-family: "Montserrat", sans-serif;
