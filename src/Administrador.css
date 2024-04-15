@@ -89,3 +89,8 @@ font-family: "Dancing Script", cursive;
   background-color: #B79B63;
 }
 
+/* estilo admin tabla */
+.imagen-habitacion-admin{
+  width: 100px;
+  height: 100px;
+}

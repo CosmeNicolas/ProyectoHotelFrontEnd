@@ -17,8 +17,9 @@ const Cardhabitaciones = ({habitaciones}) => {
         <ListGroup variant="flush">
         
         <ListGroup.Item>Disponible: {habitacion && habitacion.disponible ? '✅' : '❌'}</ListGroup.Item>
-        {/* <ListGroup.Item>Fecha Ingreso: {habitacion.fechaIngreso}</ListGroup.Item>
-        <ListGroup.Item>Fecha Salida: {habitacion.fechaSalida}</ListGroup.Item> */}
+        {/* Logica de mostrar solo el dia 
+         <ListGroup.Item>Fecha Ingreso: {new Date(habitacion.fechaIngreso).toISOString().split('T')[0]}</ListGroup.Item>
+        <ListGroup.Item>Fecha Salida: {new Date(habitacion.fechaSalida).toISOString().split('T')[0]}</ListGroup.Item>  */}
       </ListGroup>
         <div className="text-center">
         {habitacion && habitacion.disponible ? ( <Button className="btn-inicio-card mt-3" variant="dark">Reservar</Button>) : <Button className="opacity-25 mt-3" variant="dark">No disponible</Button>}
