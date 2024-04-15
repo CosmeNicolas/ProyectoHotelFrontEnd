@@ -27,6 +27,11 @@ const Contacto = () => {
 
   return (
     
+
+
+const Contacto = () => {
+  return (
+  
       <section>
         <div Container>
           <Image
@@ -53,9 +58,11 @@ const Contacto = () => {
               height="100%"
             ></iframe>
           </Col>
+
           <Col  xs={12} sm={12} lg={6} className="texto-FormContacto py-3">
             <h4><BsFillGeoAltFill className="icono-ubicacionContacto"/>Av. Gral. Paz 576, San Miguel de Tucuman, CP 4000</h4>
             <Form ref={form} onSubmit={sendEmail} className="text-center">
+
               <Form.Group>
                 <InputGroup className="py-3">
                 <InputGroup.Text id="nombreContacto">Nombre</InputGroup.Text>
@@ -63,6 +70,7 @@ const Contacto = () => {
                 placeholder="Juan"
                 aria-label="nombre"
                 name="user_name"
+
                 />
                 </InputGroup>
                 <InputGroup>
@@ -78,27 +86,31 @@ const Contacto = () => {
                 placeholder="email@email.com"
                 aria-label="email"
                 type="email"
+
                 name="user_email"
                 />
+
                 </InputGroup>
                 <FloatingLabel controlId="consultaContacto" label="Consulta">
         <Form.Control
           as="textarea"
           placeholder="Deje su consulta"
           style={{ height: '100px' }}
-          name="message"
         />
       </FloatingLabel>
           
               </Form.Group>
-              <Button type="submit"  className="btn-Contacto my-3">
+
+              <Button type="submit" className="btn-Contacto my-3">
                 Enviar
               </Button>
             </Form>
           </Col>
         </Row>
       </Container>
-      </section>
+     </section>
+
+
   );
 };
 

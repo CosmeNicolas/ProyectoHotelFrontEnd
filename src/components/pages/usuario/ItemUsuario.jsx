@@ -3,17 +3,19 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
 
-const ItemUsuario = () => {
+const ItemUsuario = ({usuariosAdmin, setUsuarioAdmin}) => {
+  
   return (
     <>
-     <tr>
+    {usuariosAdmin.map((usuariosAdmin)=> (
+     <tr key={usuariosAdmin._id}> 
          <td>#</td>
-              <td>Cosme Fulano</td>
-              <td>admin@fulano.com</td>
-              <td>cosmefulanito24</td>
-              <td>123aA123*</td>
-              <td>Administrador</td>
-              <td>Habilitado</td>
+              <td>{usuariosAdmin.nombreCompleto}</td>
+              <td>{usuariosAdmin.email}</td>
+              <td>{usuariosAdmin.usuario}</td>
+          
+              <td>{usuariosAdmin.rol}</td>
+              <td>{usuariosAdmin.suspendido? 'Desabilitado❌' : 'Habilitado✅'}</td>
                 <td>
                 <Button variant="warning" className="p-3 mx-1" >
                 <FaEdit  />
@@ -23,6 +25,8 @@ const ItemUsuario = () => {
                 </Button>
                 </td>
     </tr>
+))
+    }
     </>
   )
 }
