@@ -69,9 +69,6 @@ useEffect(() => {
       <Container  fluid className="contenedorAdministrador p-1">
         <div  className="section-administrador d-flex justify-content-around pt-5 w-100 ">
           <h1 className=" titulo-administrador text-light">Administrador Rolling Resort</h1>
-          <Button className="color-boton-admnistrador my-1" variant="dark">
-            <BsFillCalendar2PlusFill />
-          </Button>
         </div>
        
         <br />
@@ -82,6 +79,9 @@ useEffect(() => {
           <Tab eventKey='habitaciones' title='Habitaciones'>
             <div className="d-flex align-items-center justify-content-between my-2">
               <h2 className="fs-1 fw-bold text-center titulos">Habitaciones</h2>
+              <Button className="color-boton-admnistrador my-1" variant="dark">
+            <BsFillCalendar2PlusFill />
+          </Button>
             </div>
             <hr />
         <Table responsive  striped bordered hover>
