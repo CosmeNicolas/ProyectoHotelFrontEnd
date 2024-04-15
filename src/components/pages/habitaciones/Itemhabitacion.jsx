@@ -4,7 +4,7 @@ import { MdDelete } from "react-icons/md";
 
 
 const ItemHabitacion = ({habitacionesAdmin, setHabitacionesAdmin}) => {
-  console.log(habitacionesAdmin)
+  
   return (
     <>
     { habitacionesAdmin.map((habitacionAdmin)=>(
