@@ -120,8 +120,7 @@ useEffect(() => {
               <th>Cod</th>
               <th>Nombre Completo</th>
               <th>email</th>
-              <th>usuario</th>
-              <th>password</th>
+              <th>usuario</th>             
               <th>rol</th>
               <th>Estado</th>
               <th>Opciones</th>
