@@ -16,9 +16,10 @@ import "./Administrador.css";
 import Servicios from "./components/pages/Servicios";
 import Contacto from "./components/pages/Contacto";
 import "./Usuario.css";
+import Galeria from "./components/pages/Galeria";
 
 function App() {
-  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || ''
+  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || '';
   const [usuarioLogueado, setUsuarioLogueado] = useState(usuario)
 
 
@@ -40,6 +41,8 @@ function App() {
         <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
         <Route exact path="/servicios" element={<Servicios />} />
         <Route exact path="/contacto" element={<Contacto />} />
+        <Route exact path="/galeria" element={<Galeria />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>
