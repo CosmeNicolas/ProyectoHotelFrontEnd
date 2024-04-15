@@ -1,15 +1,74 @@
-
 import { Container, Button, Table, Tab, Tabs } from "react-bootstrap";
 import { BsFillCalendar2PlusFill } from "react-icons/bs";
 import ItemHabitacion from "./habitaciones/Itemhabitacion";
 import ItemUsuario from './usuario/ItemUsuario';
+import { leerHabitacionesAPI } from "../../helpers/queries";
+import { leerUsuariosAPI } from "../../helpers/queries";
+import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+
 
 const Administrador = () => {
+  const [habitacionesAdmin, setHabitacionesAdmin] = useState([])
+  const [usuariosAdmin, setUsuarioAdmin] = useState([])
+useEffect(() => {
+  mostrarHabitacionesAdmin()
+}, [])
+
+useEffect(() => {
+  mostrarUsuariosAdmin()
+}, [])
+
+
+  const mostrarHabitacionesAdmin = async()=>{
+    try {
+      const respuesta = await leerHabitacionesAPI()
+   
+      if(respuesta === 200){
+        const mostrarHabitaciones = await respuesta
+        setHabitacionesAdmin(mostrarHabitaciones)
+      }
+      const mostrarHabitaciones = await respuesta
+      setHabitacionesAdmin(mostrarHabitaciones)
+    } catch (error) {
+      console.log(first)
+      Swal.fire({
+        title: "Ocurrió un error en el servidor",
+        text: "Intente realizar esta acción en unos minutos",
+        icon: "error",
+      });
+    }
+  }
+
+
+
+  
+  const mostrarUsuariosAdmin = async()=>{
+    try {
+      const respuesta = await leerUsuariosAPI()
+      
+      if(respuesta === 200){
+        const mostrarUsuarios = await respuesta
+        setUsuarioAdmin(mostrarUsuarios)
+      }
+      const mostrarUsuarios = await respuesta
+      setUsuarioAdmin(mostrarUsuarios)
+    } catch (error) {
+      console.log(first)
+      Swal.fire({
+        title: "Ocurrió un error en el servidor",
+        text: "Intente realizar esta acción en unos minutos",
+        icon: "error",
+      });
+    }
+  }
+
+
   return (
     <>
       <Container  fluid className="contenedorAdministrador p-1">
         <div  className="section-administrador d-flex justify-content-around pt-5 w-100 ">
-          <h1 className=" titulo-administrador text-light">Habitaciones disponibles</h1>
+          <h1 className=" titulo-administrador text-light">Administrador Rolling Resort</h1>
           <Button className="color-boton-admnistrador my-1" variant="dark">
             <BsFillCalendar2PlusFill />
           </Button>
@@ -40,7 +99,11 @@ const Administrador = () => {
             </tr>
           </thead>
           <tbody>
-            <ItemHabitacion/>
+    
+                <ItemHabitacion
+                habitacionesAdmin={habitacionesAdmin}
+                setHabitacionesAdmin={setHabitacionesAdmin}
+                />
           </tbody>
         </Table>
         </Tab>
@@ -56,16 +119,18 @@ const Administrador = () => {
             <tr>
               <th>Cod</th>
               <th>Nombre Completo</th>
-              <th>email</th>
-              <th>usuario</th>
-              <th>password</th>
-              <th>rol</th>
+              <th>Email</th>
+              <th>Usuario</th>             
+              <th>Rol</th>
               <th>Estado</th>
               <th>Opciones</th>
             </tr>
           </thead>
           <tbody>
-            <ItemUsuario/>
+            <ItemUsuario
+            usuariosAdmin={usuariosAdmin}
+            setUsuarioAdmin={setUsuarioAdmin}
+            />
           </tbody>
         </Table>
         </Tab>

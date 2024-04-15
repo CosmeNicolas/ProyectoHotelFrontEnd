@@ -2,10 +2,11 @@ import { Button, Row, Col, Container, Image, Form, InputGroup, FloatingLabel } f
 import pileta from "../../assets/pileta.jpeg";
 import { BsFillGeoAltFill } from "react-icons/bs";
 
-const Contacto = () => {
 
+
+const Contacto = () => {
   return (
-    
+  
       <section>
         <div>
           <Image
@@ -31,6 +32,7 @@ const Contacto = () => {
               height="100%"
             ></iframe>
           </Col>
+
           <Col  xs={12} sm={12} lg={6} className="texto-FormContacto py-3">
             <h4><BsFillGeoAltFill className="icono-ubicacionContacto"/>Av. Gral. Paz 576, San Miguel de Tucuman, CP 4000</h4>
             <Form className="text-center">
@@ -40,7 +42,7 @@ const Contacto = () => {
                 <Form.Control
                 placeholder="Juan"
                 aria-label="nombre"
-              
+
                 />
                 </InputGroup>
                 <InputGroup>
@@ -56,27 +58,30 @@ const Contacto = () => {
                 placeholder="email@email.com"
                 aria-label="email"
                 type="email"
-               
+
                 />
+
                 </InputGroup>
                 <FloatingLabel controlId="consultaContacto" label="Consulta">
         <Form.Control
           as="textarea"
           placeholder="Deje su consulta"
           style={{ height: '100px' }}
-          
-        />
+  />
       </FloatingLabel>
           
               </Form.Group>
-              <Button type="submit"  className="btn-Contacto my-3">
+
+              <Button type="submit" className="btn-Contacto my-3">
                 Enviar
               </Button>
             </Form>
           </Col>
         </Row>
       </Container>
-      </section>
+     </section>
+
+
   );
 };
 

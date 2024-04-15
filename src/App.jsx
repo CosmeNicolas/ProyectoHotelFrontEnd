@@ -6,6 +6,7 @@ import Footer from "./components/common/Footer";
 import Error404 from "./components/pages/Error404";
 import QuienesSomos from "./components/pages/QuienesSomos";
 import Login from "./components/pages/Login";
+import Habitaciones from "./components/pages/Habitaciones";
 import FormularioUsuario from "./components/pages/usuario/FormularioUsuario";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import RutasAdmin from "./components/routes/RutasAdmin";
@@ -16,9 +17,10 @@ import "./Administrador.css";
 import Servicios from "./components/pages/Servicios";
 import Contacto from "./components/pages/Contacto";
 import "./Usuario.css";
+import Galeria from "./components/pages/Galeria";
 
 function App() {
-  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || ''
+  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || '';
   const [usuarioLogueado, setUsuarioLogueado] = useState(usuario)
 
 
@@ -28,6 +30,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Inicio />} />
         <Route path="*" element={<Error404 />} />
+        <Route exact path="/Habitaciones" element={<Habitaciones />} />
         <Route exact path="/QuienesSomos" element={<QuienesSomos />} />
         <Route exact path="/administrador/*"
           element={
@@ -39,7 +42,11 @@ function App() {
         <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado} />} />
         <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
         <Route exact path="/servicios" element={<Servicios />} />
+
         <Route exact path="/contacto" element={<Contacto />} />
+
+        <Route exact path="/galeria" element={<Galeria />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>
