@@ -43,7 +43,7 @@ function App() {
         />
         <Route
           exact
-          path="/habitaciones"
+          path="/crearHabitacion"
           element={<FormularioHabitacion></FormularioHabitacion>}
         >
           {" "}
