@@ -1,5 +1,6 @@
 const URI_USUARIOS = import.meta.env.VITE_API_USUARIOS;
 const URI_HABITACIONES= import.meta.env.VITE_API_HABITACIONES
+const URI_USUARIOS_GET = import.meta.env.VITE_API_USUARIOS_GET;
 
 /* //! Login 
 const admin = {
@@ -61,7 +62,7 @@ export const leerHabitacionesAPI = async()=>{
 /* //?Usuarios */
 export const leerUsuariosAPI = async()=>{
   try {
-    const respuesta = await fetch(URI_USUARIOS)
+    const respuesta = await fetch(URI_USUARIOS_GET)
     const listarUsuarios = await respuesta.json()
     return listarUsuarios
   } catch (error) {

@@ -3,9 +3,11 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
 
-const ItemUsuario = () => {
+const ItemUsuario = ({usuariosAdmin, setUsuarioAdmin}) => {
+  
   return (
     <>
+    {usuariosAdmin.map((usuariosAdmin)=> (
      <tr>
          <td>#</td>
               <td>Cosme Fulano</td>
@@ -23,6 +25,8 @@ const ItemUsuario = () => {
                 </Button>
                 </td>
     </tr>
+))
+    }
     </>
   )
 }
