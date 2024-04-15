@@ -15,7 +15,7 @@ const ItemUsuario = ({usuariosAdmin, setUsuarioAdmin}) => {
               <td>{usuariosAdmin.usuario}</td>
           
               <td>{usuariosAdmin.rol}</td>
-              <td>{usuariosAdmin.suspendido? 'Desabilitado' : 'Habilitado'}</td>
+              <td>{usuariosAdmin.suspendido? 'Desabilitado❌' : 'Habilitado✅'}</td>
                 <td>
                 <Button variant="warning" className="p-3 mx-1" >
                 <FaEdit  />

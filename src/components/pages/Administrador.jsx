@@ -23,7 +23,7 @@ useEffect(() => {
   const mostrarHabitacionesAdmin = async()=>{
     try {
       const respuesta = await leerHabitacionesAPI()
-      console.log(respuesta)
+   
       if(respuesta === 200){
         const mostrarHabitaciones = await respuesta
         setHabitacionesAdmin(mostrarHabitaciones)
@@ -46,7 +46,7 @@ useEffect(() => {
   const mostrarUsuariosAdmin = async()=>{
     try {
       const respuesta = await leerUsuariosAPI()
-      console.log(respuesta)
+      
       if(respuesta === 200){
         const mostrarUsuarios = await respuesta
         setUsuarioAdmin(mostrarUsuarios)
@@ -119,9 +119,9 @@ useEffect(() => {
             <tr>
               <th>Cod</th>
               <th>Nombre Completo</th>
-              <th>email</th>
-              <th>usuario</th>             
-              <th>rol</th>
+              <th>Email</th>
+              <th>Usuario</th>             
+              <th>Rol</th>
               <th>Estado</th>
               <th>Opciones</th>
             </tr>
