@@ -57,3 +57,14 @@ export const leerHabitacionesAPI = async()=>{
     console.log(error)
   }
 };
+
+/* //?Usuarios */
+export const leerUsuariosAPI = async()=>{
+  try {
+    const respuesta = await fetch(URI_USUARIOS)
+    const listarUsuarios = await respuesta.json()
+    return listarUsuarios
+  } catch (error) {
+    console.log(error)
+  }
+};
