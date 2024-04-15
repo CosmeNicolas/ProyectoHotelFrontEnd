@@ -94,3 +94,19 @@ font-family: "Dancing Script", cursive;
   width: 100px;
   height: 100px;
 }
+
+/*! Estilo Crear habitacion  */
+.formularioTextArea {
+  resize: none;
+  overflow-y: auto;
+}
+
+.color-inputs::placeholder {
+  color: #6c757d98;
+}
+
+.color-inputs:focus,
+.color-inputs:active {
+  border-color: #B79B63;
+  box-shadow: 0 0 0 0.25rem rgba(183, 155, 99, 0.25);
+}

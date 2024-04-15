@@ -16,27 +16,43 @@ import "./Administrador.css";
 import Servicios from "./components/pages/Servicios";
 import "./Usuario.css";
 import Galeria from "./components/pages/Galeria";
+import FormularioHabitacion from "./components/pages/habitaciones/FormularioHabitacion";
 
 function App() {
-  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || '';
-  const [usuarioLogueado, setUsuarioLogueado] = useState(usuario)
-
+  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || "";
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
 
   return (
     <BrowserRouter>
-      <NavBar usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado} />
+      <NavBar
+        usuarioLogueado={usuarioLogueado}
+        setUsuarioLogueado={setUsuarioLogueado}
+      />
       <Routes>
         <Route exact path="/" element={<Inicio />} />
         <Route path="*" element={<Error404 />} />
         <Route exact path="/QuienesSomos" element={<QuienesSomos />} />
-        <Route exact path="/administrador/*"
+        <Route
+          exact
+          path="/administrador/*"
           element={
-          <RutasProtegidas>
-            <RutasAdmin/>
-          </RutasProtegidas>}
-
+            <RutasProtegidas>
+              <RutasAdmin />
+            </RutasProtegidas>
+          }
         />
-        <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado} />} />
+        <Route
+          exact
+          path="/habitaciones"
+          element={<FormularioHabitacion></FormularioHabitacion>}
+        >
+          {" "}
+        </Route>
+        <Route
+          exact
+          path="/login"
+          element={<Login setUsuarioLogueado={setUsuarioLogueado} />}
+        />
         <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
         <Route exact path="/servicios" element={<Servicios />} />
         <Route exact path="/galeria" element={<Galeria />} />
