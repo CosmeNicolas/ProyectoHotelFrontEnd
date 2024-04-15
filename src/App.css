@@ -289,7 +289,7 @@ backdrop-filter: blur( 0px );
 	color: #B79B63;
 }
 
-=======
+
 /* Estilos servicios */
 .servicios-titulo-principal{
 	font-family: "Dancing Script", cursive;
@@ -336,6 +336,62 @@ backdrop-filter: blur( 0px );
   .tamaño-letra{
 	font-size: 1.3rem;
   }
+
+  /* estilo de contacto */
+.texto-tituloContacto{
+	position: absolute;
+	color: #fff;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	text-shadow: 1px 1px 2px black;
+}
+
+.texto-tituloContacto h2{
+	font-family: "Montserrat", sans-serif;
+	font-weight: 200;
+	font-size: 4rem;
+	letter-spacing: .2rem;
+	padding-top: 1rem;
+}
+.texto-tituloContacto p{
+	font-family: "Dancing Script", cursive;
+	font-weight: 200;
+	font-size: 3rem;
+}
+.texto-FormContacto{
+	font-family: "Montserrat", sans-serif;
+	font-size: medium;
+	font-weight: 400;
+}
+.btn-Contacto{
+	font-family: "Montserrat", sans-serif;
+	font-weight: 200;
+	letter-spacing: .1rem;
+	background-color: #60195D;
+    color: #fff;
+    border: none;
+    padding: 10px 50px;
+    cursor: pointer;
+    border-radius: 0px;
+    transition: background-color 0.3s;
+}
+
+.img-piletaContacto{
+	/* width: 100%;
+	clip-path: inset(20% 0 20% 0);
+	overflow: hidden; */
+	width: 100%;
+	height: 500px;
+	object-fit: cover;
+}
+
+.icono-ubicacionContacto{
+	font-size: x-large;
+	color: #B79B63;
+	margin: 20px;
+  }
+
 
 /* Estilos para dispositivos medianos */
 @media (min-width: 768px) {
@@ -446,6 +502,21 @@ backdrop-filter: blur( 0px );
 	transform: translatex(0%);
   }
   
+}
+/* queries contacto */
+@media (max-width: 770px) {
+	.texto-tituloContacto{
+		top: 40%;
+	}
+	.texto-tituloContacto h2{
+
+		font-size: 3rem;
+
+	}
+	.texto-tituloContacto p{
+
+		font-size: 2rem;
+	}
 }
 
 @media all and (min-width: 768px) and (max-width: 991px){

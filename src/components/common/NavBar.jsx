@@ -62,7 +62,9 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
             <NavLink className="nav-link fuente-nav" to="/quienessomos" style={({isActive})=>(isActive ? estiloActivo : undefined )}>
               Quienes Somos
             </NavLink>
+
             <NavLink className="nav-link fuente-nav" to="/contacto" style={({isActive})=>(isActive ? estiloActivo : undefined )}>
+
               Contacto
             </NavLink>
             {/* admin y usuario */}

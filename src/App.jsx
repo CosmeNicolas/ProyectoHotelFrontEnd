@@ -15,6 +15,7 @@ import "./App.css";
 import "./QuienesSomos.css";
 import "./Administrador.css";
 import Servicios from "./components/pages/Servicios";
+import Contacto from "./components/pages/Contacto";
 import "./Usuario.css";
 import Galeria from "./components/pages/Galeria";
 import FormularioHabitacion from "./components/pages/habitaciones/FormularioHabitacion";
@@ -57,7 +58,11 @@ function App() {
         />
         <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
         <Route exact path="/servicios" element={<Servicios />} />
+
+        <Route exact path="/contacto" element={<Contacto />} />
+
         <Route exact path="/galeria" element={<Galeria />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>
