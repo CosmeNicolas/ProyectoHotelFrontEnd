@@ -344,3 +344,12 @@ backdrop-filter: blur( 0px );
   }
 
 }
+
+@media all and (max-width: 768px){
+	.texto-tituloHTop{	
+		padding-top: 6rem;
+	}
+	.descripcion-habitacion img{
+		padding-bottom: 3rem;
+	}
+}
