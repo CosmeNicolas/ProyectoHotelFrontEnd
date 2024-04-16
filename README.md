@@ -2,11 +2,11 @@
 ### Proyecto Final Grupo 3
 #### Comisión 76i
 
-Este repositorio contiene el código fuente del sitio web de Rolling Hotel & Resort, un hotel boutique ubicado en Bariloche, Argentina. El sitio web está diseñado para ofrecer a nuestros huéspedes una experiencia completa y fácil de usar al realizar reservas y explorar nuestras instalaciones y servicios.
+Este repositorio contiene el código fuente del sitio web de Rolling Hotel & Resort, un hotel ubicado en Bariloche, Argentina. El sitio web está diseñado para ofrecer a nuestros huéspedes una experiencia completa y fácil de usar al realizar reservas y explorar nuestras instalaciones y servicios.
 
 ### Características principales
 - Gestión de reservas de habitaciones.
-- Información detallada sobre nuestras instalaciones y servicios.
+- Información detallada sobre instalaciones y servicios.
 - Sección informativa sobre actividades locales y opciones gastronómicas.
 - Interfaz intuitiva y amigable para el usuario.
 - Creación, edición y eliminación de usuarios y habitaciones
@@ -50,6 +50,7 @@ Este repositorio contiene el código fuente del sitio web de Rolling Hotel & Res
 2. Instala las dependencias: `npm install`
 3. Inicia el servidor de desarrollo: `npm start`
 
+
 ### Contribuciones
 ¡Las contribuciones son bienvenidas! Si deseas contribuir a este proyecto, sigue estos pasos:
 1. Haz un fork del repositorio
@@ -59,11 +60,12 @@ Este repositorio contiene el código fuente del sitio web de Rolling Hotel & Res
 5. Crea un nuevo Pull Request
  
 
+
 ### Equipo de Desarrollo
 | Nombre                | Imagen                                       | GitHub                                       |
 |-----------------------|----------------------------------------------|----------------------------------------------|
 | Camila Alani          | <img src="./src/assets/nosotros/Camila.jpg" width="100">  | [camilaalani](https://github.com/camilaalani) |
 | Adrian Arnaldo Chanampa |  <img src="./src/assets/nosotros/Adrian.jpg" width="100"> | [adrianarnaldo](https://github.com/AdrianKarma) |
-| Cosme Nicolás Mas     |  <img src="./src/assets/nosotros/Nicolas.jpg" width="100"> | [cosmenicolas](https://github.com/CosmeNicolas) |
+| Cosme Nicolás Mas (Scrum Master)     |  <img src="./src/assets/nosotros/Nicolas.jpg" width="100"> | [cosmenicolas](https://github.com/CosmeNicolas) |
 | Jose Ignacio Medina Jimenez |<img src="./src/assets/nosotros/Jose.jpg" width="100">  | [joseignacio](https://github.com/Nachocode87) |
 | Emir Paradi         | <img src="./src/assets/nosotros/Emir.jpg" width="100"> | [emirparadi](https://github.com/penguinEm) |
