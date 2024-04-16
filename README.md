@@ -1,8 +1,69 @@
-# React + Vite
+# Rolling Hotel & Resort
+### Proyecto Final Grupo 3
+#### Comisión 76i
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio contiene el código fuente del sitio web de Rolling Hotel & Resort, un hotel boutique ubicado en Bariloche, Argentina. El sitio web está diseñado para ofrecer a nuestros huéspedes una experiencia completa y fácil de usar al realizar reservas y explorar nuestras instalaciones y servicios.
 
-Currently, two official plugins are available:
+### Características principales
+- Gestión de reservas de habitaciones.
+- Información detallada sobre nuestras instalaciones y servicios.
+- Sección informativa sobre actividades locales y opciones gastronómicas.
+- Interfaz intuitiva y amigable para el usuario.
+- Creación, edición y eliminación de usuarios y habitaciones
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Tecnologías utilizadas
+#### FrontEnd
+
+![HTML5](https://img.icons8.com/color/50/000000/html-5.png) | ![CSS3](https://img.icons8.com/color/50/000000/css3.png) | ![JavaScript](https://img.icons8.com/color/50/000000/javascript.png) | ![React](https://img.icons8.com/color/50/000000/react-native.png) | ![npm](https://img.icons8.com/color/50/000000/npm.png)
+
+#### BackEnd
+
+![Node.js](https://img.icons8.com/color/50/000000/nodejs.png) | ![Express](https://img.icons8.com/50/000000/express-js.png) | ![MongoDB](https://img.icons8.com/color/50/000000/mongodb.png)
+
+
+
+## Dependencias
+
+
+
+- [@emailjs/browser](https://www.npmjs.com/package/@emailjs/browser): ^4.3.3
+- [bcrypt](https://www.npmjs.com/package/bcrypt): ^5.1.1
+- [bootstrap](https://www.npmjs.com/package/bootstrap): ^5.3.3
+- [cors](https://www.npmjs.com/package/cors): ^2.8.5
+- [dotenv](https://www.npmjs.com/package/dotenv): ^16.4.5
+- [express](https://www.npmjs.com/package/express): ^4.19.2
+- [express-validator](https://www.npmjs.com/package/express-validator): ^7.0.1
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken): ^9.0.2
+- [mongoose](https://www.npmjs.com/package/mongoose): ^8.3.1
+- [morgan](https://www.npmjs.com/package/morgan): ^1.10.0
+- [nodemon](https://www.npmjs.com/package/nodemon): ^3.1.0
+- [react](https://www.npmjs.com/package/react): ^18.2.0
+- [react-bootstrap](https://www.npmjs.com/package/react-bootstrap): ^2.10.2
+- [react-dom](https://www.npmjs.com/package/react-dom): ^18.2.0
+- [react-hook-form](https://www.npmjs.com/package/react-hook-form): ^7.51.2
+- [react-icons](https://www.npmjs.com/package/react-icons): ^5.0.1
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom): ^6.22.3
+- [sweetalert2](https://www.npmjs.com/package/sweetalert2): ^11.10.7
+
+### Instalación
+1. Clona este repositorio: `git clone https://github.com/tu-usuario/rolling-hotel.git`
+2. Instala las dependencias: `npm install`
+3. Inicia el servidor de desarrollo: `npm start`
+
+### Contribuciones
+¡Las contribuciones son bienvenidas! Si deseas contribuir a este proyecto, sigue estos pasos:
+1. Haz un fork del repositorio
+2. Crea una rama para tu contribución: `git checkout -b mi-contribucion`
+3. Realiza tus cambios y haz commit: `git commit -am 'Añade mi contribución'`
+4. Sube tus cambios a tu fork: `git push origin mi-contribucion`
+5. Crea un nuevo Pull Request
+ 
+
+### Equipo de Desarrollo
+| Nombre                | Imagen                                       | GitHub                                       |
+|-----------------------|----------------------------------------------|----------------------------------------------|
+| Camila Alani          | ![Camila Alani](https://via.placeholder.com/150) | [camilaalani](https://github.com/camilaalani) |
+| Adrian Arnaldo Chanampa | ![Adrian Arnaldo Chanampa](https://via.placeholder.com/150) | [adrianarnaldo](https://github.com/AdrianKarma) |
+| Cosme Nicolás Mas     | ![Cosme Nicolás Mas](https://via.placeholder.com/150) | [cosmenicolas](https://github.com/CosmeNicolas) |
+| Jose Ignacio Medina Jimenez | ![Jose Ignacio Medina Jimenez](https://via.placeholder.com/150) | [joseignacio](https://github.com/Nachocode87) |
+| Emir Paradi         | ![Emir Paradi](https://via.placeholder.com/150) | [emirparadi](https://github.com/penguinEm) |
