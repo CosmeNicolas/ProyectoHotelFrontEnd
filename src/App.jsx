@@ -59,9 +59,11 @@ function App() {
         />
         <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
         <Route exact path="/servicios" element={<Servicios />} />
-        <Route exact path="/reserva" element={<Reserva />} />
+        <Route exact path="/reserva" element={<Reserva 
+        setUsuarioLogueado={setUsuarioLogueado}
+        />} />
 
-        <Route exact path="/contacto" element={<Contacto />} />
+        <Route exact path="/contacto"  element={<Contacto />} />
 
         <Route exact path="/galeria" element={<Galeria />} />
 

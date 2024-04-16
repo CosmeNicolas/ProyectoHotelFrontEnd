@@ -1,7 +1,32 @@
+import { useEffect, useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { leerHabitacionesAPI } from "../../../helpers/queries";
 
 const Reserva = () => {
+const [reservas, setReservas] = useState([])
+
+useEffect(() => {
+  leerReservas()
+}, [])
+
+
+ const leerReservas = async()=>{
+  try {
+    const respuesta = await leerHabitacionesAPI()
+    console.log(respuesta)
+    if(respuesta.status === 200 ){
+      const reservaHabitaciones = await respuesta;
+      setReservas(reservaHabitaciones)
+    }
+    const reservaHabitaciones = await respuesta;
+      setReservas(reservaHabitaciones)
+      console.log(reservaHabitaciones)
+  } catch (error) {
+    console.log(error)
+  }
+ }
+
   const {
     register,
     handleSubmit,
