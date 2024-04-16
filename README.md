@@ -62,8 +62,8 @@ Este repositorio contiene el código fuente del sitio web de Rolling Hotel & Res
 ### Equipo de Desarrollo
 | Nombre                | Imagen                                       | GitHub                                       |
 |-----------------------|----------------------------------------------|----------------------------------------------|
-| Camila Alani          | ![Camila Alani](https://via.placeholder.com/150) | [camilaalani](https://github.com/camilaalani) |
-| Adrian Arnaldo Chanampa | ![Adrian Arnaldo Chanampa](https://via.placeholder.com/150) | [adrianarnaldo](https://github.com/AdrianKarma) |
-| Cosme Nicolás Mas     | ![Cosme Nicolás Mas](https://via.placeholder.com/150) | [cosmenicolas](https://github.com/CosmeNicolas) |
-| Jose Ignacio Medina Jimenez | ![Jose Ignacio Medina Jimenez](https://via.placeholder.com/150) | [joseignacio](https://github.com/Nachocode87) |
-| Emir Paradi         | ![Emir Paradi](https://via.placeholder.com/150) | [emirparadi](https://github.com/penguinEm) |
+| Camila Alani          | <img src="./src/assets/nosotros/Camila.jpg" width="100">  | [camilaalani](https://github.com/camilaalani) |
+| Adrian Arnaldo Chanampa |  <img src="./src/assets/nosotros/Adrian.jpg" width="100"> | [adrianarnaldo](https://github.com/AdrianKarma) |
+| Cosme Nicolás Mas     |  <img src="./src/assets/nosotros/Nicolas.jpg" width="100"> | [cosmenicolas](https://github.com/CosmeNicolas) |
+| Jose Ignacio Medina Jimenez |<img src="./src/assets/nosotros/Jose.jpg" width="100">  | [joseignacio](https://github.com/Nachocode87) |
+| Emir Paradi         | <img src="./src/assets/nosotros/Emir.jpg" width="100"> | [emirparadi](https://github.com/penguinEm) |
