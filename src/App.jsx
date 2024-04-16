@@ -19,6 +19,7 @@ import Contacto from "./components/pages/Contacto";
 import "./Usuario.css";
 import Galeria from "./components/pages/Galeria";
 import FormularioHabitacion from "./components/pages/habitaciones/FormularioHabitacion";
+import Reserva from "./components/pages/usuario/Reserva";
 
 function App() {
   const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || "";
@@ -58,6 +59,7 @@ function App() {
         />
         <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
         <Route exact path="/servicios" element={<Servicios />} />
+        <Route exact path="/reserva" element={<Reserva />} />
 
         <Route exact path="/contacto" element={<Contacto />} />
 
