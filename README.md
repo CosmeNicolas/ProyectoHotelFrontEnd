@@ -46,7 +46,7 @@ Este repositorio contiene el código fuente del sitio web de Rolling Hotel & Res
 - [sweetalert2](https://www.npmjs.com/package/sweetalert2): ^11.10.7
 
 ### Instalación
-1. Clona este repositorio: `git clone https://github.com/tu-usuario/rolling-hotel.git`
+1. Clona este repositorio: `git clone https://github.com/CosmeNicolas/ProyectoHotelFrontEnd.git`
 2. Instala las dependencias: `npm install`
 3. Inicia el servidor de desarrollo: `npm start`
 
