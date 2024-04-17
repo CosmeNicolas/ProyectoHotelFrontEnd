@@ -1,7 +1,11 @@
 import { Button, Card, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { crearHabitacionAPI } from "../../../helpers/queriesHabitacion";
+import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const FormularioHabitacion = () => {
+  //! ----------------------------------VARIBALES ----------------------------------------
   const {
     register,
     handleSubmit,
@@ -9,12 +13,38 @@ const FormularioHabitacion = () => {
     formState: { errors },
     getValues,
   } = useForm();
+  const { id } = useParams();
+  const redireccionar = useNavigate();
 
+  //! ----------------------------------FUNCIONES ----------------------------------------
   const habitacionValida = async (habitacion) => {
-    console.log(habitacion);
+    /* POST */
+    const crearHabitacion = await crearHabitacionAPI(habitacion);
+    if (crearHabitacion.status === 201) {
+      Swal.fire({
+        title: "Buen trabajo!",
+        html: `Su habitación: <span class="text-success">${habitacion.numero}</span> ha sido añadida al inicio`,
+        icon: "success",
+        customClass: {
+          popup: "contenedor-sweet",
+        },
+        confirmButtonColor: "#B79B63",
+      });
+    } else {
+      Swal.fire({
+        title: "Ops!",
+        text: `Se produjo un error intente añadir su habitación mas tarde`,
+        icon: "error",
+        customClass: {
+          popup: "contenedor-sweet",
+        },
+        confirmButtonColor: "#B79B63",
+      });
+    }
     reset();
   };
 
+  //! ----------------------------------MAQUETADO ----------------------------------------
   return (
     <section className="fondo-login">
       <div className="d-flex justify-content-center mt-5">
@@ -170,10 +200,7 @@ const FormularioHabitacion = () => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group
-              className="mb-4 text-light"
-              controlId="descripcion"
-            >
+            <Form.Group className="mb-4 text-light" controlId="descripcion">
               <Form.Label>Descripción*</Form.Label>
               <Form.Control
                 as="textarea"
