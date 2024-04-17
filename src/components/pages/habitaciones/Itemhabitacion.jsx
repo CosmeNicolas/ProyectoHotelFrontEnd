@@ -32,6 +32,7 @@ const ItemHabitacion = ({habitacionesAdmin, setHabitacionesAdmin, actualizarHabi
     });
   };
 
+const ItemHabitacion = ({habitacionesAdmin, setHabitacionesAdmin}) => {
   
   return (
     <>
