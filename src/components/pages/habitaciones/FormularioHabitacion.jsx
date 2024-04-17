@@ -23,7 +23,7 @@ const FormularioHabitacion = () => {
             Crear Habitación
           </h1>
           <Form className="rounded-2" onSubmit={handleSubmit(habitacionValida)}>
-            <Form.Group className="mb-3 text-light" controlId="numero">
+            <Form.Group className="mb-4 text-light" controlId="numero">
               <Form.Label>Número de Habitación*</Form.Label>
               <Form.Control
                 type="number"
@@ -47,7 +47,7 @@ const FormularioHabitacion = () => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3 text-light" controlId="tipo">
+            <Form.Group className="mb-4 text-light" controlId="tipo">
               <Form.Label>Categoría*</Form.Label>
               <Form.Select
                 aria-label="select"
@@ -68,7 +68,7 @@ const FormularioHabitacion = () => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3 text-light" controlId="precio">
+            <Form.Group className="mb-4 text-light" controlId="precio">
               <Form.Label>Precio*</Form.Label>
               <Form.Control
                 type="number"
@@ -93,7 +93,7 @@ const FormularioHabitacion = () => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3 text-light" controlId="fechaIngreso">
+            <Form.Group className="mb-4 text-light" controlId="fechaIngreso">
               <Form.Label>Fecha de ingreso*</Form.Label>
               <Form.Control
                 type="date"
@@ -115,7 +115,7 @@ const FormularioHabitacion = () => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3 text-light" controlId="fechaSalida">
+            <Form.Group className="mb-4 text-light" controlId="fechaSalida">
               <Form.Label>Fecha de salida*</Form.Label>
               <Form.Control
                 type="date"
@@ -150,7 +150,7 @@ const FormularioHabitacion = () => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3 text-light" controlId="imagen">
+            <Form.Group className="mb-4 text-light" controlId="imagen">
               <Form.Label>Imagen URL*</Form.Label>
               <Form.Control
                 type="text"
@@ -167,6 +167,35 @@ const FormularioHabitacion = () => {
               />
               <Form.Text className="text-danger">
                 {errors.imagen?.message}
+              </Form.Text>
+            </Form.Group>
+
+            <Form.Group
+              className="mb-4 text-light"
+              controlId="descripcion"
+            >
+              <Form.Label>Descripción*</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder=""
+                className="formularioTextArea"
+                {...register("descripcion", {
+                  required: "Detallar la habitación a crear es obligatorio",
+                  minLength: {
+                    value: 35,
+                    message:
+                      "Debe ingresar como mínimo 35 caracteres para detallar la habitación",
+                  },
+                  maxLength: {
+                    value: 500,
+                    message:
+                      "Debe ingresar como máximo 500 caracteres para detallar la habitación",
+                  },
+                })}
+              />
+              <Form.Text className="text-danger mt-1">
+                {errors.descripcion?.message}
               </Form.Text>
             </Form.Group>
 
