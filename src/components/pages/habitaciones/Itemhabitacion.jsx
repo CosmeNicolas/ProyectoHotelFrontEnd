@@ -4,9 +4,12 @@ import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import { eliminarHabitacionAPI } from "../../../helpers/queries";
 
-
-const ItemHabitacion = ({habitacionesAdmin, setHabitacionesAdmin, actualizarHabitaciones}) => {
-  console.log(habitacionesAdmin)
+const ItemHabitacion = ({
+  habitacionesAdmin,
+  setHabitacionesAdmin,
+  actualizarHabitaciones,
+}) => {
+  console.log(habitacionesAdmin);
 
   const handleEliminar = async (habitacionId) => {
     Swal.fire({
@@ -32,34 +35,48 @@ const ItemHabitacion = ({habitacionesAdmin, setHabitacionesAdmin, actualizarHabi
     });
   };
 
-  
   return (
     <>
-    { habitacionesAdmin.map((habitacionAdmin)=>(
-      <tr key={habitacionAdmin._id}>
-           <td>#</td>
-                <td>{habitacionAdmin.numero}</td>
-                <td>{habitacionAdmin.tipo}</td>
-                <td>${habitacionAdmin.precio}</td>
-                <td>{new Date(habitacionAdmin.fechaIngreso).toISOString().split('T')[0]}</td>
-                <td>{new Date(habitacionAdmin.fechaSalida).toISOString().split('T')[0]}</td>
-                <td>{habitacionAdmin && habitacionAdmin.disponible ? '✅ Disponible' : '❌No Disponible'}</td>
-                <td>
-                  <img className="imagen-habitacion-admin" src={habitacionAdmin.imagen} alt="" />
-                  </td>
-                  <td>
-                  <Button variant="warning" className="p-3 mx-1" >
-                  <FaEdit  />
-                  </Button>
-                  <Button variant="danger" className="p-3 mx-1" onClick={() => handleEliminar(habitacionAdmin._id)}>
-                  <MdDelete />
-                  </Button>
-                  </td>
-      </tr>
-    ))
-   }
-     </>
-  )
-}
+      {habitacionesAdmin.map((habitacionAdmin) => (
+        <tr key={habitacionAdmin._id}>
+          <td>#</td>
+          <td>{habitacionAdmin.numero}</td>
+          <td>{habitacionAdmin.tipo}</td>
+          <td>${habitacionAdmin.precio}</td>
+          <td>
+            {new Date(habitacionAdmin.fechaIngreso).toISOString().split("T")[0]}
+          </td>
+          <td>
+            {new Date(habitacionAdmin.fechaSalida).toISOString().split("T")[0]}
+          </td>
+          <td>
+            {habitacionAdmin && habitacionAdmin.disponible
+              ? "✅ Disponible"
+              : "❌No Disponible"}
+          </td>
+          <td>
+            <img
+              className="imagen-habitacion-admin"
+              src={habitacionAdmin.imagen}
+              alt=""
+            />
+          </td>
+          <td>
+            <Button variant="warning" className="p-3 mx-1">
+              <FaEdit />
+            </Button>
+            <Button
+              variant="danger"
+              className="p-3 mx-1"
+              onClick={() => handleEliminar(habitacionAdmin._id)}
+            >
+              <MdDelete />
+            </Button>
+          </td>
+        </tr>
+      ))}
+    </>
+  );
+};
 
-export default ItemHabitacion
+export default ItemHabitacion;
