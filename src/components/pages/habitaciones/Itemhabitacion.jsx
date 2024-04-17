@@ -35,6 +35,8 @@ const ItemHabitacion = ({
     });
   };
 
+const ItemHabitacion = ({habitacionesAdmin, setHabitacionesAdmin}) => {
+  
   return (
     <>
       {habitacionesAdmin.map((habitacionAdmin) => (

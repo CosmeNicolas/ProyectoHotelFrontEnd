@@ -47,11 +47,13 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto">         
+
           <NavLink  className="nav-link fuente-nav" to="/"  style={({isActive})=>(isActive ? estiloActivo : undefined )}>
               Inicio
             </NavLink>
             <NavLink  className="nav-link fuente-nav" to="/habitaciones"  style={({isActive})=>(isActive ? estiloActivo : undefined )}>
+
               Habitaciones
             </NavLink>
             <NavLink className="nav-link fuente-nav" to="/galeria" style={({isActive})=>(isActive ? estiloActivo : undefined)}>
@@ -60,7 +62,9 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
             <NavLink className="nav-link fuente-nav" to="/quienessomos" style={({isActive})=>(isActive ? estiloActivo : undefined )}>
               Quienes Somos
             </NavLink>
+
             <NavLink className="nav-link fuente-nav" to="/contacto" style={({isActive})=>(isActive ? estiloActivo : undefined )}>
+
               Contacto
             </NavLink>
             {/* admin y usuario */}
