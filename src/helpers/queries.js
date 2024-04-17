@@ -1,6 +1,6 @@
 const URI_USUARIOS = import.meta.env.VITE_API_USUARIOS;
 const URI_HABITACIONES= import.meta.env.VITE_API_HABITACIONES
-
+const URI_USUARIOS_GET = import.meta.env.VITE_API_USUARIOS_GET;
 /* //! Login 
 const admin = {
     email: "admin@usuario.com",
@@ -15,7 +15,6 @@ export const login = (usuario)=>{
         return false
     };
 } */
-
 export const crearUsuario = async (usuario) => {
     try {
       const respuesta = await fetch(URI_USUARIOS +"/registrar"  , {
@@ -30,7 +29,6 @@ export const crearUsuario = async (usuario) => {
       console.log(error);
     }
   };
-
 export const iniciarSesion = async(usuario) => {
   try {
     const respuesta = await fetch(URI_USUARIOS, {
@@ -46,7 +44,6 @@ export const iniciarSesion = async(usuario) => {
     return null;
   }
 }
-
 /* //?Habitaciones */
 export const leerHabitacionesAPI = async()=>{
   try {
@@ -67,5 +64,16 @@ export const eliminarHabitacionAPI = async (id) => {
     return resultado;
   } catch (error) {
     console.log(error);
+  }
+};
+
+/* //?Usuarios */
+export const leerUsuariosAPI = async()=>{
+  try {
+    const respuesta = await fetch(URI_USUARIOS_GET)
+    const listarUsuarios = await respuesta.json()
+    return listarUsuarios
+  } catch (error) {
+    console.log(error)
   }
 };
