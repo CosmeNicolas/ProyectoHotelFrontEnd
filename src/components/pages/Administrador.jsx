@@ -40,6 +40,20 @@ useEffect(() => {
     }
   }
 
+  const actualizarHabitaciones = async () => {
+    try {
+      const habitaciones = await leerHabitacionesAPI();
+      setHabitacionesAdmin(habitaciones);
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        title: "Error",
+        text: "No se pudo actualizar la lista de habitaciones",
+        icon: "error",
+      });
+    }
+  };
+
 
 
   
@@ -103,6 +117,7 @@ useEffect(() => {
                 <ItemHabitacion
                 habitacionesAdmin={habitacionesAdmin}
                 setHabitacionesAdmin={setHabitacionesAdmin}
+                actualizarHabitaciones={actualizarHabitaciones}
                 />
           </tbody>
         </Table>
