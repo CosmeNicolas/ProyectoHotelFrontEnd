@@ -1,10 +1,38 @@
 import { Button } from "react-bootstrap";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import Swal from "sweetalert2";
+import { eliminarHabitacionAPI } from "../../../helpers/queries";
 
 
-const ItemHabitacion = ({habitacionesAdmin, setHabitacionesAdmin}) => {
+const ItemHabitacion = ({habitacionesAdmin, setHabitacionesAdmin, actualizarHabitaciones}) => {
   console.log(habitacionesAdmin)
+
+  const handleEliminar = async (habitacionId) => {
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Una vez eliminada, no podrás recuperar esta habitación",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await eliminarHabitacionAPI(habitacionId);
+          Swal.fire("¡Habitación eliminada!", "", "success");
+          actualizarHabitaciones();
+        } catch (error) {
+          console.error(error);
+          Swal.fire("Error", "No se pudo eliminar la habitación", "error");
+        }
+      }
+    });
+  };
+
+  
   return (
     <>
     { habitacionesAdmin.map((habitacionAdmin)=>(
@@ -23,7 +51,7 @@ const ItemHabitacion = ({habitacionesAdmin, setHabitacionesAdmin}) => {
                   <Button variant="warning" className="p-3 mx-1" >
                   <FaEdit  />
                   </Button>
-                  <Button variant="danger" className="p-3 mx-1">
+                  <Button variant="danger" className="p-3 mx-1" onClick={() => handleEliminar(habitacionAdmin._id)}>
                   <MdDelete />
                   </Button>
                   </td>

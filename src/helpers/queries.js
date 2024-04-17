@@ -57,3 +57,15 @@ export const leerHabitacionesAPI = async()=>{
     console.log(error)
   }
 };
+
+export const eliminarHabitacionAPI = async (id) => {
+  try {
+    const respuesta = await fetch(`${URI_HABITACIONES}/${id}`, {
+      method: "DELETE",
+    });
+    const resultado = await respuesta.json();
+    return resultado;
+  } catch (error) {
+    console.log(error);
+  }
+};
