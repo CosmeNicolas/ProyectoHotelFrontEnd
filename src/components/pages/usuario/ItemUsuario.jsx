@@ -11,7 +11,10 @@ const ItemUsuario = ({ usuariosAdmin, setUsuarioAdmin }) => {
       html: `¿Estas seguro que deseas borrar al usuario <span class="text-danger">${usuario}</span> ?`,
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      customClass: {
+        popup: "contenedor-sweet",
+      },
+      confirmButtonColor: "#B79B63",
       cancelButtonColor: "#d33",
       confirmButtonText: "Borrar",
       cancelButtonText: "Cancelar",
@@ -23,14 +26,22 @@ const ItemUsuario = ({ usuariosAdmin, setUsuarioAdmin }) => {
           setUsuarioAdmin(usuariosActualizados);
           Swal.fire({
             title: "Borrado!",
-            html: `Su usuario: <span class="text-danger">${usuario}</span> ha sido borrada!`,
+            html: `Su usuario: <span class="text-danger">${usuario}</span> ha sido borrado!`,
             icon: "success",
+            customClass: {
+              popup: "contenedor-sweet",
+            },
+            confirmButtonColor: "#B79B63",
           });
         } else {
           Swal.fire({
             title: "Ops!",
             text: `Se produjo un error intente mas tarde`,
             icon: "error",
+            customClass: {
+              popup: "contenedor-sweet",
+            },
+            confirmButtonColor: "#B79B63",
           });
         }
       }

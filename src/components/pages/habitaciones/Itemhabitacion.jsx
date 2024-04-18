@@ -18,10 +18,13 @@ const ItemHabitacion = ({
       text: "Una vez eliminada, no podrás recuperar esta habitación",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Sí, eliminar",
       cancelButtonText: "Cancelar",
+      customClass: {
+        popup: "contenedor-sweet",
+      },
+      confirmButtonColor: "#B79B63",
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
