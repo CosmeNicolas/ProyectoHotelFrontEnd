@@ -214,19 +214,19 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
                 {...register("fechaSalida", {
                   required: "La fecha de salida es obligatoria",
                   validate: {
-                    fechaFutura: async (value) => {
-                      const fechaSalida = await new Date(value);
+                    fechaFutura: (value) => {
+                      const fechaSalida = new Date(value);
                       const hoy = new Date();
                       return (
                         fechaSalida >= hoy ||
                         "La fecha debe ser posterior a la fecha de hoy"
                       );
                     },
-                    fechaPosterior: async (value) => {
-                      const fechaIngreso = await new Date(
+                    fechaPosterior:(value) => {
+                      const fechaIngreso =  new Date(
                         getValues("fechaIngreso")
                       );
-                      const fechaSalida = await new Date(value);
+                      const fechaSalida = new Date(value);
                       return (
                         fechaSalida > fechaIngreso ||
                         "La fecha de salida debe ser posterior a la fecha de ingreso"
