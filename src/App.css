@@ -187,7 +187,13 @@ backdrop-filter: blur( 0px );
 /* Estilo Card Inicio */
 .btn-inicio-card{
 	background-color:#60195D;
+	color: #E6E6E6;
 }
+.btn-inicio-card:hover{
+	background-color:#303030;
+	color: #E6E6E6;
+}
+
 .contenedor-Card{
 	width: 100%;
 }

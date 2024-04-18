@@ -59,6 +59,7 @@ export const leerHabitacionesAPI = async()=>{
   }
 };
 
+
 export const eliminarHabitacionAPI = async (id) => {
   try {
     const respuesta = await fetch(`${URI_HABITACIONES}/${id}`, {
