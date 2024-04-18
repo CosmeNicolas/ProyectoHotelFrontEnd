@@ -69,6 +69,17 @@ function App() {
         ></Route>
         <Route
           exact
+          path="/editarUsuario/:id"
+          element={
+            <FormularioUsuario
+              titulo="Editar Usuario"
+              textoBoton="Guardar Cambios"
+              modoCrear={false}
+            ></FormularioUsuario>
+          }
+        ></Route>
+        <Route
+          exact
           path="/login"
           element={<Login setUsuarioLogueado={setUsuarioLogueado} />}
         />

@@ -4,16 +4,50 @@ import { useForm } from "react-hook-form";
 import { crearUsuario } from "../../../helpers/queries";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import {editarUsuarioApi, obtenerUsuario} from "../../../helpers/queries";
 
-const FormularioUsuario = () => {
+const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm();
+  const { id } = useParams();
   const navegar = useNavigate();
 
   const onSubmit = async (data) => {
+    if (modoCrear === false) {
+      /* PUT */
+      try {
+        const respuesta = await editarUsuarioApi(id, data);
+        if (respuesta.status === 200) {
+          Swal.fire({
+            title: `Buen trabajo!`,
+            html: `Su usuario: <span class="text-warning">${data.usuario}</span> ha sido editado correctamente`,
+            icon: "success",
+            customClass: {
+              popup: "contenedor-sweet",
+            },
+            confirmButtonColor: "#B79B63",
+          });
+          redireccionar("/Inicio");
+        } else {
+          Swal.fire({
+            title: "Ops!",
+            text: `Se produjo un error intente editar su habitación mas tarde`,
+            icon: "error",
+            customClass: {
+              popup: "contenedor-sweet",
+            },
+            confirmButtonColor: "#B79B63",
+          });
+        }
+      } catch (error) {
+        console.error("Se produjo un error intente nuevamente mas tarde");
+      }
+    } else {
+
     try {
       const respuesta = await crearUsuario(data);
       const datos = await respuesta.json();
@@ -36,6 +70,8 @@ const FormularioUsuario = () => {
     } catch (error) {
       console.log(error);
     }
+
+  }
   };
 
   return (
@@ -44,7 +80,7 @@ const FormularioUsuario = () => {
         <div className="d-flex justify-content-center ">
           <div className="titulo-usuario ">
             <h1 className="fuente-formulario-Usuario text-center  text-light mt-3">
-              Crear Usuario
+              {titulo} Crear Usuario
             </h1>
           </div>
         </div>
@@ -156,7 +192,7 @@ const FormularioUsuario = () => {
                 variant="dark"
                 type="submit"
               >
-                Crear Usuario
+                {textoBoton}Crear Usuario
               </Button>
             </Form>
           </Card>
@@ -165,5 +201,39 @@ const FormularioUsuario = () => {
     </>
   );
 };
+
+
+
+useEffect(() => {
+  if (modoCrear === false) {
+    cargarFormularioEditar();
+  }
+}, []);
+
+
+const cargarFormularioEditar = async () => {
+  const respuesta = await obtenerUsuario(id);
+  if (respuesta.status === 200) {
+    const UsuarioBuscado = await respuesta.json();
+    setValue("nombreCompleto", UsuarioBuscado.nombreCompleto);
+    setValue("email", UsuarioBuscado.email);
+    setValue("usuario", UsuarioBuscado.usuario);
+    setValue("password", UsuarioBuscado.password);
+  
+  } else {
+    Swal.fire({
+      title: "Ops!",
+      text: `Se produjo un error intente editar mas tarde`,
+      icon: "error",
+      customClass: {
+        popup: "contenedor-sweet",
+      },
+      confirmButtonColor: "#B79B63",
+    });
+  }
+};
+
+
+
 
 export default FormularioUsuario;

@@ -95,3 +95,26 @@ export const leerUsuariosAPI = async()=>{
   }
 };
 
+export const editarUsuarioApi = async (id, usuario) => {
+  try {
+    const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+    return respuesta;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const obtenerUsuario = async (id) => {
+  try {
+    const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`);
+    return respuesta;
+  } catch (error) {
+    console.error(error);
+  }
+};
