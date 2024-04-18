@@ -1,0 +1,33 @@
+
+
+.fondo-formulario-Reserva{
+    
+  flex-grow: 1;
+  background-image: url('./assets/FondoRegistro.jpg');
+  background-size: cover;
+}
+
+.titulo-Reserva{
+  margin-top: 65px;
+  background: rgba(44, 46, 52, 0.529);
+ width: 300px;
+ border-radius: 10px;
+}
+.container-formulario-Reserva {
+  background: rgba(44, 46, 52, 0.529);
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  width: 400px;
+}
+
+.boton-formulario-Reserva{
+  border: #B79B63;
+  background-color: #B79B63;
+  transition: background-color 0.3s ease;
+}
+
+.fuente-formulario-Reserva {
+  font-family: "Dancing Script", cursive;
+}

@@ -79,15 +79,15 @@ const Reserva = ({ reserva, titulo }) => {
 
   return (
     <>
-      <section className=" fondo-formulario-Usuario ">
+      <section className=" fondo-formulario-Reserva ">
         <div className="d-flex justify-content-center ">
-        <div className="titulo-usuario ">
-          <h1 className="fuente-formulario-Usuario text-center  text-light mt-3">{titulo}</h1>
+        <div className="titulo-Reserva ">
+          <h1 className=" fuente-formulario-Reserva text-center  text-light mt-3">{titulo}</h1>
           </div>
         </div>
 
         <div className="d-flex justify-content-center ">
-          <Card className="container-formulario-Usuario  p-3 my-4  d-flex flex-column align-content-center justify-content-center">
+          <Card className="container-formulario-Reserva  p-3 my-4  d-flex flex-column align-content-center justify-content-center">
             <Form
               className="p-3"
               onSubmit={handleSubmit(reservarHabitacion)}
@@ -96,7 +96,7 @@ const Reserva = ({ reserva, titulo }) => {
               {/* Nombre habitacion */}
               <Form.Group controlId="tipo"
                 className=" mb-3 text-light">
-                <Form.Label>Nombre Habitacion</Form.Label>
+                <Form.Label>Tipo de Habitacion</Form.Label>
                 <Form.Select
                   aria-label="select"
                   className="color-inputs text-secondary"
@@ -232,7 +232,7 @@ const Reserva = ({ reserva, titulo }) => {
               {/* DISPONIBILIDAD */}
 
               <div className="text-center mb-3">
-                <Button className="boton-formulario-Usuario my-2 ms-2"
+                <Button className="boton-formulario-Reserva my-2 ms-2"
                 variant="dark"
                 type="submit">
                   Reservar
