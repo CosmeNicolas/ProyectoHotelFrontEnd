@@ -17,6 +17,7 @@ import "./Administrador.css";
 import Servicios from "./components/pages/Servicios";
 import Contacto from "./components/pages/Contacto";
 import "./Usuario.css";
+import"./Reserva.css"
 import Galeria from "./components/pages/Galeria";
 import FormularioHabitacion from "./components/pages/habitaciones/FormularioHabitacion";
 import Reserva from "./components/pages/usuario/Reserva";
