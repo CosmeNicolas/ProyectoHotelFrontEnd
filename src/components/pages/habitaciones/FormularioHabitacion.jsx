@@ -80,7 +80,9 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
         }
         reset();
       } catch (error) {
-        console.error(`Se produjo un error intente editar su habitación mas tarde`);
+        console.error(
+          `Se produjo un error intente editar su habitación mas tarde`
+        );
       }
     }
   };
@@ -270,29 +272,22 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-4 text-light" controlId="descripcion">
-              <Form.Label>Descripción*</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                placeholder=""
-                className="formularioTextArea"
-                {...register("descripcion", {
-                  required: "Detallar la habitación a crear es obligatorio",
-                  minLength: {
-                    value: 35,
-                    message:
-                      "Debe ingresar como mínimo 35 caracteres para detallar la habitación",
-                  },
-                  maxLength: {
-                    value: 500,
-                    message:
-                      "Debe ingresar como máximo 500 caracteres para detallar la habitación",
-                  },
+            <Form.Group className="mb-4 text-light" controlId="disponible">
+              <Form.Label>Disponibilidad*</Form.Label>
+              <Form.Select
+                aria-label="select"
+                className="color-inputs text-secondary"
+                {...register("disponible", {
+                  required:
+                    "Seleccionar la disponibilidad de la habitación es obligatorio",
                 })}
-              />
+              >
+                <option value={""}>Seleccione una opción</option>
+                <option value={true}>Disponible</option>
+                <option value={false}>No disponible</option>
+              </Form.Select>
               <Form.Text className="text-danger mt-1">
-                {errors.descripcion?.message}
+                {errors.disponible?.message}
               </Form.Text>
             </Form.Group>
 
