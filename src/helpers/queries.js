@@ -59,14 +59,18 @@ export const leerHabitacionesAPI = async()=>{
   }
 };
 
-export const obtenerHabitacionAPI = async(id)=>{
+
+export const eliminarHabitacionAPI = async (id) => {
   try {
-    const respuesta = await fetch(`${URI_HABITACIONES}/${id}`)
-    return respuesta
+    const respuesta = await fetch(`${URI_HABITACIONES}/${id}`, {
+      method: "DELETE",
+    });
+    const resultado = await respuesta.json();
+    return resultado;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 /* //?Usuarios */
 export const leerUsuariosAPI = async()=>{
@@ -78,3 +82,17 @@ export const leerUsuariosAPI = async()=>{
     console.log(error)
   }
 };
+
+  export const eliminarUsuarioAPI = async (id) => {
+  try {
+    const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`, {
+      method: "DELETE",
+    });
+    console.log(respuesta);
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+    throw new Error("No se pudo eliminar el usuario");
+  }
+};
+
