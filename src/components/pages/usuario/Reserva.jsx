@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { leerHabitacionesAPI } from "../../../helpers/queries";
+import { leerHabitacionesAPI, obtenerHabitacionAPI } from "../../../helpers/queries";
 import { useParams } from "react-router-dom";
 
 const Reserva = ({reserva, titulo}) => {
@@ -16,37 +16,25 @@ useEffect(() => {
 
 
 const cargarDatosHabitacion = async()=>{
-  const respuesta = await leerHabitacionesAPI(id)
+  const respuesta = await obtenerHabitacionAPI(id)
   console.log(respuesta)
   if(respuesta.status === 200){
-    const obtenerHabitacion = await reserva.json()
+    const obtenerHabitacion = await respuesta.json()
     console.log(obtenerHabitacion)
+    /* traer los valores de las habitaciones */
+    setValue("tipo",obtenerHabitacion.tipo)
   }
 }
 
 
- const leerReservas = async()=>{
-  try {
-    const respuesta = await leerHabitacionesAPI()
-    console.log(respuesta)
-    if(respuesta.status === 200 ){
-      const reservaHabitaciones = await respuesta;
-      setReservas(reservaHabitaciones)
-    }
-    const reservaHabitaciones = await respuesta;
-      setReservas(reservaHabitaciones)
-      console.log(reservaHabitaciones)
-  } catch (error) {
-    console.log(error)
-  }
- }
+
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-    getValues,
+    setValue,
   } = useForm();
 
   return (
@@ -58,6 +46,31 @@ const cargarDatosHabitacion = async()=>{
             <hr />
 
             <Form className=" p-4">
+            {/* Nombre habitacion */}
+            <Form.Group  controlId="tipo">
+            <Form.Label>Nombre Habitacion</Form.Label>
+            <Form.Select
+                aria-label="select"
+                className="color-inputs text-secondary"
+                {...register("tipo", {
+                  required:
+                    "Seleccionar la categoría de la habitación es obligatorio",
+                })}
+              >
+                 <option value={""}>Seleccione una opción</option>
+                <option value={"Doble Twin"}>Doble Twin</option>
+                <option value={"Doble Superior"}>Doble Superior</option>
+                <option value={"Triple Superior"}>Triple Superior</option>
+                <option value={"Suite"}>Suite</option>
+              </Form.Select>
+              <Form.Text className="text-danger">
+                {errors.tipo?.message}
+              </Form.Text>
+              </Form.Group>
+
+
+
+
               <Form.Group className="mb-3" controlId="fechaInicio">
                 <Form.Label>Fecha Ingreso</Form.Label>
                 <Form.Control type="date" placeholder="dd/mm/aaaa" />

@@ -59,6 +59,15 @@ export const leerHabitacionesAPI = async()=>{
   }
 };
 
+export const obtenerHabitacionAPI = async(id)=>{
+  try {
+    const respuesta = await fetch(`${URI_HABITACIONES}/${id}`)
+    return respuesta
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 /* //?Usuarios */
 export const leerUsuariosAPI = async()=>{
   try {
