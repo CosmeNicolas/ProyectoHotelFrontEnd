@@ -3,6 +3,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import { eliminarHabitacionAPI } from "../../../helpers/queries";
+import { Link } from "react-router-dom";
 
 const ItemHabitacion = ({
   habitacionesAdmin,
@@ -62,9 +63,12 @@ const ItemHabitacion = ({
             />
           </td>
           <td>
-            <Button variant="warning" className="p-3 mx-1">
+            <Link
+              className="p-3 mx-1 btn btn-warning"
+              to={`/editarHabitacion/${habitacionAdmin._id}`}
+            >
               <FaEdit />
-            </Button>
+            </Link>
             <Button
               variant="danger"
               className="p-3 mx-1"

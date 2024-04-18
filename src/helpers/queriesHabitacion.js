@@ -34,3 +34,11 @@ export const editarHabitacionApi = async (id, receta) => {
 
 
   //! GET - para traer 1 habitacion por su id
+  export const obtenerHabitacion = async (id) => {
+    try {
+      const respuesta = await fetch(`${URI_HABITACIONES}/${id}`);
+      return respuesta;
+    } catch (error) {
+      console.error(error);
+    }
+  };

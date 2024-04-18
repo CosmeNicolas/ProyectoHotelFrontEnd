@@ -56,9 +56,9 @@ function App() {
         <Route
           titulo="Editar Habitación"
           textoBoton="Guardar Cambios"
-          modoCrear={true}
+          modoCrear={false}
           exact
-          path="/editarReceta/:id"
+          path="/editarHabitacion/:id"
           element={<FormularioHabitacion></FormularioHabitacion>}
         ></Route>
         <Route

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import {
   crearHabitacionAPI,
   editarHabitacionApi,
+  obtenerHabitacion,
 } from "../../../helpers/queriesHabitacion";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -15,6 +16,7 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
     handleSubmit,
     reset,
     formState: { errors },
+    setValue,
     getValues,
   } = useForm();
   const { id } = useParams();
@@ -30,6 +32,10 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
           title: `Buen trabajo!`,
           html: `Su habitación: <span class="text-warning">${habitacion.numero}</span> ha sido editada correctamente`,
           icon: "success",
+          customClass: {
+            popup: "contenedor-sweet",
+          },
+          confirmButtonColor: "#B79B63",
         });
         redireccionar("/administrador");
       } else {
@@ -37,6 +43,10 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
           title: "Ops!",
           text: `Se produjo un error intente editar su habitación mas tarde`,
           icon: "error",
+          customClass: {
+            popup: "contenedor-sweet",
+          },
+          confirmButtonColor: "#B79B63",
         });
       }
     }
@@ -73,16 +83,35 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
   }, []);
 
   const cargarFomurlarioEditar = async () => {
-    const respuesta = await
-  }
+    const respuesta = await obtenerHabitacion(id);
+    if (respuesta.status === 200) {
+      const habitacionBuscada = await respuesta.json();
+      setValue("numero", habitacionBuscada.numero);
+      setValue("tipo", habitacionBuscada.tipo);
+      setValue("precio", habitacionBuscada.precio);
+      setValue("fechaIngreso", habitacionBuscada.fechaIngreso);
+      setValue("fechaSalida", habitacionBuscada.fechaSalida);
+      setValue("fechaSalida", habitacionBuscada.fechaSalida);
+      setValue("imagen", habitacionBuscada.imagen);
+      setValue("descripcion", habitacionBuscada.descripcion);
+    } else {
+      Swal.fire({
+        title: "Ops!",
+        text: `Se produjo un error intente editar mas tarde`,
+        icon: "error",
+        customClass: {
+          popup: "contenedor-sweet",
+        },
+        confirmButtonColor: "#B79B63",
+      });
+    }
+  };
   //! ----------------------------------MAQUETADO ----------------------------------------
   return (
     <section className="fondo-login">
       <div className="d-flex justify-content-center mt-5">
         <Card className="p-5 container-formulario-Usuario my-5">
-          <h1 className="fuente-login text-center text-light mb-5">
-            Crear Habitación
-          </h1>
+          <h1 className="fuente-login text-center text-light mb-5">{titulo}</h1>
           <Form className="rounded-2" onSubmit={handleSubmit(habitacionValida)}>
             <Form.Group className="mb-4 text-light" controlId="numero">
               <Form.Label>Número de Habitación*</Form.Label>
@@ -263,7 +292,7 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
                 variant="dark"
                 className="border-0 mt-3 boton-login"
               >
-                Guardar
+                {textoBoton}
               </Button>
             </div>
           </Form>
