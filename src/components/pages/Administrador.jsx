@@ -78,6 +78,20 @@ useEffect(() => {
   }
 
 
+  const actualizarUsuarios = async () => {
+    try {
+      const usuarios = await leerUsuariosAPI();
+      setUsuarioAdmin(usuarios);
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        title: "Error",
+        text: "No se pudo actualizar la lista de usuarios",
+        icon: "error",
+      });
+    }
+  };
+
   return (
     <>
       <Container  fluid className="contenedorAdministrador p-1">
@@ -145,6 +159,7 @@ useEffect(() => {
             <ItemUsuario
             usuariosAdmin={usuariosAdmin}
             setUsuarioAdmin={setUsuarioAdmin}
+            actualizarUsuarios={actualizarUsuarios}
             />
           </tbody>
         </Table>
