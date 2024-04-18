@@ -81,3 +81,17 @@ export const leerUsuariosAPI = async()=>{
     console.log(error)
   }
 };
+
+  export const eliminarUsuarioAPI = async (id) => {
+  try {
+    const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`, {
+      method: "DELETE",
+    });
+    console.log(respuesta);
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+    throw new Error("No se pudo eliminar el usuario");
+  }
+};
+
