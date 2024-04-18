@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams, useNavigate} from "react-router-dom";
 import Swal from "sweetalert2";
@@ -82,11 +82,11 @@ const reservarHabitacion = async(reserva)=>{
   return (
     <>
       <section className=" main">
-        <section className="d-flex justify-content-center my-3 pt-5 ">
-          <div className="container-formulario-Reservar border">
+        <div className="d-flex justify-content-center my-3 pt-5 ">
+          <div className="container-formulario-Reservar ">
             <h1 className="display-5   text-center">{titulo}</h1>
             <hr />
-
+<Card>
             <Form className="my-3 p-4" onSubmit={handleSubmit(reservarHabitacion)}>
             {/* Nombre habitacion */}
             <Form.Group  controlId="tipo">
@@ -228,9 +228,11 @@ const reservarHabitacion = async(reserva)=>{
                   Reservar
                 </Button>
               </div>
+              
             </Form>
+            </Card>
           </div>
-        </section>
+        </div>
       </section>
     </>
   );
