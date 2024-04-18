@@ -69,12 +69,12 @@ function App() {
         ></Route>
         <Route
           exact
-          path="/editarUsuario/:id"
+          path="/administrador/editarUsuario/:id"
           element={
             <FormularioUsuario
               titulo="Editar Usuario"
               textoBoton="Guardar Cambios"
-              modoCrear={false}
+              modoCrear={true}
             ></FormularioUsuario>
           }
         ></Route>
@@ -90,7 +90,7 @@ function App() {
             <FormularioUsuario
               titulo="Crear Usuario"
               textoBoton="Guardar"
-              modoCrear={true}
+              modoCrear={false}
             />
           }
         />

@@ -104,6 +104,7 @@ export const editarUsuarioApi = async (id, usuario) => {
       },
       body: JSON.stringify(usuario),
     });
+    console.log(respuesta)
     return respuesta;
   } catch (error) {
     console.error(error);
@@ -112,7 +113,7 @@ export const editarUsuarioApi = async (id, usuario) => {
 
 export const obtenerUsuarioAPI = async (id) => {
   try {
-    const respuesta = await fetch(`${URI_USUARIOS}/${id}`);
+    const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`);
     return respuesta;
   } catch (error) {
     console.error(error);

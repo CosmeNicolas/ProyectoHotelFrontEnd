@@ -2,11 +2,10 @@ import React from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { crearUsuario } from "../../../helpers/queries";
-import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { editarUsuarioApi, obtenerUsuarioAPI } from "../../../helpers/queries";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
   const {
@@ -19,7 +18,7 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
   const navegar = useNavigate();
 
   useEffect(() => {
-    if (modoCrear === false) {
+    if (modoCrear) {
       cargarFormularioEditar();
     }
   }, []);
@@ -31,7 +30,7 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
       setValue("nombreCompleto", usuarioBuscado.nombreCompleto);
       setValue("email", usuarioBuscado.email);
       setValue("usuario", usuarioBuscado.usuario);
-      setValue("password", usuarioBuscado.password);
+      
     } else {
       Swal.fire({
         title: "Ops!",
@@ -46,7 +45,7 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
   };
 
   const onSubmit = async (data) => {
-    if (modoCrear === false) {
+    if (modoCrear) {
       /* PUT */
       try {
         const respuesta = await editarUsuarioApi(id, data);
@@ -60,7 +59,7 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
             },
             confirmButtonColor: "#B79B63",
           });
-          redireccionar("/Inicio");
+          navegar("/administrador");
         } else {
           Swal.fire({
             title: "Ops!",
@@ -100,6 +99,8 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
       }
     }
   };
+
+ 
 
   return (
     <>

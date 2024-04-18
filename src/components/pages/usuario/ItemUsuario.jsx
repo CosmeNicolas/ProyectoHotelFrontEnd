@@ -33,7 +33,7 @@ const ItemUsuario = ({usuariosAdmin, setUsuarioAdmin, actualizarUsuarios}) => {
               <td>{usuarioAdmin.rol}</td>
               <td>{usuarioAdmin.suspendido? 'Desabilitado❌' : 'Habilitado✅'}</td>
                 <td>
-                <Link variant="warning" className="p-3 mx-1 btn btn-warning" to={"/editarUsuario/:id"}>
+                <Link variant="warning" className="p-3 mx-1 btn btn-warning" to={`/administrador/editarUsuario/${usuarioAdmin._id}`}>
                 <FaEdit  />
                 </Link>
                 <Button variant="danger" className="p-3 mx-1 text-center" onClick={eliminarUsuario}>
