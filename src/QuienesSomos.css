@@ -32,10 +32,9 @@ font-family: "Dancing Script", cursive;
   
 }
 
-.somos{
- 
-margin-top: 100px;
-}
+/* .somos{
+margin-top: 75px;
+} */
 
 .texto-somos{
   display: flex;

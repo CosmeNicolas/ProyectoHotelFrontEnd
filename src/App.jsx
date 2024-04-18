@@ -17,6 +17,7 @@ import "./Administrador.css";
 import Servicios from "./components/pages/Servicios";
 import Contacto from "./components/pages/Contacto";
 import "./Usuario.css";
+import"./Reserva.css"
 import Galeria from "./components/pages/Galeria";
 import FormularioHabitacion from "./components/pages/habitaciones/FormularioHabitacion";
 import Reserva from "./components/pages/usuario/Reserva";
@@ -95,9 +96,12 @@ function App() {
           }
         />
         <Route exact path="/servicios" element={<Servicios />} />
-        <Route exact path="/reserva" element={<Reserva />} />
+        <Route exact path="/reserva/:id" element={<Reserva 
+        setUsuarioLogueado={setUsuarioLogueado}
+        reserva={true} titulo="Nueva Reserva"
+        />} />
 
-        <Route exact path="/contacto" element={<Contacto />} />
+        <Route exact path="/contacto"  element={<Contacto />} />
 
         <Route exact path="/galeria" element={<Galeria />} />
       </Routes>

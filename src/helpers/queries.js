@@ -1,5 +1,5 @@
 const URI_USUARIOS = import.meta.env.VITE_API_USUARIOS;
-const URI_HABITACIONES= import.meta.env.VITE_API_HABITACIONES
+const URI_HABITACIONES = import.meta.env.VITE_API_HABITACIONES;
 const URI_USUARIOS_GET = import.meta.env.VITE_API_USUARIOS_GET;
 
 /* //! Login 
@@ -18,44 +18,44 @@ export const login = (usuario)=>{
 } */
 
 export const crearUsuario = async (usuario) => {
-    try {
-      const respuesta = await fetch(URI_USUARIOS +"/registrar"  , {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(usuario),
-      });
-      return respuesta;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  try {
+    const respuesta = await fetch(URI_USUARIOS + "/registrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export const iniciarSesion = async(usuario) => {
+export const iniciarSesion = async (usuario) => {
   try {
     const respuesta = await fetch(URI_USUARIOS, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(usuario),
     });
-    return respuesta
+    return respuesta;
   } catch (error) {
     console.log(error);
     return null;
   }
-}
+};
 
 /* //?Habitaciones */
-export const leerHabitacionesAPI = async()=>{
+export const leerHabitacionesAPI = async () => {
   try {
-    const respuesta = await fetch(URI_HABITACIONES)
-    const listarHabitaciones = await respuesta.json()
-    return listarHabitaciones
+    const respuesta = await fetch(URI_HABITACIONES);
+    const listarHabitaciones = await respuesta.json();
+    return listarHabitaciones;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 
@@ -72,28 +72,28 @@ export const eliminarHabitacionAPI = async (id) => {
 };
 
 /* //?Usuarios */
-export const leerUsuariosAPI = async()=>{
+export const leerUsuariosAPI = async () => {
   try {
-    const respuesta = await fetch(URI_USUARIOS_GET)
-    const listarUsuarios = await respuesta.json()
-    return listarUsuarios
+    const respuesta = await fetch(URI_USUARIOS_GET);
+    const listarUsuarios = await respuesta.json();
+    return listarUsuarios;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 
-  export const eliminarUsuarioAPI = async (id) => {
+//! DELETE - de Usuario por id
+export const eliminarUsuarioAPI = async (id) => {
   try {
     const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`, {
       method: "DELETE",
     });
-    console.log(respuesta);
     return respuesta;
   } catch (error) {
     console.log(error);
-    throw new Error("No se pudo eliminar el usuario");
   }
 };
+
 
 export const editarUsuarioApi = async (id, usuario) => {
   try {
@@ -119,3 +119,4 @@ export const obtenerUsuarioAPI = async (id) => {
     console.error(error);
   }
 };
+
