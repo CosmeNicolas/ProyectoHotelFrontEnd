@@ -83,7 +83,17 @@ function App() {
           path="/login"
           element={<Login setUsuarioLogueado={setUsuarioLogueado} />}
         />
-        <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
+        <Route
+          exact
+          path="/CrearUsuario"
+          element={
+            <FormularioUsuario
+              titulo="Crear Usuario"
+              textoBoton="Guardar"
+              modoCrear={true}
+            />
+          }
+        />
         <Route exact path="/servicios" element={<Servicios />} />
         <Route exact path="/reserva" element={<Reserva />} />
 

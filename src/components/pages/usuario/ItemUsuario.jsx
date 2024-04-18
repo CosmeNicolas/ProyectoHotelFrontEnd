@@ -3,6 +3,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import { eliminarUsuarioAPI, leerUsuariosAPI } from "../../../helpers/queries";
+import { Link } from "react-router-dom";
 
 
 const ItemUsuario = ({usuariosAdmin, setUsuarioAdmin, actualizarUsuarios}) => {
@@ -32,9 +33,9 @@ const ItemUsuario = ({usuariosAdmin, setUsuarioAdmin, actualizarUsuarios}) => {
               <td>{usuarioAdmin.rol}</td>
               <td>{usuarioAdmin.suspendido? 'Desabilitado❌' : 'Habilitado✅'}</td>
                 <td>
-                <Button variant="warning" className="p-3 mx-1" >
+                <Link variant="warning" className="p-3 mx-1 btn btn-warning" to={"/editarUsuario/:id"}>
                 <FaEdit  />
-                </Button>
+                </Link>
                 <Button variant="danger" className="p-3 mx-1 text-center" onClick={eliminarUsuario}>
                 <MdDelete />
                 </Button>

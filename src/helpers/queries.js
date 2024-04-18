@@ -110,9 +110,9 @@ export const editarUsuarioApi = async (id, usuario) => {
   }
 };
 
-export const obtenerUsuario = async (id) => {
+export const obtenerUsuarioAPI = async (id) => {
   try {
-    const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`);
+    const respuesta = await fetch(`${URI_USUARIOS}/${id}`);
     return respuesta;
   } catch (error) {
     console.error(error);

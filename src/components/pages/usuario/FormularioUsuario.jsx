@@ -4,7 +4,9 @@ import { useForm } from "react-hook-form";
 import { crearUsuario } from "../../../helpers/queries";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
-import {editarUsuarioApi, obtenerUsuario} from "../../../helpers/queries";
+import { editarUsuarioApi, obtenerUsuarioAPI } from "../../../helpers/queries";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
   const {
@@ -15,6 +17,33 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
   } = useForm();
   const { id } = useParams();
   const navegar = useNavigate();
+
+  useEffect(() => {
+    if (modoCrear === false) {
+      cargarFormularioEditar();
+    }
+  }, []);
+
+  const cargarFormularioEditar = async () => {
+    const respuesta = await obtenerUsuarioAPI(id);
+    if (respuesta.status === 200) {
+      const usuarioBuscado = await respuesta.json();
+      setValue("nombreCompleto", usuarioBuscado.nombreCompleto);
+      setValue("email", usuarioBuscado.email);
+      setValue("usuario", usuarioBuscado.usuario);
+      setValue("password", usuarioBuscado.password);
+    } else {
+      Swal.fire({
+        title: "Ops!",
+        text: `Se produjo un error intente editar mas tarde`,
+        icon: "error",
+        customClass: {
+          popup: "contenedor-sweet",
+        },
+        confirmButtonColor: "#B79B63",
+      });
+    }
+  };
 
   const onSubmit = async (data) => {
     if (modoCrear === false) {
@@ -47,31 +76,29 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
         console.error("Se produjo un error intente nuevamente mas tarde");
       }
     } else {
-
-    try {
-      const respuesta = await crearUsuario(data);
-      const datos = await respuesta.json();
-      if (respuesta.status === 201) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: datos.mensaje,
-          showConfirmButton: true,
-        });
-        navegar("/");
-      } else {
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          title: datos.mensaje,
-          showConfirmButton: true,
-        });
+      try {
+        const respuesta = await crearUsuario(data);
+        const datos = await respuesta.json();
+        if (respuesta.status === 201) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: datos.mensaje,
+            showConfirmButton: true,
+          });
+          navegar("/");
+        } else {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: datos.mensaje,
+            showConfirmButton: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
-
-  }
   };
 
   return (
@@ -80,7 +107,7 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
         <div className="d-flex justify-content-center ">
           <div className="titulo-usuario ">
             <h1 className="fuente-formulario-Usuario text-center  text-light mt-3">
-              {titulo} Crear Usuario
+              {titulo}
             </h1>
           </div>
         </div>
@@ -94,7 +121,6 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
               >
                 <Form.Label>Nombre y Apellido</Form.Label>
                 <Form.Control
-            
                   placeholder="Nombre completo"
                   {...register("nombreCompleto", {
                     required: "El nombre del cliente es obligatorio",
@@ -119,7 +145,7 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
               >
                 <Form.Label>Usuario</Form.Label>
                 <Form.Control
-                     placeholder="Ej:  Maddie345"
+                  placeholder="Ej:  Maddie345"
                   {...register("usuario", {
                     required: "El nombre de usuario es obligatorio",
                     minLength: {
@@ -174,11 +200,13 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
                     },
                     maxLength: {
                       value: 16,
-                      message: "La contraseña debe tener como máximo 16 caracteres",
+                      message:
+                        "La contraseña debe tener como máximo 16 caracteres",
                     },
                     pattern: {
                       value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/,
-                      message: "La contraseña debe contener al menos una minúscula, una mayúscula y un número",
+                      message:
+                        "La contraseña debe contener al menos una minúscula, una mayúscula y un número",
                     },
                   })}
                 />
@@ -192,7 +220,7 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
                 variant="dark"
                 type="submit"
               >
-                {textoBoton}Crear Usuario
+                {textoBoton}
               </Button>
             </Form>
           </Card>
@@ -201,39 +229,5 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
     </>
   );
 };
-
-
-
-useEffect(() => {
-  if (modoCrear === false) {
-    cargarFormularioEditar();
-  }
-}, []);
-
-
-const cargarFormularioEditar = async () => {
-  const respuesta = await obtenerUsuario(id);
-  if (respuesta.status === 200) {
-    const UsuarioBuscado = await respuesta.json();
-    setValue("nombreCompleto", UsuarioBuscado.nombreCompleto);
-    setValue("email", UsuarioBuscado.email);
-    setValue("usuario", UsuarioBuscado.usuario);
-    setValue("password", UsuarioBuscado.password);
-  
-  } else {
-    Swal.fire({
-      title: "Ops!",
-      text: `Se produjo un error intente editar mas tarde`,
-      icon: "error",
-      customClass: {
-        popup: "contenedor-sweet",
-      },
-      confirmButtonColor: "#B79B63",
-    });
-  }
-};
-
-
-
 
 export default FormularioUsuario;
