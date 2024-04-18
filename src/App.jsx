@@ -46,12 +46,21 @@ function App() {
           }
         />
         <Route
+          titulo="Crear Habitación"
+          textoBoton="Crear"
+          modoCrear={true}
           exact
           path="/crearHabitacion"
           element={<FormularioHabitacion></FormularioHabitacion>}
-        >
-          {" "}
-        </Route>
+        ></Route>
+        <Route
+          titulo="Editar Habitación"
+          textoBoton="Guardar Cambios"
+          modoCrear={true}
+          exact
+          path="/editarReceta/:id"
+          element={<FormularioHabitacion></FormularioHabitacion>}
+        ></Route>
         <Route
           exact
           path="/login"
@@ -64,7 +73,6 @@ function App() {
         <Route exact path="/contacto" element={<Contacto />} />
 
         <Route exact path="/galeria" element={<Galeria />} />
-
       </Routes>
       <Footer />
     </BrowserRouter>

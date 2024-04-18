@@ -1,10 +1,14 @@
 import { Button, Card, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { crearHabitacionAPI } from "../../../helpers/queriesHabitacion";
+import {
+  crearHabitacionAPI,
+  editarHabitacionApi,
+} from "../../../helpers/queriesHabitacion";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
 
-const FormularioHabitacion = () => {
+const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
   //! ----------------------------------VARIBALES ----------------------------------------
   const {
     register,
@@ -18,6 +22,24 @@ const FormularioHabitacion = () => {
 
   //! ----------------------------------FUNCIONES ----------------------------------------
   const habitacionValida = async (habitacion) => {
+    if (modoCrear === false) {
+      /* PUT */
+      const respuesta = editarHabitacionApi(id, receta);
+      if (respuesta.status === 200) {
+        Swal.fire({
+          title: `Buen trabajo!`,
+          html: `Su habitación: <span class="text-warning">${habitacion.numero}</span> ha sido editada correctamente`,
+          icon: "success",
+        });
+        redireccionar("/administrador");
+      } else {
+        Swal.fire({
+          title: "Ops!",
+          text: `Se produjo un error intente editar su habitación mas tarde`,
+          icon: "error",
+        });
+      }
+    }
     /* POST */
     const crearHabitacion = await crearHabitacionAPI(habitacion);
     if (crearHabitacion.status === 201) {
@@ -44,6 +66,15 @@ const FormularioHabitacion = () => {
     reset();
   };
 
+  useEffect(() => {
+    if (modoCrear === false) {
+      cargarFomurlarioEditar();
+    }
+  }, []);
+
+  const cargarFomurlarioEditar = async () => {
+    const respuesta = await
+  }
   //! ----------------------------------MAQUETADO ----------------------------------------
   return (
     <section className="fondo-login">
