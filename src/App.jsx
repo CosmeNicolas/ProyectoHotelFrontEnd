@@ -46,20 +46,26 @@ function App() {
           }
         />
         <Route
-          titulo="Crear Habitación"
-          textoBoton="Crear"
-          modoCrear={true}
           exact
           path="/crearHabitacion"
-          element={<FormularioHabitacion></FormularioHabitacion>}
+          element={
+            <FormularioHabitacion
+              titulo="Crear Habitación"
+              textoBoton="Crear"
+              modoCrear={true}
+            ></FormularioHabitacion>
+          }
         ></Route>
         <Route
-          titulo="Editar Habitación"
-          textoBoton="Guardar Cambios"
-          modoCrear={false}
           exact
           path="/editarHabitacion/:id"
-          element={<FormularioHabitacion></FormularioHabitacion>}
+          element={
+            <FormularioHabitacion
+              titulo="Editar Habitación"
+              textoBoton="Guardar Cambios"
+              modoCrear={false}
+            ></FormularioHabitacion>
+          }
         ></Route>
         <Route
           exact

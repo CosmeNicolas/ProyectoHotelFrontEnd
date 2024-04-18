@@ -18,27 +18,26 @@ export const crearHabitacionAPI = async (nuevaHabitacion) => {
 
 //! PUT - para editar habitacion
 export const editarHabitacionApi = async (id, receta) => {
-    try {
-      const respuesta = await fetch(`${URI_HABITACIONES}/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(receta),
-      });
-      return respuesta;
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  try {
+    const respuesta = await fetch(`${URI_HABITACIONES}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(receta),
+    });
+    return respuesta;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-
-  //! GET - para traer 1 habitacion por su id
-  export const obtenerHabitacion = async (id) => {
-    try {
-      const respuesta = await fetch(`${URI_HABITACIONES}/${id}`);
-      return respuesta;
-    } catch (error) {
-      console.error(error);
-    }
-  };
+//! GET - para traer 1 habitacion por su id
+export const obtenerHabitacion = async (id) => {
+  try {
+    const respuesta = await fetch(`${URI_HABITACIONES}/${id}`);
+    return respuesta;
+  } catch (error) {
+    console.error(error);
+  }
+};

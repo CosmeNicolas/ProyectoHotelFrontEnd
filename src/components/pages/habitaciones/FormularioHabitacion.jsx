@@ -26,7 +26,7 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
   const habitacionValida = async (habitacion) => {
     if (modoCrear === false) {
       /* PUT */
-      const respuesta = editarHabitacionApi(id, receta);
+      const respuesta = editarHabitacionApi(id, habitacion);
       if (respuesta.status === 200) {
         Swal.fire({
           title: `Buen trabajo!`,
