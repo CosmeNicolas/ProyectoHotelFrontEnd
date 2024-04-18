@@ -17,14 +17,14 @@ export const crearHabitacionAPI = async (nuevaHabitacion) => {
 };
 
 //! PUT - para editar habitacion
-export const editarHabitacionApi = async (id, receta) => {
+export const editarHabitacionApi = async (id, habitacion) => {
   try {
     const respuesta = await fetch(`${URI_HABITACIONES}/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(receta),
+      body: JSON.stringify(habitacion),
     });
     return respuesta;
   } catch (error) {
