@@ -12,28 +12,43 @@ const ItemHabitacion = ({
 }) => {
   console.log(habitacionesAdmin);
 
-  const handleEliminar = async (habitacionId) => {
+  const handleEliminar = async (habitacionId, numero) => {
     Swal.fire({
-      title: "¿Estás seguro?",
-      text: "Una vez eliminada, no podrás recuperar esta habitación",
+      html: `¿Estas seguro que deseas borrar a la habitación <span class="text-danger">${numero}</span> ?`,
       icon: "warning",
       showCancelButton: true,
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Sí, eliminar",
-      cancelButtonText: "Cancelar",
       customClass: {
         popup: "contenedor-sweet",
       },
       confirmButtonColor: "#B79B63",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Borrar",
+      cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
           await eliminarHabitacionAPI(habitacionId);
-          Swal.fire("¡Habitación eliminada!", "", "success");
+          Swal.fire({
+            title: "Borrado!",
+            html: `Su habitación: <span class="text-danger">${numero}</span> ha sido borrada!`,
+            icon: "success",
+            customClass: {
+              popup: "contenedor-sweet",
+            },
+            confirmButtonColor: "#B79B63",
+          });
           actualizarHabitaciones();
         } catch (error) {
           console.error(error);
-          Swal.fire("Error", "No se pudo eliminar la habitación", "error");
+          Swal.fire({
+            title: "Ops!",
+            text: `Se produjo un error intente mas tarde`,
+            icon: "error",
+            customClass: {
+              popup: "contenedor-sweet",
+            },
+            confirmButtonColor: "#B79B63",
+          });
         }
       }
     });
@@ -75,7 +90,9 @@ const ItemHabitacion = ({
             <Button
               variant="danger"
               className="p-3 mx-1"
-              onClick={() => handleEliminar(habitacionAdmin._id)}
+              onClick={() =>
+                handleEliminar(habitacionAdmin._id, habitacionAdmin.numero)
+              }
             >
               <MdDelete />
             </Button>
