@@ -1,7 +1,11 @@
 import { Button, Card, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { crearHabitacionAPI } from "../../../helpers/queriesHabitacion";
+import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const FormularioHabitacion = () => {
+  //! ----------------------------------VARIBALES ----------------------------------------
   const {
     register,
     handleSubmit,
@@ -9,12 +13,38 @@ const FormularioHabitacion = () => {
     formState: { errors },
     getValues,
   } = useForm();
+  const { id } = useParams();
+  const redireccionar = useNavigate();
 
+  //! ----------------------------------FUNCIONES ----------------------------------------
   const habitacionValida = async (habitacion) => {
-    console.log(habitacion);
+    /* POST */
+    const crearHabitacion = await crearHabitacionAPI(habitacion);
+    if (crearHabitacion.status === 201) {
+      Swal.fire({
+        title: "Buen trabajo!",
+        html: `Su habitación: <span class="text-success">${habitacion.numero}</span> ha sido añadida al inicio`,
+        icon: "success",
+        customClass: {
+          popup: "contenedor-sweet",
+        },
+        confirmButtonColor: "#B79B63",
+      });
+    } else {
+      Swal.fire({
+        title: "Ops!",
+        text: `Se produjo un error intente añadir su habitación mas tarde`,
+        icon: "error",
+        customClass: {
+          popup: "contenedor-sweet",
+        },
+        confirmButtonColor: "#B79B63",
+      });
+    }
     reset();
   };
 
+  //! ----------------------------------MAQUETADO ----------------------------------------
   return (
     <section className="fondo-login">
       <div className="d-flex justify-content-center mt-5">
@@ -23,7 +53,7 @@ const FormularioHabitacion = () => {
             Crear Habitación
           </h1>
           <Form className="rounded-2" onSubmit={handleSubmit(habitacionValida)}>
-            <Form.Group className="mb-3 text-light" controlId="numero">
+            <Form.Group className="mb-4 text-light" controlId="numero">
               <Form.Label>Número de Habitación*</Form.Label>
               <Form.Control
                 type="number"
@@ -47,7 +77,7 @@ const FormularioHabitacion = () => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3 text-light" controlId="tipo">
+            <Form.Group className="mb-4 text-light" controlId="tipo">
               <Form.Label>Categoría*</Form.Label>
               <Form.Select
                 aria-label="select"
@@ -68,7 +98,7 @@ const FormularioHabitacion = () => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3 text-light" controlId="precio">
+            <Form.Group className="mb-4 text-light" controlId="precio">
               <Form.Label>Precio*</Form.Label>
               <Form.Control
                 type="number"
@@ -93,7 +123,7 @@ const FormularioHabitacion = () => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3 text-light" controlId="fechaIngreso">
+            <Form.Group className="mb-4 text-light" controlId="fechaIngreso">
               <Form.Label>Fecha de ingreso*</Form.Label>
               <Form.Control
                 type="date"
@@ -115,7 +145,7 @@ const FormularioHabitacion = () => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3 text-light" controlId="fechaSalida">
+            <Form.Group className="mb-4 text-light" controlId="fechaSalida">
               <Form.Label>Fecha de salida*</Form.Label>
               <Form.Control
                 type="date"
@@ -150,7 +180,7 @@ const FormularioHabitacion = () => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3 text-light" controlId="imagen">
+            <Form.Group className="mb-4 text-light" controlId="imagen">
               <Form.Label>Imagen URL*</Form.Label>
               <Form.Control
                 type="text"
@@ -167,6 +197,32 @@ const FormularioHabitacion = () => {
               />
               <Form.Text className="text-danger">
                 {errors.imagen?.message}
+              </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-4 text-light" controlId="descripcion">
+              <Form.Label>Descripción*</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder=""
+                className="formularioTextArea"
+                {...register("descripcion", {
+                  required: "Detallar la habitación a crear es obligatorio",
+                  minLength: {
+                    value: 35,
+                    message:
+                      "Debe ingresar como mínimo 35 caracteres para detallar la habitación",
+                  },
+                  maxLength: {
+                    value: 500,
+                    message:
+                      "Debe ingresar como máximo 500 caracteres para detallar la habitación",
+                  },
+                })}
+              />
+              <Form.Text className="text-danger mt-1">
+                {errors.descripcion?.message}
               </Form.Text>
             </Form.Group>
 
