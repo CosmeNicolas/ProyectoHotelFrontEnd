@@ -79,21 +79,23 @@ const Reserva = ({ reserva, titulo }) => {
 
   return (
     <>
-      <section className=" main">
-        <div className="d-flex justify-content-center my-3 pt-5 ">
+      <section className=" fondo-formulario-Usuario ">
+        <div className="d-flex justify-content-center ">
         <div className="titulo-usuario ">
-          <h1 className="display-5   text-center">{titulo}</h1>
+          <h1 className="fuente-formulario-Usuario text-center  text-light mt-3">{titulo}</h1>
           </div>
         </div>
 
         <div className="d-flex justify-content-center ">
-          <Card>
+          <Card className="container-formulario-Usuario  p-3 my-4  d-flex flex-column align-content-center justify-content-center">
             <Form
-              className="my-3 p-4"
+              className="p-3"
               onSubmit={handleSubmit(reservarHabitacion)}
+              
             >
               {/* Nombre habitacion */}
-              <Form.Group controlId="tipo">
+              <Form.Group controlId="tipo"
+                className=" mb-3 text-light">
                 <Form.Label>Nombre Habitacion</Form.Label>
                 <Form.Select
                   aria-label="select"
@@ -115,7 +117,7 @@ const Reserva = ({ reserva, titulo }) => {
                 </Form.Text>
               </Form.Group>
               {/* Numero */}
-              <Form.Group controlId="numero">
+              <Form.Group controlId="numero"   className=" mb-3 text-light">
                 <Form.Label>Número de Habitación*</Form.Label>
                 <Form.Control
                   type="number"
@@ -141,7 +143,7 @@ const Reserva = ({ reserva, titulo }) => {
                 </Form.Text>
               </Form.Group>
               {/* Fecha ingreso  */}
-              <Form.Group controlId="fechaIngreso">
+              <Form.Group controlId="fechaIngreso"   className=" mb-3 text-light">
                 <Form.Label>Fecha de ingreso</Form.Label>
                 <Form.Control
                   type="date"
@@ -165,7 +167,7 @@ const Reserva = ({ reserva, titulo }) => {
                 </Form.Text>
               </Form.Group>
               {/* fecha salida */}
-              <Form.Group controlId="fechaFinal">
+              <Form.Group controlId="fechaFinal"   className=" mb-3 text-light">
                 <Form.Label>Fecha de salida*</Form.Label>
                 <Form.Control
                   type="date"
@@ -201,7 +203,7 @@ const Reserva = ({ reserva, titulo }) => {
               </Form.Group>
 
               {/* PRECiO */}
-              <Form.Group controlId="precio">
+              <Form.Group controlId="precio"   className=" mb-3 text-light">
                 <Form.Label>Precio</Form.Label>
                 <Form.Control
                   type="number"
@@ -230,7 +232,9 @@ const Reserva = ({ reserva, titulo }) => {
               {/* DISPONIBILIDAD */}
 
               <div className="text-center mb-3">
-                <Button className="mt-4" variant="primary" type="submit">
+                <Button className="boton-formulario-Usuario my-2 ms-2"
+                variant="dark"
+                type="submit">
                   Reservar
                 </Button>
               </div>
