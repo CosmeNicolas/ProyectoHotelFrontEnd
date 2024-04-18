@@ -26,54 +26,63 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
   const habitacionValida = async (habitacion) => {
     if (modoCrear === false) {
       /* PUT */
-      const respuesta = editarHabitacionApi(id, habitacion);
-      if (respuesta.status === 200) {
-        Swal.fire({
-          title: `Buen trabajo!`,
-          html: `Su habitación: <span class="text-warning">${habitacion.numero}</span> ha sido editada correctamente`,
-          icon: "success",
-          customClass: {
-            popup: "contenedor-sweet",
-          },
-          confirmButtonColor: "#B79B63",
-        });
-        redireccionar("/administrador");
-      } else {
-        Swal.fire({
-          title: "Ops!",
-          text: `Se produjo un error intente editar su habitación mas tarde`,
-          icon: "error",
-          customClass: {
-            popup: "contenedor-sweet",
-          },
-          confirmButtonColor: "#B79B63",
-        });
+      try {
+        const respuesta = await editarHabitacionApi(id, habitacion);
+        if (respuesta.status === 200) {
+          Swal.fire({
+            title: `Buen trabajo!`,
+            html: `Su habitación: <span class="text-warning">${habitacion.numero}</span> ha sido editada correctamente`,
+            icon: "success",
+            customClass: {
+              popup: "contenedor-sweet",
+            },
+            confirmButtonColor: "#B79B63",
+          });
+          redireccionar("/administrador");
+        } else {
+          Swal.fire({
+            title: "Ops!",
+            text: `Se produjo un error intente editar su habitación mas tarde`,
+            icon: "error",
+            customClass: {
+              popup: "contenedor-sweet",
+            },
+            confirmButtonColor: "#B79B63",
+          });
+        }
+      } catch (error) {
+        console.error("Se produjo un error intente nuevamente mas tarde");
+      }
+    } else {
+      /* POST */
+      try {
+        const crearHabitacion = await crearHabitacionAPI(habitacion);
+        if (crearHabitacion.status === 201) {
+          Swal.fire({
+            title: "Buen trabajo!",
+            html: `Su habitación: <span class="text-success">${habitacion.numero}</span> ha sido añadida al inicio`,
+            icon: "success",
+            customClass: {
+              popup: "contenedor-sweet",
+            },
+            confirmButtonColor: "#B79B63",
+          });
+        } else {
+          Swal.fire({
+            title: "Ops!",
+            text: `Se produjo un error intente crear su habitación mas tarde`,
+            icon: "error",
+            customClass: {
+              popup: "contenedor-sweet",
+            },
+            confirmButtonColor: "#B79B63",
+          });
+        }
+        reset();
+      } catch (error) {
+        console.error(`Se produjo un error intente editar su habitación mas tarde`);
       }
     }
-    /* POST */
-    const crearHabitacion = await crearHabitacionAPI(habitacion);
-    if (crearHabitacion.status === 201) {
-      Swal.fire({
-        title: "Buen trabajo!",
-        html: `Su habitación: <span class="text-success">${habitacion.numero}</span> ha sido añadida al inicio`,
-        icon: "success",
-        customClass: {
-          popup: "contenedor-sweet",
-        },
-        confirmButtonColor: "#B79B63",
-      });
-    } else {
-      Swal.fire({
-        title: "Ops!",
-        text: `Se produjo un error intente añadir su habitación mas tarde`,
-        icon: "error",
-        customClass: {
-          popup: "contenedor-sweet",
-        },
-        confirmButtonColor: "#B79B63",
-      });
-    }
-    reset();
   };
 
   useEffect(() => {
@@ -89,9 +98,12 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
       setValue("numero", habitacionBuscada.numero);
       setValue("tipo", habitacionBuscada.tipo);
       setValue("precio", habitacionBuscada.precio);
-      setValue("fechaIngreso", habitacionBuscada.fechaIngreso);
-      setValue("fechaSalida", habitacionBuscada.fechaSalida);
-      setValue("fechaSalida", habitacionBuscada.fechaSalida);
+      const fechaIngreso = new Date(habitacionBuscada.fechaIngreso);
+      const fechaSalida = new Date(habitacionBuscada.fechaSalida);
+      const fechaIngresoFormateada = fechaIngreso.toISOString().split("T")[0];
+      const fechaSalidaFormateada = fechaSalida.toISOString().split("T")[0];
+      setValue("fechaIngreso", fechaIngresoFormateada);
+      setValue("fechaSalida", fechaSalidaFormateada);
       setValue("imagen", habitacionBuscada.imagen);
       setValue("descripcion", habitacionBuscada.descripcion);
     } else {
@@ -222,10 +234,8 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
                         "La fecha debe ser posterior a la fecha de hoy"
                       );
                     },
-                    fechaPosterior:(value) => {
-                      const fechaIngreso =  new Date(
-                        getValues("fechaIngreso")
-                      );
+                    fechaPosterior: (value) => {
+                      const fechaIngreso = new Date(getValues("fechaIngreso"));
                       const fechaSalida = new Date(value);
                       return (
                         fechaSalida > fechaIngreso ||
