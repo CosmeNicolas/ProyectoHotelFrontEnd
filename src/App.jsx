@@ -59,8 +59,9 @@ function App() {
         />
         <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
         <Route exact path="/servicios" element={<Servicios />} />
-        <Route exact path="/reserva" element={<Reserva 
+        <Route exact path="/reserva/:id" element={<Reserva 
         setUsuarioLogueado={setUsuarioLogueado}
+        reserva={true} titulo="Nueva Reserva"
         />} />
 
         <Route exact path="/contacto"  element={<Contacto />} />

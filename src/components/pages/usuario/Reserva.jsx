@@ -2,13 +2,27 @@ import { useEffect, useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { leerHabitacionesAPI } from "../../../helpers/queries";
+import { useParams } from "react-router-dom";
 
-const Reserva = () => {
+const Reserva = ({reserva, titulo}) => {
 const [reservas, setReservas] = useState([])
+const { id } = useParams()
 
 useEffect(() => {
-  leerReservas()
+  if(reserva){
+    cargarDatosHabitacion()
+  }
 }, [])
+
+
+const cargarDatosHabitacion = async()=>{
+  const respuesta = await leerHabitacionesAPI(id)
+  console.log(respuesta)
+  if(respuesta.status === 200){
+    const obtenerHabitacion = await reserva.json()
+    console.log(obtenerHabitacion)
+  }
+}
 
 
  const leerReservas = async()=>{
