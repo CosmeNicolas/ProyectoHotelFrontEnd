@@ -104,8 +104,8 @@ const Contacto = () => {
 
           </Col>
           <Col xs={12} sm={12} lg={6} className="texto-FormContacto py-3">
-            <h4><BsFillGeoAltFill className="icono-ubicacionContacto"/>Av. Exequiel Bustillo 1348, San Carlos de Bariloche</h4>
-            <Form className="text-center" onSubmit={enviarMail}>
+            <h4 className="text-center "><BsFillGeoAltFill className="icono-ubicacionContacto"/>Av. Exequiel Bustillo 1348, San Carlos de Bariloche</h4>
+            <Form className="text-center mt-3" onSubmit={enviarMail}>
               <Form.Group>
                 <InputGroup className="py-3">
                   <InputGroup.Text id="nombreContacto">Nombre</InputGroup.Text>
