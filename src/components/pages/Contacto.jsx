@@ -38,6 +38,10 @@ const enviarMail = async (e) => {
         title: "¡Mensaje enviado!",
         text: "Su consulta se ha enviado correctamente.",
         showConfirmButton: true,
+        confirmButtonColor: '#B79B63',
+        customClass: {
+          popup: 'contenedor-sweet'
+        }
       });
     } else {
      
