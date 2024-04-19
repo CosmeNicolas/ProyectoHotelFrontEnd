@@ -159,7 +159,8 @@ const Reserva = ({ reserva, titulo }) => {
                         const fechaIngreso = new Date(value);
                         const hoy = new Date();
                         return (
-                          fechaIngreso >= hoy || "Ingrese una fecha válida"
+                          fechaIngreso >= hoy.setDate(hoy.getDate() - 1) ||
+                          "Ingrese una fecha válida"
                         );
                       },
                     },
@@ -179,19 +180,19 @@ const Reserva = ({ reserva, titulo }) => {
                   {...register("fechaSalida", {
                     required: "La fecha de salida es obligatoria",
                     validate: {
-                      fechaFutura: async (value) => {
-                        const fechaSalida = await new Date(value);
+                      fechaFutura: (value) => {
+                        const fechaSalida = new Date(value);
                         const hoy = new Date();
                         return (
                           fechaSalida >= hoy ||
                           "La fecha debe ser posterior a la fecha de hoy"
                         );
                       },
-                      fechaPosterior: async (value) => {
-                        const fechaIngreso = await new Date(
+                      fechaPosterior: (value) => {
+                        const fechaIngreso = new Date(
                           getValues("fechaIngreso")
                         );
-                        const fechaSalida = await new Date(value);
+                        const fechaSalida = new Date(value);
                         return (
                           fechaSalida > fechaIngreso ||
                           "La fecha de salida debe ser posterior a la fecha de ingreso"
