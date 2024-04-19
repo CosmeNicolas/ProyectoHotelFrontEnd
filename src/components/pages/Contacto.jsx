@@ -3,6 +3,37 @@ import pileta from "../../assets/pileta.jpeg";
 import { BsFillGeoAltFill } from "react-icons/bs";
 import emailjs from '@emailjs/browser';
 
+emailjs.init("32wbx7tjPj_o_o_p4");
+
+
+let templateParams = {
+  from_name: 'Hotel Rolling',
+  user_name: '', 
+  destinatario: '', 
+  message: 'gracias por registrarte',
+  user_lastname: ''
+};
+
+function enviarMail(e){
+  e.preventDefault(); 
+
+  // Se actualiza los templateParams con el formulario
+  templateParams.to_name = e.target.user_name.value; 
+  templateParams.destinatario = e.target.user_email.value;
+  templateParams.to_lastname = e.target.user_lastname.value;
+  templateParams.message = e.target.consulta.value;
+  
+  
+  // Envia el correo electrónico
+  emailjs.send("service_vau1ul5", "template_wovljxf", templateParams).then(
+    function(response) {
+      console.log('success!', response.status, response.text);
+    },
+    function(error){
+      console.log('failed...', error);
+    }
+  );
+}
 
 const Contacto = () => {
   return (
