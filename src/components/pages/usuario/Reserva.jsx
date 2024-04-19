@@ -37,6 +37,12 @@ const Reserva = ({ reserva, titulo }) => {
       setValue("tipo", obtenerHabitacion.tipo);
       setValue("precio", obtenerHabitacion.precio);
       setValue("disponible", obtenerHabitacion.disponible);
+      const fechaIngreso = new Date(obtenerHabitacion.fechaIngreso);
+      const fechaSalida = new Date(obtenerHabitacion.fechaSalida);
+      const fechaIngresoFormateada = fechaIngreso.toISOString().split("T")[0];
+      const fechaSalidaFormateada = fechaSalida.toISOString().split("T")[0];
+      setValue("fechaIngreso", fechaIngresoFormateada);
+      setValue("fechaSalida", fechaSalidaFormateada);
     } else {
       Swal.fire({
         title: "Ocurrio un error",
@@ -81,21 +87,18 @@ const Reserva = ({ reserva, titulo }) => {
     <>
       <section className=" fondo-formulario-Reserva ">
         <div className="d-flex justify-content-center ">
-        <div className="titulo-Reserva ">
-          <h1 className=" fuente-formulario-Reserva text-center  text-light mt-3">{titulo}</h1>
+          <div className="titulo-Reserva ">
+            <h1 className=" fuente-formulario-Reserva text-center  text-light mt-3">
+              {titulo}
+            </h1>
           </div>
         </div>
 
         <div className="d-flex justify-content-center ">
           <Card className="container-formulario-Reserva  p-3 my-4  d-flex flex-column align-content-center justify-content-center">
-            <Form
-              className="p-3"
-              onSubmit={handleSubmit(reservarHabitacion)}
-              
-            >
+            <Form className="p-3" onSubmit={handleSubmit(reservarHabitacion)}>
               {/* Nombre habitacion */}
-              <Form.Group controlId="tipo"
-                className=" mb-3 text-light">
+              <Form.Group controlId="tipo" className=" mb-3 text-light">
                 <Form.Label>Tipo de Habitacion</Form.Label>
                 <Form.Select
                   aria-label="select"
@@ -117,7 +120,7 @@ const Reserva = ({ reserva, titulo }) => {
                 </Form.Text>
               </Form.Group>
               {/* Numero */}
-              <Form.Group controlId="numero"   className=" mb-3 text-light">
+              <Form.Group controlId="numero" className=" mb-3 text-light">
                 <Form.Label>Número de Habitación*</Form.Label>
                 <Form.Control
                   type="number"
@@ -143,7 +146,7 @@ const Reserva = ({ reserva, titulo }) => {
                 </Form.Text>
               </Form.Group>
               {/* Fecha ingreso  */}
-              <Form.Group controlId="fechaIngreso"   className=" mb-3 text-light">
+              <Form.Group controlId="fechaIngreso" className=" mb-3 text-light">
                 <Form.Label>Fecha de ingreso</Form.Label>
                 <Form.Control
                   type="date"
@@ -156,7 +159,8 @@ const Reserva = ({ reserva, titulo }) => {
                         const fechaIngreso = new Date(value);
                         const hoy = new Date();
                         return (
-                          fechaIngreso >= hoy || "Ingrese una fecha válida"
+                          fechaIngreso >= hoy.setDate(hoy.getDate() - 1) ||
+                          "Ingrese una fecha válida"
                         );
                       },
                     },
@@ -167,7 +171,7 @@ const Reserva = ({ reserva, titulo }) => {
                 </Form.Text>
               </Form.Group>
               {/* fecha salida */}
-              <Form.Group controlId="fechaFinal"   className=" mb-3 text-light">
+              <Form.Group controlId="fechaFinal" className=" mb-3 text-light">
                 <Form.Label>Fecha de salida*</Form.Label>
                 <Form.Control
                   type="date"
@@ -176,19 +180,19 @@ const Reserva = ({ reserva, titulo }) => {
                   {...register("fechaSalida", {
                     required: "La fecha de salida es obligatoria",
                     validate: {
-                      fechaFutura: async (value) => {
-                        const fechaSalida = await new Date(value);
+                      fechaFutura: (value) => {
+                        const fechaSalida = new Date(value);
                         const hoy = new Date();
                         return (
                           fechaSalida >= hoy ||
                           "La fecha debe ser posterior a la fecha de hoy"
                         );
                       },
-                      fechaPosterior: async (value) => {
-                        const fechaIngreso = await new Date(
+                      fechaPosterior: (value) => {
+                        const fechaIngreso = new Date(
                           getValues("fechaIngreso")
                         );
-                        const fechaSalida = await new Date(value);
+                        const fechaSalida = new Date(value);
                         return (
                           fechaSalida > fechaIngreso ||
                           "La fecha de salida debe ser posterior a la fecha de ingreso"
@@ -203,7 +207,7 @@ const Reserva = ({ reserva, titulo }) => {
               </Form.Group>
 
               {/* PRECiO */}
-              <Form.Group controlId="precio"   className=" mb-3 text-light">
+              <Form.Group controlId="precio" className=" mb-3 text-light">
                 <Form.Label>Precio</Form.Label>
                 <Form.Control
                   type="number"
@@ -232,9 +236,11 @@ const Reserva = ({ reserva, titulo }) => {
               {/* DISPONIBILIDAD */}
 
               <div className="text-center mb-3">
-                <Button className="boton-formulario-Reserva my-2 ms-2"
-                variant="dark"
-                type="submit">
+                <Button
+                  className="boton-formulario-Reserva my-2 ms-2"
+                  variant="dark"
+                  type="submit"
+                >
                   Reservar
                 </Button>
               </div>
