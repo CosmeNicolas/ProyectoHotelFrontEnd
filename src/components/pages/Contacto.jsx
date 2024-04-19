@@ -104,7 +104,7 @@ const Contacto = () => {
 
           </Col>
           <Col xs={12} sm={12} lg={6} className="texto-FormContacto py-3">
-            <h4><BsFillGeoAltFill className="icono-ubicacionContacto"/>Av. Gral. Paz 576, San Miguel de Tucuman, CP 4000</h4>
+            <h4><BsFillGeoAltFill className="icono-ubicacionContacto"/>Av. Exequiel Bustillo 1348, San Carlos de Bariloche</h4>
             <Form className="text-center" onSubmit={enviarMail}>
               <Form.Group>
                 <InputGroup className="py-3">
@@ -113,6 +113,7 @@ const Contacto = () => {
                     placeholder="Juan"
                     aria-label="nombre"
                     name="user_name"
+                    className="color-inputs"
                   />
                 </InputGroup>
                 <InputGroup>
@@ -121,6 +122,7 @@ const Contacto = () => {
                     placeholder="Garcia"
                     aria-label="apellido"
                     name="user_lastname"
+                    className="color-inputs"
                   />
                 </InputGroup>
                 <InputGroup className="py-3">
@@ -130,17 +132,18 @@ const Contacto = () => {
                     aria-label="email"
                     type="email"
                     name="user_email"
+                    className="color-inputs"
                   />
                 </InputGroup>
                 <FloatingLabel controlId="consultaContacto" label="Consulta">
-                  <Form.Control
+                <Form.Control
                     as="textarea"
                     placeholder="Deje su consulta"
-                    style={{ height: '100px' }}
-                    name="consulta"
+                    className="formularioTextArea color-inputs"      
+                    style={{ height: "150px" }}
                   />
                 </FloatingLabel>
-                <Button type="submit" className="btn-Contacto my-3">
+                <Button type="submit" className="btn-Contacto my-3" variant="dark">
                   Enviar
                 </Button>
               </Form.Group>
