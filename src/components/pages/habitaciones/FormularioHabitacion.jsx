@@ -21,6 +21,7 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
   } = useForm();
   const { id } = useParams();
   const redireccionar = useNavigate();
+  
 
   //! ----------------------------------FUNCIONES ----------------------------------------
   const habitacionValida = async (habitacion) => {
@@ -214,6 +215,7 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
                         fechaFutura: (value) => {
                           const fechaIngreso = new Date(value);
                           const hoy = new Date();
+                          console.log(hoy)
                           return (
                             fechaIngreso >= hoy || "Ingrese una fecha válida"
                           );
