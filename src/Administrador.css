@@ -101,6 +101,8 @@ font-family: "Dancing Script", cursive;
   overflow-y: auto;
 }
 
+
+
 .color-inputs:focus,
 .color-inputs:active {
   border-color: #B79B63;
