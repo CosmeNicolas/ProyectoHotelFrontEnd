@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams, useNavigate } from "react-router-dom";
@@ -19,6 +19,7 @@ const Reserva = ({ reserva, titulo }) => {
   } = useForm();
   const { id } = useParams();
   const navegacion = useNavigate();
+  const [imagenCargada, setImagenCargada] = useState("");
 
   useEffect(() => {
     if (reserva) {
@@ -31,8 +32,8 @@ const Reserva = ({ reserva, titulo }) => {
     console.log(respuesta);
     if (respuesta.status === 200) {
       const obtenerHabitacion = await respuesta.json();
-      console.log(obtenerHabitacion);
       /* traer los valores de las habitaciones */
+      setImagenCargada(obtenerHabitacion.imagen);
       setValue("numero", obtenerHabitacion.numero);
       setValue("tipo", obtenerHabitacion.tipo);
       setValue("precio", obtenerHabitacion.precio);
@@ -54,6 +55,10 @@ const Reserva = ({ reserva, titulo }) => {
   const reservarHabitacion = async (reserva) => {
     try {
       if (reserva) {
+        reserva.disponible = false;
+        if (!reserva.imagen) {
+          reserva.imagen = imagenCargada;
+        }
         reserva.disponible = false;
         const respuesta = await editarHabitacionApi(id, reserva);
         console.log(respuesta);
