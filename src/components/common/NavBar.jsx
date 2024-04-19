@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import logo from ".././../assets/logo.png";
+import logo from ".././../assets/logo.jpg";
 import { BsFillGeoAltFill } from "react-icons/bs";
 import { Link, NavLink, useNavigate} from "react-router-dom";
 import Swal from 'sweetalert2'

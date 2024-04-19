@@ -1,5 +1,13 @@
-import React from 'react';
-import { Button, Row, Col, Container, Image, Form, InputGroup, FloatingLabel } from "react-bootstrap";
+import {
+  Button,
+  Row,
+  Col,
+  Container,
+  Image,
+  Form,
+  InputGroup,
+  FloatingLabel,
+} from "react-bootstrap";
 import pileta from "../../assets/pileta.jpeg";
 import { BsFillGeoAltFill } from "react-icons/bs";
 import emailjs from '@emailjs/browser';

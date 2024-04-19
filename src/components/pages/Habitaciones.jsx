@@ -29,7 +29,7 @@ const Habitaciones = () => {
           className="img-habitacion mt-3"
           fluid
         />
-        <Row className="descripcion-habitacion text-center">
+        <Row className="descripcion-habitacion g-0 text-center">
           <Col xs={{ span: 12, order: 2 }} md={6}>
             <Image
               src={living1img}
@@ -87,7 +87,7 @@ const Habitaciones = () => {
           className="img-habitacion mt-3"
           fluid
         />
-        <Row className="descripcion-habitacion text-center">
+        <Row className="descripcion-habitacion g-0 text-center">
           <Col xs={{ span: 12, order: 2 }} md={6}>
             <Image
               src={habitacion4img}
@@ -135,7 +135,7 @@ const Habitaciones = () => {
           className="img-habitacion mt-3"
           fluid
         />
-        <Row className="descripcion-habitacion text-center">
+        <Row className="descripcion-habitacion g-0 text-center">
           <Col xs={{ span: 12, order: 2 }} md={6}>
             <Image
               src={habitacion6img}
@@ -192,7 +192,7 @@ const Habitaciones = () => {
           className="img-habitacion mt-3"
           fluid
         />
-        <Row className="descripcion-habitacion text-center">
+        <Row className="descripcion-habitacion g-0 text-center">
           <Col xs={{ span: 12, order: 2 }} md={6}>
             <Image
               src={banio1img}
