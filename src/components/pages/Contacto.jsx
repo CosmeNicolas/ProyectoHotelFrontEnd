@@ -54,14 +54,16 @@ const Contacto = () => {
       <Container className="py-5">
         <Row className="justify-content-center">
           <Col xs={12} sm={12} lg={5} >
-          <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1028.2928906921807!2d-65.2075942400546!3d-26.836748847013748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d3ad7f30f1d%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses-419!2sar!4v1695685464063!5m2!1ses-419!2sar"
-              style={{ border: "0" }}             
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              width="100%"
-              height="100%"
-            ></iframe>
+         
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9013.019608743918!2d-71.168338929087!3d-41.07480697251358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961a7b1520c860e5%3A0x8210ae97cb7b9a65!2sSan%20Carlos%20de%20Bariloche%2C%20R%C3%ADo%20Negro%20Province!5e0!3m2!1sen!2sar!4v1713504750974!5m2!1sen!2sar"
+  style={{ border: "0" }}             
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  width="100%"
+  height="100%"></iframe>
+
+
+
           </Col>
           <Col xs={12} sm={12} lg={6} className="texto-FormContacto py-3">
             <h4><BsFillGeoAltFill className="icono-ubicacionContacto"/>Av. Gral. Paz 576, San Miguel de Tucuman, CP 4000</h4>
