@@ -3,9 +3,11 @@ import { Button, Row, Col, Container, Image, Form, InputGroup, FloatingLabel } f
 import pileta from "../../assets/pileta.jpeg";
 import { BsFillGeoAltFill } from "react-icons/bs";
 import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
 
 
 emailjs.init("32wbx7tjPj_o_o_p4");
+
 // Definir templateParams fuera de la función enviarMail
 let templateParams = {
   from_name: 'Hotel Rolling',
@@ -15,26 +17,50 @@ let templateParams = {
   user_lastname: ''
 };
 
-function enviarMail(e){
+const enviarMail = async (e) => {
   e.preventDefault(); // Previene el comportamiento por defecto del formulario
 
   // Actualiza los valores de templateParams con los valores del formulario
-  templateParams.to_name = e.target.user_name.value; // Asegúrate de que el input de nombre tenga el atributo 'name="user_name"'
-  templateParams.destinatario = e.target.user_email.value; // Asegúrate de que el input de email tenga el atributo 'name="user_email"'
+  templateParams.to_name = e.target.user_name.value;
+  templateParams.destinatario = e.target.user_email.value;
   templateParams.to_lastname = e.target.user_lastname.value;
   templateParams.message = e.target.consulta.value;
-  
-  
-  // Envía el correo electrónico
-  emailjs.send("service_vau1ul5", "template_wovljxf", templateParams).then(
-    function(response) {
-      console.log('success!', response.status, response.text);
-    },
-    function(error){
-      console.log('failed...', error);
+
+  try {
+    
+    const response = await emailjs.send("service_vau1ul5", "template_wovljxf", templateParams);
+
+    if (response.status === 200) {
+   
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "¡Mensaje enviado!",
+        text: "Su consulta se ha enviado correctamente.",
+        showConfirmButton: true,
+      });
+    } else {
+     
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Error",
+        text: "Ha ocurrido un error al enviar el mensaje. Intente nuevamente más tarde.",
+        showConfirmButton: true,
+      });
     }
-  );
-}
+  } catch (error) {
+    console.error('error al enviar el email', error);
+    // Handle other errors if needed
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: "Error",
+      text: "Ha ocurrido un error inesperado. Intente nuevamente más tarde.",
+      showConfirmButton: true,
+    });
+  }
+};
 
 const Contacto = () => {
   return (
