@@ -46,16 +46,27 @@ const Login = ({ setUsuarioLogueado }) => {
             }
           });
         } else {
-          alert("ocurrrio un error al loguearse ");
+          Swal.fire({
+            title: "Error al loguearse!",
+            text: "Intente Nuevamente",
+            icon: "error",
+            customClass: {
+              popup: 'contenedor-sweet'
+            }
+          });
         }
+      } else{
+        Swal.fire({
+          title: "Error al loguearse!",
+          text: "Intente Nuevamente",
+          icon: "error",
+          customClass: {
+            popup: 'contenedor-sweet'
+          }
+        });
       }
     } catch (error) {
       console.log(error);
-      Swal.fire({
-        title: "Error al loguearse!",
-        text: "Intente Nuevamente",
-        icon: "error"
-      });
     }
   };
 

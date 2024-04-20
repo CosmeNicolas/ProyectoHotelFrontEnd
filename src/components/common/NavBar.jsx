@@ -98,9 +98,9 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
               </NavLink>
             )
             }
-            <Nav.Link >
-              <span className="nav-link text-decoration-none reserva-nav p-2">Reserva</span>
-            </Nav.Link>
+            <NavLink className='nav-link text-decoration-none' to='/login'>
+              <span className="nav-link  reserva-nav p-2" >Reserva</span>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
