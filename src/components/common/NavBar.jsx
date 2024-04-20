@@ -12,6 +12,7 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
     fontWeigth: 'bold'
   }
 
+
  
   const direccionar = useNavigate()
   const logOut = ()=>{
@@ -38,7 +39,7 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
       <Container>
         <Navbar.Brand as={Link} to="/" href="/">
           <span>
-            <img className="img-nav" src={logo} alt="imagen-prueba" />
+            <img className="img-nav" src={logo} alt="imagen-prueba" setUsuarioLogueado={setUsuarioLogueado} />
           </span>
         </Navbar.Brand>
         <div className="ms-auto">

@@ -6,9 +6,15 @@ import Cardhabitaciones from "./habitaciones/CardHabitaciones";
 import { leerHabitacionesAPI } from "../../helpers/queries";
 const Inicio = () => {
   const [habitaciones, setHabitaciones] = useState([]);
-
+  const usuario= JSON.parse(sessionStorage.getItem("inicioHotel")) || "";
+  const [selogueo, setSelogueo] = useState(usuario)
+console.log(selogueo)
   useEffect(() => {
-    leerHabitacionesInicio();
+   /*  if(usuario){ */
+      leerHabitacionesInicio();
+    /* }else{
+      alert('logueate maquina para ver habitaciones disponibles')
+    } */
   }, []);
 
   const leerHabitacionesInicio = async () => {

@@ -2,6 +2,9 @@ import { Container, Card, Button, Row, Col, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Cardhabitaciones = ({ habitaciones }) => {
+  
+
+
   return (
     <>
       <Container>

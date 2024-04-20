@@ -11,13 +11,13 @@ const Login = ({ setUsuarioLogueado }) => {
     formState: { errors },
   } = useForm();
   const navegacion = useNavigate();
-
+  
   const onSubmit = async (usuario) => {
     try {
       const respuesta = await iniciarSesion(usuario);
       if (respuesta.status === 200) {
         const dato = await respuesta.json();
-
+        
         if (dato.rol === "Usuario") {
           console.log(dato.rol)
           sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol}))
