@@ -8,6 +8,7 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
+import { leerHabitacionesAPI } from "../../../helpers/queries";
 
 const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
   //! ----------------------------------VARIBALES ----------------------------------------
@@ -120,6 +121,23 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
       });
     }
   };
+
+  const verificarNumeroRepetido = async (valor) => {
+    try {
+      const numeroHabitacion = getValues("numero");
+      const habitaciones = await leerHabitacionesAPI();
+      if (!modoCrear && numeroHabitacion === valor) {
+        return true;
+      }
+      return !habitaciones.some(
+        (habitacion) => habitacion.numero === parseInt(valor)
+      );
+    } catch (error) {
+      console.error("Error al verificar el número de habitación:", error);
+      return false;
+    }
+  };
+
   //! ----------------------------------MAQUETADO ----------------------------------------
   return (
     <section className="fondo-login">
@@ -144,10 +162,18 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
                     value: 10000,
                     message: "Debe ingresar hasta la habitación número 10.000",
                   },
+                  validate: {
+                    noExiste: async (numero) => {
+                      const isUnique = await verificarNumeroRepetido(numero);
+                      return (
+                        isUnique || "El número de habitación ya está en uso"
+                      );
+                    },
+                  },
                 })}
               />
               <Form.Text className="text-danger">
-                {errors.numero?.message}
+                {errors.numero && errors.numero.message}
               </Form.Text>
             </Form.Group>
 
