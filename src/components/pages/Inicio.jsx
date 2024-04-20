@@ -2,34 +2,29 @@ import { useEffect, useState } from "react";
 import banner from "../../assets/Wonderful3.gif";
 import SectionIConosInicio from "../common/SectionIConosInicio";
 import SectionImagenInicio from "../common/SectionImagenInicio";
-import Cardhabitaciones from './habitaciones/CardHabitaciones'
+import Cardhabitaciones from "./habitaciones/CardHabitaciones";
 import { leerHabitacionesAPI } from "../../helpers/queries";
 const Inicio = () => {
-
-  const [habitaciones, setHabitaciones] = useState([])
+  const [habitaciones, setHabitaciones] = useState([]);
 
   useEffect(() => {
-    leerHabitacionesInicio()
-  }, [])
-  
+    leerHabitacionesInicio();
+  }, []);
 
-  const leerHabitacionesInicio = async()=>{
+  const leerHabitacionesInicio = async () => {
     try {
       const respuesta = await leerHabitacionesAPI();
-      if(respuesta.status === 200){
-        const habitacionesAPIinicio = await respuesta
-        setHabitaciones(habitacionesAPIinicio)
+      if (respuesta.status === 200) {
+        const habitacionesAPIinicio = await respuesta;
+        setHabitaciones(habitacionesAPIinicio);
       }
       const habitacionesAPIinicio = await respuesta;
-      setHabitaciones(habitacionesAPIinicio)
+      setHabitaciones(habitacionesAPIinicio);
     } catch (error) {
-      console.log(error)
-      alert('tenes un error facha')
+      console.log(error);
+      alert("tenes un error facha");
     }
-  }
-
-
-
+  };
 
   return (
     <>
@@ -42,12 +37,14 @@ const Inicio = () => {
           <h3 className="fuente-slogan-secundario text-center">
             Aventuras, relajación y experiencias únicas te esperan.
           </h3>
-         <SectionIConosInicio/>
-         <hr className="mx-4" />
-         <SectionImagenInicio/>
-         <hr className="mx-4" />
+          <SectionIConosInicio />
+          <hr className="mx-4" />
+          <SectionImagenInicio />
+          <hr className="mx-4" />
         </article>
-        <Cardhabitaciones  habitaciones={habitaciones}/>
+        <article>
+          <Cardhabitaciones habitaciones={habitaciones} />
+        </article>
       </section>
     </>
   );
