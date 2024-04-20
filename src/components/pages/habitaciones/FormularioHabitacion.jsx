@@ -197,60 +197,72 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-4 text-light" controlId="fechaIngreso">
-              <Form.Label>Fecha de ingreso*</Form.Label>
-              <Form.Control
-                type="date"
-                placeholder="Ej: 27/03/2024"
-                className="color-inputs"
-                {...register("fechaIngreso", {
-                  required: "La fecha de ingreso es obligatoria",
-                  validate: {
-                    fechaFutura: (value) => {
-                      const fechaIngreso = new Date(value);
-                      const hoy = new Date();
-                      return fechaIngreso >= hoy || "Ingrese una fecha válida";
-                    },
-                  },
-                })}
-              />
-              <Form.Text className="text-danger">
-                {errors.fechaIngreso?.message}
-              </Form.Text>
-            </Form.Group>
+            {!modoCrear && (
+              <>
+                <Form.Group
+                  className="mb-4 text-light"
+                  controlId="fechaIngreso"
+                >
+                  <Form.Label>Fecha de ingreso*</Form.Label>
+                  <Form.Control
+                    type="date"
+                    placeholder="Ej: 27/03/2024"
+                    className="color-inputs"
+                    {...register("fechaIngreso", {
+                      required: "La fecha de ingreso es obligatoria",
+                      validate: {
+                        fechaFutura: (value) => {
+                          const fechaIngreso = new Date(value);
+                          const hoy = new Date();
+                          return (
+                            fechaIngreso >= hoy.setDate(hoy.getDate() - 1) ||
+                            "Ingrese una fecha válida"
+                          );
+                        },
+                      },
+                    })}
+                  />
+                  <Form.Text className="text-danger">
+                    {errors.fechaIngreso?.message}
+                  </Form.Text>
+                </Form.Group>
 
-            <Form.Group className="mb-4 text-light" controlId="fechaSalida">
-              <Form.Label>Fecha de salida*</Form.Label>
-              <Form.Control
-                type="date"
-                placeholder="Ej: 27/03/2024"
-                className="color-inputs"
-                {...register("fechaSalida", {
-                  required: "La fecha de salida es obligatoria",
-                  validate: {
-                    fechaFutura: (value) => {
-                      const fechaSalida = new Date(value);
-                      const hoy = new Date();
-                      return (
-                        fechaSalida >= hoy ||
-                        "La fecha debe ser posterior a la fecha de hoy"
-                      );
-                    },
-                    fechaPosterior: (value) => {
-                      const fechaIngreso = new Date(getValues("fechaIngreso"));
-                      const fechaSalida = new Date(value);
-                      return (
-                        fechaSalida > fechaIngreso ||
-                        "La fecha de salida debe ser posterior a la fecha de ingreso"
-                      );
-                    },
-                  },
-                })}
-              />
-              <Form.Text className="text-danger">
-                {errors.fechaSalida?.message}
-              </Form.Text>
-            </Form.Group>
+                <Form.Group className="mb-4 text-light" controlId="fechaSalida">
+                  <Form.Label>Fecha de salida*</Form.Label>
+                  <Form.Control
+                    type="date"
+                    placeholder="Ej: 27/03/2024"
+                    className="color-inputs"
+                    {...register("fechaSalida", {
+                      required: "La fecha de salida es obligatoria",
+                      validate: {
+                        fechaFutura: (value) => {
+                          const fechaSalida = new Date(value);
+                          const hoy = new Date();
+                          return (
+                            fechaSalida >= hoy ||
+                            "La fecha debe ser posterior a la fecha de hoy"
+                          );
+                        },
+                        fechaPosterior: (value) => {
+                          const fechaIngreso = new Date(
+                            getValues("fechaIngreso")
+                          );
+                          const fechaSalida = new Date(value);
+                          return (
+                            fechaSalida > fechaIngreso ||
+                            "La fecha de salida debe ser posterior a la fecha de ingreso"
+                          );
+                        },
+                      },
+                    })}
+                  />
+                  <Form.Text className="text-danger">
+                    {errors.fechaSalida?.message}
+                  </Form.Text>
+                </Form.Group>
+              </>
+            )}
 
             <Form.Group className="mb-4 text-light" controlId="disponible">
               <Form.Label>Disponibilidad*</Form.Label>

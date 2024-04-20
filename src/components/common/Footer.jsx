@@ -18,8 +18,8 @@ const Footer = () => {
                         <Link to="/error404" className="icono-link"><FaTwitter className="icono-twitter" /></Link>
                     </div>
                     <div className="col-lg-3 mt-3 d-flex justify-content-center justify-content-lg-end">
-                        <img src={logoTripAdvisor} alt="logo de trip advisor" className="logo-trip-advisor img-fluid me-lg-3" width={120} />
-                        <img src={logoTravellerChoice} alt="logo de traveller's choice 2024" className="logo-trip-advisor img-fluid" width={100} />
+                        <img src={logoTripAdvisor} alt="logo de trip advisor" className="logo-trip-advisor img-fluid me-lg-3 mx-2" width={120} />
+                        <img src={logoTravellerChoice} alt="logo de traveller's choice 2024" className="logo-trip-advisor img-fluid mx-2" width={100} />
                     </div>
                 </section>
                 <section className="container mt-3">
