@@ -20,7 +20,10 @@ const Cardhabitaciones = ({ habitaciones }) => {
                 src={habitacion.imagen}
               />
               <Card.Body className="body-card">
-                <Card.Title>Habitacion {habitacion.tipo}</Card.Title>
+                <Card.Title>
+                  Habitacion {habitacion.tipo} <br></br>
+                  <span className="icono-instagram">N°{habitacion.numero}</span>
+                </Card.Title>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
                     Disponible:{" "}
