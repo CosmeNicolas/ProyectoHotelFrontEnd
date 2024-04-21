@@ -6,6 +6,7 @@ import SectionImagenInicio from "../common/SectionImagenInicio";
 import Cardhabitaciones from "./habitaciones/CardHabitaciones";
 import { leerHabitacionesAPI } from "../../helpers/queries";
 import { Link } from "react-router-dom";
+import Opiniones from "./Opiniones";
 
 const Inicio = () => {
   const [habitaciones, setHabitaciones] = useState([]);
@@ -66,6 +67,8 @@ const Inicio = () => {
           </Card>)
           
           }
+          <hr />
+          <Opiniones></Opiniones>
         </article>
         <br id="footer" />
       </section>
