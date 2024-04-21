@@ -1,9 +1,9 @@
 import { Container, Card, Button, Row, Col, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Cardhabitaciones = ({ habitaciones }) => {
-  
 
+const Cardhabitaciones = ({ habitaciones }) => {
+ 
 
   return (
     <>
@@ -50,6 +50,7 @@ const Cardhabitaciones = ({ habitaciones }) => {
                     <Button className="opacity-25 mt-3 border-0" variant="dark">
                       No disponible
                     </Button>
+                    
                   )}
                 </div>
               </Card.Body>

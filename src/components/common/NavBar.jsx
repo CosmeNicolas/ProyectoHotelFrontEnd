@@ -11,9 +11,9 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
     textDecoration: 'underline',
     fontWeigth: 'bold'
   }
-
-
  
+/* console.log(usuarioLogueado) */
+
   const direccionar = useNavigate()
   const logOut = ()=>{
     Swal.fire({
@@ -25,8 +25,8 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
       }
     });
    sessionStorage.removeItem("inicioHotel");
-   setUsuarioLogueado(null);
    direccionar('/')
+   setUsuarioLogueado('');
   }
 
   return (
@@ -39,7 +39,7 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
       <Container>
         <Navbar.Brand as={Link} to="/" href="/">
           <span>
-            <img className="img-nav" src={logo} alt="imagen-prueba" setUsuarioLogueado={setUsuarioLogueado} />
+            <img className="img-nav" src={logo} alt="imagen-prueba"/>
           </span>
         </Navbar.Brand>
         <div className="ms-auto">
@@ -99,9 +99,19 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
               </NavLink>
             )
             }
-            <NavLink className='nav-link text-decoration-none' to='/login'>
-              <span className="nav-link  reserva-nav p-2" >Reserva</span>
-            </NavLink>
+       {
+          
+
+       (usuarioLogueado.rol) ? (<NavLink className='nav-link text-decoration-none' to='/habitaciones' >
+        <span className="nav-link  reserva-nav p-2" >Reserva</span>
+      </NavLink>) : (<NavLink className='nav-link text-decoration-none' to='/login' >
+        <span className="nav-link  reserva-nav p-2" >Reserva</span>
+      </NavLink>) 
+      
+       }
+            
+          
+         
           </Nav>
         </Navbar.Collapse>
       </Container>
