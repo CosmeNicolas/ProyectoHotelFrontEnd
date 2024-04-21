@@ -11,13 +11,13 @@ const Login = ({ setUsuarioLogueado }) => {
     formState: { errors },
   } = useForm();
   const navegacion = useNavigate();
-
+  
   const onSubmit = async (usuario) => {
     try {
       const respuesta = await iniciarSesion(usuario);
       if (respuesta.status === 200) {
         const dato = await respuesta.json();
-
+        
         if (dato.rol === "Usuario") {
           console.log(dato.rol)
           sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol}))
@@ -46,16 +46,27 @@ const Login = ({ setUsuarioLogueado }) => {
             }
           });
         } else {
-          alert("ocurrrio un error al loguearse ");
+          Swal.fire({
+            title: "Error al loguearse!",
+            text: "Intente Nuevamente",
+            icon: "error",
+            customClass: {
+              popup: 'contenedor-sweet'
+            }
+          });
         }
+      } else{
+        Swal.fire({
+          title: "Error al loguearse!",
+          text: "Intente Nuevamente",
+          icon: "error",
+          customClass: {
+            popup: 'contenedor-sweet'
+          }
+        });
       }
     } catch (error) {
       console.log(error);
-      Swal.fire({
-        title: "Error al loguearse!",
-        text: "Intente Nuevamente",
-        icon: "error"
-      });
     }
   };
 

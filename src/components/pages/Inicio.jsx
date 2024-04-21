@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
+import Card from 'react-bootstrap/Card';
 import banner from "../../assets/Wonderful3.gif";
 import SectionIConosInicio from "../common/SectionIConosInicio";
 import SectionImagenInicio from "../common/SectionImagenInicio";
 import Cardhabitaciones from "./habitaciones/CardHabitaciones";
 import { leerHabitacionesAPI } from "../../helpers/queries";
+import { Link } from "react-router-dom";
+
 const Inicio = () => {
   const [habitaciones, setHabitaciones] = useState([]);
+  const usuario= JSON.parse(sessionStorage.getItem("inicioHotel")) || "";
 
   useEffect(() => {
-    leerHabitacionesInicio();
+    if(usuario){
+      leerHabitacionesInicio();
+    }
   }, []);
 
   const leerHabitacionesInicio = async () => {
@@ -42,9 +48,26 @@ const Inicio = () => {
           <SectionImagenInicio />
           <hr className="mx-4" />
         </article>
-        <article>
-          <Cardhabitaciones habitaciones={habitaciones} />
+        <article id="seccionFinal">
+          
+          {
+            (usuario) ? (<Cardhabitaciones habitaciones={habitaciones} />)
+            :  (
+            <Card className="text-center CardInicioContainer">
+            <Card.Header className="fuente-slogan-principal">Bienvenido a Rolling Resort 🛎️</Card.Header>
+            <Card.Body>
+              <Card.Title>Descubre todo lo que Rolling Resort tiene para ofrecerte al iniciar sesión en nuestra página. </Card.Title>
+              <Card.Text className="fuente-slogan-secundario">
+              ¡Regístrate ahora para recibir actualizaciones, ofertas especiales y mucho más!"
+              </Card.Text>
+              <Link to='/crearUsuario'  className=" btn btn-dark btnCardInicioRegistro" variant="dark">Registrate</Link>
+            </Card.Body>
+           
+          </Card>)
+          
+          }
         </article>
+        <br id="footer" />
       </section>
     </>
   );

@@ -43,7 +43,7 @@ const FormularioUsuario = () => {
       <section className="fondo-formulario-Usuario ">
         <div className="d-flex justify-content-center ">
           <div className="titulo-usuario ">
-            <h1 className="fuente-formulario-Usuario text-center  text-light mt-3">
+            <h1 className="fuente-login  text-light text-center  text-light mt-3">
               Crear Usuario
             </h1>
           </div>

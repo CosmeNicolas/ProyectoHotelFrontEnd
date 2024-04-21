@@ -456,10 +456,44 @@ font-family: "Dancing Script", cursive;
 }
 
 /* Fin de estilos Galeria*/
+/* Estilo cards inicio */
+.cardDimensiones {
+  width: 22rem;
+  height: 550px;
+}
+
+.cardEfectos:hover {
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: rotate(0.5deg);
+}
+.cardImgDimensiones {
+  object-fit: cover;
+  max-height: 390px;
+  width: 100%;
+}
+
+.imgDetalle {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  transition: filter 0.3s;
+}
+.imgDetalle:hover {
+  filter: saturate(150%);
+}
+
+.CardInicioContainer{
+  background-color: #e6e6e6;
+}
+
+.btnCardInicioRegistro{
+  font-family: "Montserrat", sans-serif;
+}
 
 /* Media queris  */
 @media screen and (max-width: 767px) {
-  .icono-ubicacion {
+.icono-ubicacion {
     margin-left: 50px;
   }
   .img-banner {
@@ -490,32 +524,6 @@ font-family: "Dancing Script", cursive;
   }
 }
 
-/* Estilo cards inicio */
-.cardDimensiones {
-  width: 22rem;
-  height: 550px;
-}
-
-.cardEfectos:hover {
-  transition: transform 0.2s ease-in-out;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  transform: rotate(0.5deg);
-}
-.cardImgDimensiones {
-  object-fit: cover;
-  max-height: 390px;
-  width: 100%;
-}
-
-.imgDetalle {
-  height: 500px;
-  width: 100%;
-  object-fit: cover;
-  transition: filter 0.3s;
-}
-.imgDetalle:hover {
-  filter: saturate(150%);
-}
 
 /* Medias */
 @media all and (max-width: 1999px) {

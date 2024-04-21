@@ -33,9 +33,12 @@ function App() {
         setUsuarioLogueado={setUsuarioLogueado}
       />
       <Routes>
-        <Route exact path="/" element={<Inicio />} />
+        <Route exact path="/" element={<Inicio/>} />
         <Route path="*" element={<Error404 />} />
-        <Route exact path="/Habitaciones" element={<Habitaciones />} />
+        <Route exact path="/Habitaciones" element={<Habitaciones 
+        usuarioLogueado={usuarioLogueado}
+        setUsuarioLogueado={setUsuarioLogueado}
+        />} />
         <Route exact path="/QuienesSomos" element={<QuienesSomos />} />
         <Route
           exact

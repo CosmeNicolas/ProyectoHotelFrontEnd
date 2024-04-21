@@ -8,8 +8,32 @@ import habitacion5img from "../../assets/habitacion5.jpg";
 import habitacion6img from "../../assets/habitacion6.jpeg";
 import habitacion7img from "../../assets/habitacion7.jpg";
 import banio1img from "../../assets/banio1.jpeg";
+/* import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; */
 
-const Habitaciones = () => {
+/*  usuarioLogueado={usuarioLogueado}
+        setUsuarioLogueado={setUsuarioLogueado} */
+
+const Habitaciones = ({usuarioLogueado}) => {
+ 
+/*   console.log(usuarioLogueado)
+  const [logueado, setLogueado] = useState(usuarioLogueado)
+  const direcionarA = useNavigate()
+
+useEffect(() => {
+  setLogueado(usuarioLogueado)
+
+  return () => {
+    if(!logueado){
+      direcionarA('/')
+    }
+  }
+}, [setLogueado])
+ */
+   
+
+
+
   return (
     <>
       <section>
