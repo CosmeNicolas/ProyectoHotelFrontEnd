@@ -34,7 +34,7 @@ const Login = ({ setUsuarioLogueado }) => {
           
         } else if (dato.rol === "Administrador") {
           console.log(dato.rol)
-          sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol}))
+          sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol,  token:dato.token}))
           setUsuarioLogueado(dato);
           navegacion("/administrador");
           Swal.fire({

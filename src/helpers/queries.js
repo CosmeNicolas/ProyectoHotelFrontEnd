@@ -87,6 +87,10 @@ export const eliminarUsuarioAPI = async (id) => {
   try {
     const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "x-token": JSON.parse(sessionStorage.getItem("inicioHotel")).token
+      }
     });
     return respuesta;
   } catch (error) {

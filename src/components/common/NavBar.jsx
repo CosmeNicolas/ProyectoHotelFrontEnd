@@ -3,31 +3,29 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from ".././../assets/logo.jpg";
 import { BsFillGeoAltFill } from "react-icons/bs";
-import { Link, NavLink, useNavigate} from "react-router-dom";
-import Swal from 'sweetalert2'
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
+const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
   let estiloActivo = {
-    textDecoration: 'underline',
-    fontWeigth: 'bold'
-  }
- 
-/* console.log(usuarioLogueado) */
+    textDecoration: "underline",
+    fontWeigth: "bold",
+  };
 
-  const direccionar = useNavigate()
-  const logOut = ()=>{
+  const direccionar = useNavigate();
+  const logOut = () => {
     Swal.fire({
       title: `Hasta Pronto mi Rey ${usuarioLogueado.usuario} 👑`,
       icon: "success",
-      confirmButtonColor: '#B79B63',
+      confirmButtonColor: "#B79B63",
       customClass: {
-        popup: 'contenedor-sweet'
-      }
+        popup: "contenedor-sweet",
+      },
     });
-   sessionStorage.removeItem("inicioHotel");
-   direccionar('/')
-   setUsuarioLogueado('');
-  }
+    sessionStorage.removeItem("inicioHotel");
+    setUsuarioLogueado({});
+    direccionar("/");
+  };
 
   return (
     <Navbar
@@ -39,7 +37,7 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
       <Container>
         <Navbar.Brand as={Link} to="/" href="/">
           <span>
-            <img className="img-nav" src={logo} alt="imagen-prueba"/>
+            <img className="img-nav" src={logo} alt="imagen-prueba" />
           </span>
         </Navbar.Brand>
         <div className="ms-auto">
@@ -48,41 +46,55 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">         
-
-          <NavLink  className="nav-link fuente-nav" to="/"  style={({isActive})=>(isActive ? estiloActivo : undefined )}>
+          <Nav className="ms-auto">
+            <NavLink
+              className="nav-link fuente-nav"
+              to="/"
+              style={({ isActive }) => (isActive ? estiloActivo : undefined)}
+            >
               Inicio
             </NavLink>
-            <NavLink  className="nav-link fuente-nav" to="/habitaciones"  style={({isActive})=>(isActive ? estiloActivo : undefined )}>
-
+            <NavLink
+              className="nav-link fuente-nav"
+              to="/habitaciones"
+              style={({ isActive }) => (isActive ? estiloActivo : undefined)}
+            >
               Habitaciones
             </NavLink>
-            <NavLink className="nav-link fuente-nav" to="/galeria" style={({isActive})=>(isActive ? estiloActivo : undefined)}>
+            <NavLink
+              className="nav-link fuente-nav"
+              to="/galeria"
+              style={({ isActive }) => (isActive ? estiloActivo : undefined)}
+            >
               Galeria
             </NavLink>
-            <NavLink className="nav-link fuente-nav" to="/quienessomos" style={({isActive})=>(isActive ? estiloActivo : undefined )}>
+            <NavLink
+              className="nav-link fuente-nav"
+              to="/quienessomos"
+              style={({ isActive }) => (isActive ? estiloActivo : undefined)}
+            >
               Quienes Somos
             </NavLink>
 
-            <NavLink className="nav-link fuente-nav" to="/contacto" style={({isActive})=>(isActive ? estiloActivo : undefined )}>
-
+            <NavLink
+              className="nav-link fuente-nav"
+              to="/contacto"
+              style={({ isActive }) => (isActive ? estiloActivo : undefined)}
+            >
               Contacto
             </NavLink>
             {/* admin y usuario */}
-            {
-               usuarioLogueado && usuarioLogueado.rol === "Administrador" ? (
-            <>
-            <NavLink className="nav-link fuente-nav" to="/administrador" style={({isActive})=>(isActive ? estiloActivo : undefined )}>
-            {usuarioLogueado.rol}
-            </NavLink>
-            <Link onClick={logOut} variant="link" className="nav-link fuente-nav" to="/login" >
-            LogOut
-            </Link>
-          </>
-              ): usuarioLogueado ? (
-                <>
-                <NavLink className="nav-link fuente-nav" to="/" >
-                  {usuarioLogueado.usuario}
+            {usuarioLogueado.rol === "Administrador" ||
+            usuarioLogueado.rol === "Usuario" ? (
+              <>
+                <NavLink
+                  className="nav-link fuente-nav"
+                  to="/administrador"
+                  style={({ isActive }) =>
+                    isActive ? estiloActivo : undefined
+                  }
+                >
+                  {usuarioLogueado.rol}
                 </NavLink>
                 <Link
                   onClick={logOut}
@@ -94,24 +106,26 @@ const NavBar = ({usuarioLogueado, setUsuarioLogueado}) => {
                 </Link>
               </>
             ) : (
-              <NavLink className="nav-link fuente-nav" to="/login" style={({isActive})=>(isActive ? estiloActivo : undefined )}>
+              <NavLink
+                className="nav-link fuente-nav"
+                to="/login"
+                style={({ isActive }) => (isActive ? estiloActivo : undefined)}
+              >
                 Login
               </NavLink>
-            )
-            }
-       {
-          
-
-       (usuarioLogueado.rol) ? (<NavLink className='nav-link text-decoration-none' to='/habitaciones' >
-        <span className="nav-link  reserva-nav p-2" >Reserva</span>
-      </NavLink>) : (<NavLink className='nav-link text-decoration-none' to='/login' >
-        <span className="nav-link  reserva-nav p-2" >Reserva</span>
-      </NavLink>) 
-      
-       }
-            
-          
-         
+            )}
+            {usuarioLogueado.rol ? (
+              <NavLink
+                className="nav-link text-decoration-none"
+                to="/habitaciones"
+              >
+                <span className="nav-link  reserva-nav p-2">Reserva</span>
+              </NavLink>
+            ) : (
+              <NavLink className="nav-link text-decoration-none" to="/login">
+                <span className="nav-link  reserva-nav p-2">Reserva</span>
+              </NavLink>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
