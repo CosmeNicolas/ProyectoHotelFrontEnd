@@ -491,6 +491,73 @@ font-family: "Dancing Script", cursive;
   font-family: "Montserrat", sans-serif;
 }
 
+/* Estilos de Opiniones del usuario */
+
+.opiniones-titulo{
+  font-family: "Dancing Script", cursive;
+  font-size: 2.8rem;
+  color: #60195d;
+}
+
+
+.user-icon{
+  color: #b79b63;
+  margin-right: 5px;
+  font-size: 1.3rem;
+}
+
+.opinion {
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.opiniones-container {
+  position: relative;
+}
+
+.boton-filtrar{
+  background-color: #b79b63;
+  border-color: #b79b63;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+.dropdown {
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.dropdown-menu {
+  background-color: #b79b63;
+}
+
+.dropdown-item {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.boton-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 992px) {
+  .dropdown {
+      margin-left: auto;
+      margin-top: -3rem;
+  }
+}
+
+/* Fin de estilos de Opiniones del usuario */
+
 /* Media queris  */
 @media screen and (max-width: 767px) {
 .icono-ubicacion {
