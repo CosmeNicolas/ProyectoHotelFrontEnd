@@ -7,6 +7,7 @@ export const crearHabitacionAPI = async (nuevaHabitacion) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "x-token": JSON.parse(sessionStorage.getItem("inicioHotel")).token
       },
       body: JSON.stringify(nuevaHabitacion),
     });
@@ -23,6 +24,7 @@ export const editarHabitacionApi = async (id, habitacion) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        "x-token": JSON.parse(sessionStorage.getItem("inicioHotel")).token
       },
       body: JSON.stringify(habitacion),
     });

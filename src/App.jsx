@@ -23,7 +23,7 @@ import FormularioHabitacion from "./components/pages/habitaciones/FormularioHabi
 import Reserva from "./components/pages/usuario/Reserva";
 
 function App() {
-  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || "";
+  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
   const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
 
   return (
