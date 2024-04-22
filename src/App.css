@@ -1,3 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+/* Fuente
+font-family: "Montserrat", sans-serif;
+font-family: "Dancing Script", cursive;
+*/
+
+/* colores 
+#FFFFFF
+
+#303030
+
+#B79B63
+
+#60195D
+
+#4D4D4D
+
+#EADEC5
+
+#E6E6E6
+*/
+
 #root {
   min-height: 100vh;
   display: flex;
@@ -6,4 +28,608 @@
 
 .main {
   flex-grow: 1;
+}
+/* Estilos NavBar */
+.img-nav {
+  width: 100px;
+  position: absolute;
+  transform: translatex(0%);
+}
+
+.barraDeNavegacion {
+  width: 100%;
+  background: hsla(0, 0%, 0%, 0.667);
+  box-shadow: 0 8px 32px 0 rgba(129, 129, 129, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+.fuente-nav {
+  font-family: "Montserrat", sans-serif;
+  color: #e6e6e6;
+}
+
+.icono-ubicacion {
+  font-size: x-large;
+  color: #b79b63;
+}
+
+.reserva-nav {
+  display: inline;
+  border: 1px #b79b63 solid;
+  background-color: #b79b63;
+  color: #e6e6e6;
+}
+
+.icono-ubicacion:hover {
+  animation: ubicacion 1s ease 0s 1 normal forwards;
+}
+
+
+
+.img-banner {
+  object-fit: cover;
+  height: 600px;
+}
+
+.fuente-slogan-principal {
+  font-family: "Dancing Script", cursive;
+  font-size: 50px;
+  color: #4d4d4d;
+}
+.fuente-slogan-secundario {
+  color: #303030;
+  font-family: "Montserrat", sans-serif;
+}
+.iconos-servicios {
+  font-size: xx-large;
+  font-family: "Montserrat", sans-serif;
+  color: #747373;
+}
+.iconos-servicios p{
+  font-size: x-large;
+}
+.imagen-relax-inicio {
+  object-fit: cover;
+  width: 50%;
+}
+.fuente-titulo-relax {
+  font-family: "Dancing Script", cursive;
+  font-weight: 900;
+}
+.fuente-descripcion-relax {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-style: italic;
+  font-weight: 300;
+  padding-bottom: 2rem;
+}
+.contenedor-foto-descripcion {
+  background-color: #eadec5;
+}
+/* FIN pagina principal  */
+
+/* Estilos Footer */
+.logo-trip-advisor {
+  border-radius: 20%;
+}
+
+.footer-fondo {
+  background-color: #303030;
+}
+
+.icono-instagram {
+  color: #b79b63;
+  width: 50px;
+  height: 50px;
+}
+
+.icono-facebook {
+  color: #b79b63;
+  width: 100px;
+  height: 50px;
+}
+
+.icono-twitter {
+  color: #b79b63;
+  width: 50px;
+  height: 50px;
+}
+
+.footer-link {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+}
+
+.footer-link:hover {
+  color: #b79b63;
+}
+
+.icono-link:hover svg {
+  color: #b79b63;
+}
+
+/* Estilo Card Inicio */
+.btn-inicio-card {
+  background-color: #60195d;
+  color: #e6e6e6;
+}
+.btn-inicio-card:hover {
+  background-color: #303030;
+  color: #e6e6e6;
+}
+
+.contenedor-Card {
+  width: 100%;
+}
+.body-card {
+  background-color: #e6e6e6;
+}
+/* Fin Estilo Card Inicio  */
+
+/* Estilos error 404*/
+
+.boton-error404 {
+  background-color: #60195d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.boton-error404:hover {
+  background-color: #60195d;
+  color: #fff;
+}
+
+.texto-error404 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  margin: 10px;
+}
+/* Fin de estilo error 404*/
+
+/* estilos de habitaciones */
+.texto-tituloHTop {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  color: #b79b63;
+  letter-spacing: 0.2rem;
+  padding-top: 9rem;
+}
+.texto-tituloH {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  color: #b79b63;
+  letter-spacing: 0.2rem;
+  position: relative;
+}
+.texto-textoH {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: large;
+  padding-bottom: 2rem;
+  color: #303030;
+  letter-spacing: 0.1rem;
+}
+.img-habitacion {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+.descripcion-habitacion {
+  min-height: 550px;
+  align-items: center;
+}
+.descripcion-habitacion img {
+  max-height: 400px;
+}
+.descripcion-habitacion h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  color: #4d4d4d;
+  letter-spacing: 0.1rem;
+  padding-bottom: 10px;
+}
+.descripcion-habitacion li {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: medium;
+  color: #303030;
+  text-align: start;
+  margin-bottom: 10px;
+}
+.btn-habitacion {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+  background-color: #60195d;
+  color: #fff;
+  border: none;
+  padding: 10px 50px;
+  cursor: pointer;
+  border-radius: 0px;
+  transition: background-color 0.3s;
+}
+.separador-habitacion {
+  color: #b79b63;
+}
+
+/* Estilos servicios */
+.servicios-titulo-principal {
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+  margin-top: 40px;
+  color: #60195d;
+  font-weight: 600;
+  font-size: 2.6rem;
+}
+
+.servicios-section {
+  margin-bottom: 80px;
+  margin-top: 80px;
+}
+
+.imagen-fondo {
+  background-color: #b79b63;
+  padding: 12px;
+}
+
+.servicios-titulo {
+  color: #60195d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.3rem;
+  margin: 10px;
+}
+
+.servicios-info {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  margin: 10px;
+}
+
+.servicios-info h4 {
+  color: #60195d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.1rem;
+  margin: 10px;
+}
+
+.tamaño-letra {
+  font-size: 1.3rem;
+}
+
+/* estilo de contacto */
+.texto-tituloContacto {
+  position: absolute;
+  color: #fff;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 2px black;
+}
+
+.texto-tituloContacto h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  font-size: 4rem;
+  letter-spacing: 0.2rem;
+  padding-top: 1rem;
+}
+.texto-tituloContacto p {
+  font-family: "Dancing Script", cursive;
+  font-weight: 200;
+  font-size: 3rem;
+}
+.texto-FormContacto {
+  font-family: "Montserrat", sans-serif;
+  font-size: medium;
+  font-weight: 400;
+}
+.btn-Contacto {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+  background-color: #60195d;
+  color: #fff;
+  border: none;
+  padding: 10px 50px;
+  cursor: pointer;
+  border-radius: 0px;
+  transition: background-color 0.3s;
+}
+
+.img-piletaContacto {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.icono-ubicacionContacto {
+  font-size: x-large;
+  color: #b79b63;
+  margin: 20px;
+}
+
+/* Estilos para dispositivos medianos */
+@media (min-width: 768px) {
+  .servicios-section {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Estilos para dispositivos grandes */
+@media (min-width: 992px) {
+  .servicios-section {
+    flex-direction: row;
+  }
+  .servicios-section .imagen-fondo {
+    order: 1;
+  }
+}
+
+/* Fin de estilos servicios */
+
+/* Estilos de Galeria*/
+
+.galeria-section {
+  margin-bottom: 190px;
+}
+
+.galeria-img {
+  width: 200px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.galeria-titulo-principal {
+  color: #60195d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.3rem;
+  margin: 10px;
+}
+
+.galeria-subtitulos {
+  color: #60195d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+}
+
+.galeria-img:hover {
+  filter: brightness(50%);
+  transition: filter 0.3s ease;
+}
+
+.galeria-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.icono-corazon {
+  position: absolute;
+  bottom: 28px;
+  left: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: white;
+  font-size: 28px;
+}
+
+.galeria-item:hover .icono-corazon {
+  opacity: 1;
+}
+
+/* Fin de estilos Galeria*/
+/* Estilo cards inicio */
+.cardDimensiones {
+  width: 22rem;
+  height: 550px;
+}
+
+.cardEfectos:hover {
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: rotate(0.5deg);
+}
+.cardImgDimensiones {
+  object-fit: cover;
+  max-height: 390px;
+  width: 100%;
+}
+
+.imgDetalle {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  transition: filter 0.3s;
+}
+.imgDetalle:hover {
+  filter: saturate(150%);
+}
+
+.CardInicioContainer{
+  background-color: #e6e6e6;
+}
+
+.btnCardInicioRegistro{
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Estilos de Opiniones del usuario */
+
+.opiniones-titulo{
+  font-family: "Dancing Script", cursive;
+  font-size: 2.8rem;
+  color: #60195d;
+}
+
+
+.user-icon{
+  color: #b79b63;
+  margin-right: 5px;
+  font-size: 1.3rem;
+}
+
+.opinion {
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.opiniones-container {
+  position: relative;
+}
+
+.boton-filtrar{
+  background-color: #b79b63;
+  border-color: #b79b63;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+.dropdown {
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.dropdown-menu {
+  background-color: #b79b63;
+}
+
+.dropdown-item {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.boton-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 992px) {
+  .dropdown {
+      margin-left: auto;
+      margin-top: -3rem;
+  }
+}
+
+/* Fin de estilos de Opiniones del usuario */
+
+/* Media queris  */
+@media screen and (max-width: 767px) {
+.icono-ubicacion {
+    margin-left: 50px;
+  }
+  .img-banner {
+    object-fit: cover;
+    height: 300px;
+  }
+  .fuente-slogan-principal {
+    font-size: 30px;
+  }
+  .fuente-slogan-secundario {
+    font-size: 15px;
+  }
+  .text-icons {
+    font-size: 15px;
+  }
+  .contenedor-foto-descripcion {
+    display: flex;
+    flex-direction: column;
+  }
+  .imagen-relax-inicio {
+    object-fit: fill;
+    width: 100%;
+  }
+  .img-nav {
+    width: 50px;
+    position: relative;
+    transform: translatex(0%);
+  }
+}
+
+
+/* Medias */
+@media all and (max-width: 1999px) {
+  .cardDimensiones {
+    width: 20rem;
+  }
+}
+
+@media all and (max-width: 991px) {
+  .cardDimensiones {
+    width: 20rem;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .cardDimensiones {
+    width: 75%;
+  }
+}
+
+@media all and (max-width: 575px) {
+  .cardDimensiones {
+    width: 85%;
+  }
+}
+
+
+
+/* queries contacto */
+@media (max-width: 770px) {
+  .texto-tituloContacto {
+    top: 40%;
+  }
+  .texto-tituloContacto h2 {
+    font-size: 3rem;
+  }
+  .texto-tituloContacto p {
+    font-size: 2rem;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .icono-ubicacion {
+    margin-left: 65%;
+  }
+  .img-banner {
+    object-fit: cover;
+    height: 300px;
+  }
+  .contenedor-foto-descripcion {
+    display: flex;
+    flex-direction: column;
+  }
+  .imagen-relax-inicio {
+    object-fit: fill;
+    width: 100%;
+  }
+  .img-nav {
+    width: 50px;
+    position: relative;
+    transform: translatex(0%);
+  }
+}
+
+@media all and (max-width: 768px) {
+  .texto-tituloHTop {
+    padding-top: 6rem;
+  }
+  .descripcion-habitacion img {
+    padding-bottom: 3rem;
+  }
 }
