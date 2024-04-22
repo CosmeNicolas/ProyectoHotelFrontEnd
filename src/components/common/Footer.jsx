@@ -1,5 +1,5 @@
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import logoRollingHotel from "../../assets/logo.png";
+import logoRollingHotel from "../../assets/logo.jpg";
 import logoTripAdvisor from "../../assets/tripAdvisor.jpg";
 import logoTravellerChoice from "../../assets/travellerChoice.png";
 import { Link } from "react-router-dom";

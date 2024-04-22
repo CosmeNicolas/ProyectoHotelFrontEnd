@@ -123,7 +123,7 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
               </NavLink>
             ) : (
               <NavLink className="nav-link text-decoration-none" to="/login">
-                <span className="nav-link  reserva-nav p-2">Reserva</span>
+                <span className="nav-link  reserva-nav py-2 px-3">Reserva</span>
               </NavLink>
             )}
           </Nav>
