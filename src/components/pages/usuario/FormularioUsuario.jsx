@@ -5,38 +5,79 @@ import { crearUsuario } from "../../../helpers/queries";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
-const FormularioUsuario = () => {
+const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm();
+  const { id } = useParams();
   const navegar = useNavigate();
 
+  useEffect(() => {
+    if (modoEditar) {
+      cargarFormularioEditar();
+    }
+  }, []);
+
+
   const onSubmit = async (data) => {
-    try {
-      const respuesta = await crearUsuario(data);
-      const datos = await respuesta.json();
-      if (respuesta.status === 201) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: datos.mensaje,
-          showConfirmButton: true,
-        });
-        navegar("/");
-      } else {
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          title: datos.mensaje,
-          showConfirmButton: true,
-        });
+    if (modoEditar) {
+      /* PUT */
+      try {
+        const respuesta = await editarUsuarioApi(id, data);
+        if (respuesta.status === 200) {
+          Swal.fire({
+            title: `Buen trabajo!`,
+            html: `Su usuario: <span class="text-warning">${data.usuario}</span> ha sido editado correctamente`,
+            icon: "success",
+            customClass: {
+              popup: "contenedor-sweet",
+            },
+            confirmButtonColor: "#B79B63",
+          });
+          navegar("/administrador");
+        } else {
+          Swal.fire({
+            title: "Ops!",
+            text: `Se produjo un error intente editar su habitación mas tarde`,
+            icon: "error",
+            customClass: {
+              popup: "contenedor-sweet",
+            },
+            confirmButtonColor: "#B79B63",
+          });
+        }
+      } catch (error) {
+        console.error("Se produjo un error intente nuevamente mas tarde");
       }
-    } catch (error) {
-      console.log(error);
+    } else {
+      try {
+        const respuesta = await crearUsuario(data);
+        const datos = await respuesta.json();
+        if (respuesta.status === 201) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: datos.mensaje,
+            showConfirmButton: true,
+          });
+          navegar("/");
+        } else {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: datos.mensaje,
+            showConfirmButton: true,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
+
 
   return (
     <>
@@ -44,7 +85,7 @@ const FormularioUsuario = () => {
         <div className="d-flex justify-content-center ">
           <div className="titulo-usuario ">
             <h1 className="fuente-login  text-light text-center  text-light mt-3">
-              Crear Usuario
+              {titulo}
             </h1>
           </div>
         </div>
@@ -121,6 +162,7 @@ const FormularioUsuario = () => {
                   {errors.email && errors.email.message}
                 </Form.Text>
               </Form.Group>
+              {!modoEditar ? none : (
 
               <Form.Group
                 className="mb-3 text-light"
@@ -150,13 +192,15 @@ const FormularioUsuario = () => {
                   {errors.password && errors.password.message}
                 </Form.Text>
               </Form.Group>
+              )}      
+
 
               <Button
                 className="boton-formulario-Usuario my-2 ms-2"
                 variant="dark"
                 type="submit"
               >
-                Crear Usuario
+                {textoBoton}
               </Button>
             </Form>
           </Card>

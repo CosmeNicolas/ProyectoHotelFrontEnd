@@ -97,3 +97,28 @@ export const eliminarUsuarioAPI = async (id) => {
     console.log(error);
   }
 };
+
+export const editarUsuarioApi = async (id, usuario) => {
+  try {
+    const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+    console.log(respuesta)
+    return respuesta;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const obtenerUsuarioAPI = async (id) => {
+  try {
+    const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`);
+    return respuesta;
+  } catch (error) {
+    console.error(error);
+  }
+};
