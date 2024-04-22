@@ -7,7 +7,7 @@ import { editarUsuarioApi, obtenerUsuarioAPI } from "../../../helpers/queries";
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
+const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
   const {
     register,
     handleSubmit,
@@ -18,7 +18,7 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
   const navegar = useNavigate();
 
   useEffect(() => {
-    if (modoCrear) {
+    if (modoEditar) {
       cargarFormularioEditar();
     }
   }, []);
@@ -30,7 +30,6 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
       setValue("nombreCompleto", usuarioBuscado.nombreCompleto);
       setValue("email", usuarioBuscado.email);
       setValue("usuario", usuarioBuscado.usuario);
-      
     } else {
       Swal.fire({
         title: "Ops!",
@@ -45,7 +44,7 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
   };
 
   const onSubmit = async (data) => {
-    if (modoCrear) {
+    if (modoEditar) {
       /* PUT */
       try {
         const respuesta = await editarUsuarioApi(id, data);
@@ -99,8 +98,6 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
       }
     }
   };
-
- 
 
   return (
     <>
@@ -184,37 +181,73 @@ const FormularioUsuario = ({ modoCrear, titulo, textoBoton }) => {
                   {errors.email && errors.email.message}
                 </Form.Text>
               </Form.Group>
-
-              <Form.Group
-                className="mb-3 text-light"
-                controlId="formUsuarioPassword"
-              >
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  {...register("password", {
-                    required: "La contraseña es obligatoria",
-                    minLength: {
-                      value: 8,
-                      message: "La contraseña debe tener al menos 8 caracteres",
-                    },
-                    maxLength: {
-                      value: 16,
-                      message:
-                        "La contraseña debe tener como máximo 16 caracteres",
-                    },
-                    pattern: {
-                      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/,
-                      message:
-                        "La contraseña debe contener al menos una minúscula, una mayúscula y un número",
-                    },
-                  })}
-                />
-                <Form.Text className="text-danger">
-                  {errors.password && errors.password.message}
-                </Form.Text>
-              </Form.Group>
+              {(modoEditar) ? (
+                <Form.Group
+                  className="mb-3 text-light d-none"
+                  controlId="formUsuarioPassword"
+                >
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    {...register("password", {
+                      required: "La contraseña es obligatoria",
+                      minLength: {
+                        value: 8,
+                        message:
+                          "La contraseña debe tener al menos 8 caracteres",
+                      },
+                      maxLength: {
+                        value: 16,
+                        message:
+                          "La contraseña debe tener como máximo 16 caracteres",
+                      },
+                      pattern: {
+                        value:
+                          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/,
+                        message:
+                          "La contraseña debe contener al menos una minúscula, una mayúscula y un número",
+                      },
+                    })}
+                  />
+                  <Form.Text className="text-danger">
+                    {errors.password && errors.password.message}
+                  </Form.Text>
+                </Form.Group>
+              ) : (
+                <Form.Group
+                  className="mb-3 text-light"
+                  controlId="formUsuarioPassword"
+                >
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    {...register("password", {
+                      required: "La contraseña es obligatoria",
+                      minLength: {
+                        value: 8,
+                        message:
+                          "La contraseña debe tener al menos 8 caracteres",
+                      },
+                      maxLength: {
+                        value: 16,
+                        message:
+                          "La contraseña debe tener como máximo 16 caracteres",
+                      },
+                      pattern: {
+                        value:
+                          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/,
+                        message:
+                          "La contraseña debe contener al menos una minúscula, una mayúscula y un número",
+                      },
+                    })}
+                  />
+                  <Form.Text className="text-danger">
+                    {errors.password && errors.password.message}
+                  </Form.Text>
+                </Form.Group>
+              )}
 
               <Button
                 className="boton-formulario-Usuario my-2 ms-2"
