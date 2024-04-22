@@ -104,7 +104,7 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
       <section className="fondo-formulario-Usuario ">
         <div className="d-flex justify-content-center ">
           <div className="titulo-usuario ">
-            <h1 className="fuente-formulario-Usuario text-center  text-light mt-3">
+            <h1 className="fuente-login text-center  text-light mt-3">
               {titulo}
             </h1>
           </div>
