@@ -2,8 +2,11 @@ import React from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { crearUsuario } from "../../../helpers/queries";
-import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { editarUsuarioApi, obtenerUsuarioAPI } from "../../../helpers/queries";
+import { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+
 
 const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
   const {
@@ -20,6 +23,27 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
       cargarFormularioEditar();
     }
   }, []);
+
+  const cargarFormularioEditar = async () => {
+    const respuesta = await obtenerUsuarioAPI(id);
+    if (respuesta.status === 200) {
+      const usuarioBuscado = await respuesta.json();
+      setValue("nombreCompleto", usuarioBuscado.nombreCompleto);
+      setValue("email", usuarioBuscado.email);
+      setValue("usuario", usuarioBuscado.usuario);
+      
+    } else {
+      Swal.fire({
+        title: "Ops!",
+        text: `Se produjo un error intente editar mas tarde`,
+        icon: "error",
+        customClass: {
+          popup: "contenedor-sweet",
+        },
+        confirmButtonColor: "#B79B63",
+      });
+    }
+  };
 
 
   const onSubmit = async (data) => {
