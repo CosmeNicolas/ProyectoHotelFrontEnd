@@ -57,7 +57,7 @@ const Inicio = () => {
             <Card className="text-center CardInicioContainer">
             <Card.Header className="fuente-slogan-principal">Bienvenido a Rolling Resort 🛎️</Card.Header>
             <Card.Body>
-              <Card.Title>Descubre todo lo que Rolling Resort tiene para ofrecerte al iniciar sesión en nuestra página. </Card.Title>
+              <Card.Title className="fuente-slogan-secundario">Descubre todo lo que Rolling Resort tiene para ofrecerte al iniciar sesión en nuestra página. </Card.Title>
               <Card.Text className="fuente-slogan-secundario">
               ¡Regístrate ahora para recibir actualizaciones, ofertas especiales y mucho más!"
               </Card.Text>
