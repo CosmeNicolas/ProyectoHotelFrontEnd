@@ -79,18 +79,24 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
         const datos = await respuesta.json();
         if (respuesta.status === 201) {
           Swal.fire({
+            title: "Usuario Creado",
             position: "center",
             icon: "success",
-            title: datos.mensaje,
-            showConfirmButton: true,
+            confirmButtonColor: '#B79B63',
+            customClass: {
+              popup: "contenedor-sweet"
+            }
           });
           navegar("/");
         } else {
           Swal.fire({
+            title: "No se pudo crear",
             position: "center",
             icon: "error",
-            title: datos.mensaje,
-            showConfirmButton: true,
+            confirmButtonColor: '#B79B63',
+            customClass: {
+              popup: "contenedor-sweet"
+            }
           });
         }
       } catch (error) {
