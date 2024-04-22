@@ -1,10 +1,7 @@
 import { Container, Card, Button, Row, Col, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-
 const Cardhabitaciones = ({ habitaciones }) => {
- 
-
   return (
     <>
       <Container>
@@ -32,10 +29,6 @@ const Cardhabitaciones = ({ habitaciones }) => {
                     Disponible:{" "}
                     {habitacion && habitacion.disponible ? "✅" : "❌"}
                   </ListGroup.Item>
-                  {/*  <ListGroup.Item>Disponible: {habitacion.numero}</ListGroup.Item> */}
-                  {/* Logica de mostrar solo el dia 
-         <ListGroup.Item>Fecha Ingreso: {new Date(habitacion.fechaIngreso).toISOString().split('T')[0]}</ListGroup.Item>
-        <ListGroup.Item>Fecha Salida: {new Date(habitacion.fechaSalida).toISOString().split('T')[0]}</ListGroup.Item>  */}
                 </ListGroup>
                 <div className="text-center">
                   {habitacion && habitacion.disponible ? (
@@ -50,7 +43,6 @@ const Cardhabitaciones = ({ habitaciones }) => {
                     <Button className="opacity-25 mt-3 border-0" variant="dark">
                       No disponible
                     </Button>
-                    
                   )}
                 </div>
               </Card.Body>
