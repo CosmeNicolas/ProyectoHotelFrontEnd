@@ -10,7 +10,7 @@ import habitacion7img from "../../assets/habitacion7.jpg";
 import banio1img from "../../assets/banio1.jpeg";
 
 
-const Habitaciones = ({usuarioLogueado}) => {
+const Habitaciones = () => {
  
   return (
     <>

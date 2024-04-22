@@ -15,7 +15,7 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
   const direccionar = useNavigate();
   const logOut = () => {
     Swal.fire({
-      title: `Hasta Pronto mi Rey ${usuarioLogueado.usuario} 👑`,
+      title: `Hasta Pronto!👑`,
       icon: "success",
       confirmButtonColor: "#B79B63",
       customClass: {
@@ -122,9 +122,9 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
                 <span className="nav-link  reserva-nav p-2">Reserva</span>
               </NavLink>
             ) : (
-              <NavLink className="nav-link text-decoration-none" to="/login">
-                <span className="nav-link  reserva-nav py-2 px-3">Reserva</span>
-              </NavLink>
+              <NavBrand className="nav-link text-decoration-none" as={Link} to="/" href="/">
+                <span className="nav-link  reserva-nav py-2 px-3" >Reserva</span>
+              </NavBrand>
             )}
           </Nav>
         </Navbar.Collapse>

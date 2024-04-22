@@ -17,7 +17,7 @@ import "./Administrador.css";
 import Servicios from "./components/pages/Servicios";
 import Contacto from "./components/pages/Contacto";
 import "./Usuario.css";
-import"./Reserva.css"
+import "./Reserva.css";
 import Galeria from "./components/pages/Galeria";
 import FormularioHabitacion from "./components/pages/habitaciones/FormularioHabitacion";
 import Reserva from "./components/pages/usuario/Reserva";
@@ -33,12 +33,18 @@ function App() {
         setUsuarioLogueado={setUsuarioLogueado}
       />
       <Routes>
-        <Route exact path="/" element={<Inicio/>} />
+        <Route exact path="/" element={<Inicio />} />
         <Route path="*" element={<Error404 />} />
-        <Route exact path="/Habitaciones" element={<Habitaciones 
-        usuarioLogueado={usuarioLogueado}
-        setUsuarioLogueado={setUsuarioLogueado}
-        />} />
+        <Route
+          exact
+          path="/Habitaciones"
+          element={
+            <Habitaciones
+              usuarioLogueado={usuarioLogueado}
+              setUsuarioLogueado={setUsuarioLogueado}
+            />
+          }
+        />
         <Route exact path="/QuienesSomos" element={<QuienesSomos />} />
         <Route
           exact
@@ -76,14 +82,43 @@ function App() {
           path="/login"
           element={<Login setUsuarioLogueado={setUsuarioLogueado} />}
         />
-        <Route exact path="/CrearUsuario" element={<FormularioUsuario />} />
-        <Route exact path="/servicios" element={<Servicios />} />
-        <Route exact path="/reserva/:id" element={<Reserva 
-        setUsuarioLogueado={setUsuarioLogueado}
-        reserva={true} titulo="Nueva Reserva"
-        />} />
+        <Route
+          exact
+          path="/administrador/editarUsuario/:id"
+          element={
+            <FormularioUsuario
+              titulo="Editar Usuario"
+              textoBoton="Guardar Cambios"
+              modoEditar={true}
+            ></FormularioUsuario>
+          }
+        ></Route>
+        <Route
+          exact
+          path="/CrearUsuario"
+          element={
+            <FormularioUsuario
+              titulo="Crear Usuario"
+              textoBoton="Guardar"
+              modoEditar={false}
+            />
+          }
+        />
 
-        <Route exact path="/contacto"  element={<Contacto />} />
+        <Route exact path="/servicios" element={<Servicios />} />
+        <Route
+          exact
+          path="/reserva/:id"
+          element={
+            <Reserva
+              setUsuarioLogueado={setUsuarioLogueado}
+              reserva={true}
+              titulo="Nueva Reserva"
+            />
+          }
+        />
+
+        <Route exact path="/contacto" element={<Contacto />} />
 
         <Route exact path="/galeria" element={<Galeria />} />
       </Routes>

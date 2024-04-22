@@ -13,7 +13,7 @@ const Footer = () => {
                         <img src={logoRollingHotel} alt="logo de rolling hotel" className="img-fluid" width={140} />
                     </div>
                     <div className="col-lg-6 mt-3 d-flex justify-content-center align-items-center">
-                        <Link to="/error404" className="icono-link me-lg-3"><FaInstagram className="icono-instagram" /></Link>
+                        <Link to="/contacto" className="icono-link me-lg-3"><FaInstagram className="icono-instagram" /></Link>
                         <Link to="/error404" className="icono-link me-lg-3"><FaFacebook className="icono-facebook" /></Link>
                         <Link to="/error404" className="icono-link"><FaTwitter className="icono-twitter" /></Link>
                     </div>

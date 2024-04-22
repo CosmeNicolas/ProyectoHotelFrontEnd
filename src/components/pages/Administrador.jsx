@@ -7,20 +7,37 @@ import { leerHabitacionesAPI } from "../../helpers/queries";
 import { leerUsuariosAPI } from "../../helpers/queries";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import HashLoader from "react-spinners/HashLoader";
 
 const Administrador = () => {
   const [habitacionesAdmin, setHabitacionesAdmin] = useState([]);
   const [usuariosAdmin, setUsuarioAdmin] = useState([]);
+  const [cargando, setCargando] = useState(true)
+  
   useEffect(() => {
-    mostrarHabitacionesAdmin();
+    setTimeout(() => {
+      cargarDatosHotel()
+    }, 2000);
   }, []);
 
-  useEffect(() => {
-    mostrarUsuariosAdmin();
-  }, []);
-
+  const cargarDatosHotel = async()=>{
+    try {
+      await Promise.all([mostrarHabitacionesAdmin(), mostrarUsuariosAdmin()])
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        title: "Ocurrió un error en el servidor",
+        text: "Intente realizar esta acción en unos minutos",
+        icon: "error",
+      });
+      
+    }
+    setCargando(false)
+  }
+  
   const mostrarHabitacionesAdmin = async () => {
     try {
+      setCargando(true);
       const respuesta = await leerHabitacionesAPI();
 
       if (respuesta === 200) {
@@ -36,6 +53,7 @@ const Administrador = () => {
         text: "Intente realizar esta acción en unos minutos",
         icon: "error",
       });
+      setCargando(false);
     }
   };
 
@@ -55,8 +73,9 @@ const Administrador = () => {
 
   const mostrarUsuariosAdmin = async () => {
     try {
+      setCargando(true);
       const respuesta = await leerUsuariosAPI();
-
+      
       if (respuesta === 200) {
         const mostrarUsuarios = await respuesta;
         setUsuarioAdmin(mostrarUsuarios);
@@ -70,9 +89,10 @@ const Administrador = () => {
         text: "Intente realizar esta acción en unos minutos",
         icon: "error",
       });
+      setCargando(false);
     }
   };
-
+  
   const actualizarUsuarios = async () => {
     try {
       const usuarios = await leerUsuariosAPI();
@@ -111,28 +131,37 @@ const Administrador = () => {
                 </Link>
               </div>
               <hr />
-              <Table responsive striped bordered hover>
-                <thead>
-                  <tr>
-                    <th>Cod</th>
-                    <th>Nro Habitacion</th>
-                    <th>Tipo de Habitación</th>
-                    <th>Precio</th>
-                    <th>Fecha de Ingreso</th>
-                    <th>Fecha de Salida</th>
-                    <th>Disponible</th>
-                    <th>Imagen</th>
-                    <th>Opciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <ItemHabitacion
-                    habitacionesAdmin={habitacionesAdmin}
-                    setHabitacionesAdmin={setHabitacionesAdmin}
-                    actualizarHabitaciones={actualizarHabitaciones}
-                  />
-                </tbody>
-              </Table>
+              {
+                cargando ? (
+                <div className="text-center d-flex justify-content-center">
+                 <HashLoader 
+            color="#60195D"
+            cssOverride={{}}
+          />
+                </div>
+               ) : (<Table responsive striped bordered hover>
+          <thead>
+            <tr>
+              <th>Cod</th>
+              <th>Nro Habitacion</th>
+              <th>Tipo de Habitación</th>
+              <th>Precio</th>
+              <th>Fecha de Ingreso</th>
+              <th>Fecha de Salida</th>
+              <th>Disponible</th>
+              <th>Imagen</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ItemHabitacion
+              habitacionesAdmin={habitacionesAdmin}
+              setHabitacionesAdmin={setHabitacionesAdmin}
+              actualizarHabitaciones={actualizarHabitaciones}
+            />
+          </tbody>
+        </Table>)
+          }
             </Tab>
 
             {/* Tabla Ususarios */}
@@ -141,7 +170,11 @@ const Administrador = () => {
                 <h2 className="fs-1 fw-bold titulos">Usuarios</h2>
               </div>
               <hr />
-              <Table responsive striped bordered hover>
+              {
+                 cargando ? (<HashLoader
+            color="#60195D"
+            cssOverride={{}}
+          />) : (<Table responsive striped bordered hover>
                 <thead>
                   <tr>
                     <th>Cod</th>
@@ -160,7 +193,9 @@ const Administrador = () => {
                     actualizarUsuarios={actualizarUsuarios}
                   />
                 </tbody>
-              </Table>
+              </Table>)
+              }
+              
             </Tab>
           </Tabs>
         </article>
