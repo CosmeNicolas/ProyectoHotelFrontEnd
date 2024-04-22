@@ -9,7 +9,7 @@ const SectionImagenInicio = () => {
           alt="habitacion-hotel"
         />
         <div className="d-flex flex-column justify-content-center">
-      <h2 className="fuente-titulo-relax text-center  my-4">
+      <h2 className="fuente-titulo-relax text-center mx-2 my-4">
         "Relájate, recarga y revive en nuestro paraíso de paz."
       </h2>
       <h4 className="fuente-descripcion-relax mx-2 mt-2">

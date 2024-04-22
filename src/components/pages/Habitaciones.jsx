@@ -12,7 +12,6 @@ import banio1img from "../../assets/banio1.jpeg";
 
 const Habitaciones = () => {
  
-
   return (
     <>
       <section>

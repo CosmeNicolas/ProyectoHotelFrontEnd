@@ -12,7 +12,6 @@ const Reserva = ({ reserva, titulo }) => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
     setValue,
     getValues,
@@ -85,7 +84,6 @@ const Reserva = ({ reserva, titulo }) => {
     } catch (error) {
       console.log(error);
     }
-    /* setValue("disponible", false); */
   };
 
   return (

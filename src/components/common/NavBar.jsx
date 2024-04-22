@@ -122,9 +122,9 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
                 <span className="nav-link  reserva-nav p-2">Reserva</span>
               </NavLink>
             ) : (
-              <Link className="nav-link text-decoration-none" to="/crearUsuario">
-                <span className="nav-link  reserva-nav p-2">Reserva</span>
-              </Link>
+              <NavBrand className="nav-link text-decoration-none" as={Link} to="/" href="/">
+                <span className="nav-link  reserva-nav py-2 px-3" >Reserva</span>
+              </NavBrand>
             )}
           </Nav>
         </Navbar.Collapse>

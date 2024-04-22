@@ -79,11 +79,15 @@ font-family: "Dancing Script", cursive;
 }
 .fuente-slogan-secundario {
   color: #303030;
+  font-family: "Montserrat", sans-serif;
 }
 .iconos-servicios {
   font-size: xx-large;
   font-family: "Montserrat", sans-serif;
   color: #747373;
+}
+.iconos-servicios p{
+  font-size: x-large;
 }
 .imagen-relax-inicio {
   object-fit: cover;
@@ -97,7 +101,8 @@ font-family: "Dancing Script", cursive;
   font-family: "Montserrat", sans-serif;
   text-align: center;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 300;
+  padding-bottom: 2rem;
 }
 .contenedor-foto-descripcion {
   background-color: #eadec5;
@@ -133,6 +138,9 @@ font-family: "Dancing Script", cursive;
 
 .footer-link {
   color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
 }
 
 .footer-link:hover {
@@ -209,8 +217,6 @@ font-family: "Dancing Script", cursive;
   letter-spacing: 0.1rem;
 }
 .img-habitacion {
-  /* width: 100%;
-	clip-path: inset(20% 0 20% 0); */
   width: 100%;
   height: 450px;
   object-fit: cover;
@@ -338,9 +344,6 @@ font-family: "Dancing Script", cursive;
 }
 
 .img-piletaContacto {
-  /* width: 100%;
-	clip-path: inset(20% 0 20% 0);
-	overflow: hidden; */
   width: 100%;
   height: 500px;
   object-fit: cover;
