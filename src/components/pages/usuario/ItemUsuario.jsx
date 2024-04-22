@@ -63,7 +63,7 @@ const ItemUsuario = ({ usuariosAdmin, setUsuarioAdmin }) => {
           <td>
           <Link
               className="p-3 mx-1 btn btn-warning"
-              to={`/editarUsuario/${usuarioAdmin._id}`}
+              to={`/administrador/editarUsuario/${usuarioAdmin._id}`}
             >
               <FaEdit />
             </Link>

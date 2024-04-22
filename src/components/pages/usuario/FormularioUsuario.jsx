@@ -7,7 +7,6 @@ import { editarUsuarioApi, obtenerUsuarioAPI } from "../../../helpers/queries";
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-
 const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
   const {
     register,
@@ -31,7 +30,6 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
       setValue("nombreCompleto", usuarioBuscado.nombreCompleto);
       setValue("email", usuarioBuscado.email);
       setValue("usuario", usuarioBuscado.usuario);
-      
     } else {
       Swal.fire({
         title: "Ops!",
@@ -44,7 +42,6 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
       });
     }
   };
-
 
   const onSubmit = async (data) => {
     if (modoEditar) {
@@ -102,13 +99,12 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
     }
   };
 
-
   return (
     <>
       <section className="fondo-formulario-Usuario ">
         <div className="d-flex justify-content-center ">
           <div className="titulo-usuario ">
-            <h1 className="fuente-login  text-light text-center  text-light mt-3">
+            <h1 className="fuente-formulario-Usuario text-center  text-light mt-3">
               {titulo}
             </h1>
           </div>
@@ -123,7 +119,6 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
               >
                 <Form.Label>Nombre y Apellido</Form.Label>
                 <Form.Control
-            
                   placeholder="Nombre completo"
                   {...register("nombreCompleto", {
                     required: "El nombre del cliente es obligatorio",
@@ -148,7 +143,7 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
               >
                 <Form.Label>Usuario</Form.Label>
                 <Form.Control
-                     placeholder="Ej:  Maddie345"
+                  placeholder="Ej:  Maddie345"
                   {...register("usuario", {
                     required: "El nombre de usuario es obligatorio",
                     minLength: {
@@ -186,38 +181,42 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
                   {errors.email && errors.email.message}
                 </Form.Text>
               </Form.Group>
-              {!modoEditar ? none : (
-
-              <Form.Group
-                className="mb-3 text-light"
-                controlId="formUsuarioPassword"
-              >
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  {...register("password", {
-                    required: "La contraseña es obligatoria",
-                    minLength: {
-                      value: 8,
-                      message: "La contraseña debe tener al menos 8 caracteres",
-                    },
-                    maxLength: {
-                      value: 16,
-                      message: "La contraseña debe tener como máximo 16 caracteres",
-                    },
-                    pattern: {
-                      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/,
-                      message: "La contraseña debe contener al menos una minúscula, una mayúscula y un número",
-                    },
-                  })}
-                />
-                <Form.Text className="text-danger">
-                  {errors.password && errors.password.message}
-                </Form.Text>
-              </Form.Group>
-              )}      
-
+              {!modoEditar ? (
+                <Form.Group
+                  className="mb-3 text-light"
+                  controlId="formUsuarioPassword"
+                >
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    {...register("password", {
+                      required: "La contraseña es obligatoria",
+                      minLength: {
+                        value: 8,
+                        message:
+                          "La contraseña debe tener al menos 8 caracteres",
+                      },
+                      maxLength: {
+                        value: 16,
+                        message:
+                          "La contraseña debe tener como máximo 16 caracteres",
+                      },
+                      pattern: {
+                        value:
+                          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/,
+                        message:
+                          "La contraseña debe contener al menos una minúscula, una mayúscula y un número",
+                      },
+                    })}
+                  />
+                  <Form.Text className="text-danger">
+                    {errors.password && errors.password.message}
+                  </Form.Text>
+                </Form.Group>
+              ) : (
+                null
+              )}
 
               <Button
                 className="boton-formulario-Usuario my-2 ms-2"
