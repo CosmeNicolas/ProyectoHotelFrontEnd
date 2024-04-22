@@ -2,20 +2,6 @@ const URI_USUARIOS = import.meta.env.VITE_API_USUARIOS;
 const URI_HABITACIONES = import.meta.env.VITE_API_HABITACIONES;
 const URI_USUARIOS_GET = import.meta.env.VITE_API_USUARIOS_GET;
 
-/* //! Login 
-const admin = {
-    email: "admin@usuario.com",
-    password: "A12345678a",
-    rol: "Administrador"
-  };
-export const login = (usuario)=>{
-    if(usuario.email === admin.email && usuario.password === admin.password){
-        sessionStorage.setItem("inicioHotel", JSON.stringify(usuario.email))
-        return true
-    }else{
-        return false
-    };
-} */
 
 export const crearUsuario = async (usuario) => {
   try {
@@ -63,6 +49,10 @@ export const eliminarHabitacionAPI = async (id) => {
   try {
     const respuesta = await fetch(`${URI_HABITACIONES}/${id}`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "x-token": JSON.parse(sessionStorage.getItem("inicioHotel")).token
+      }
     });
     const resultado = await respuesta.json();
     return resultado;
@@ -95,5 +85,30 @@ export const eliminarUsuarioAPI = async (id) => {
     return respuesta;
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const editarUsuarioApi = async (id, usuario) => {
+  try {
+    const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+    console.log(respuesta)
+    return respuesta;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const obtenerUsuarioAPI = async (id) => {
+  try {
+    const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`);
+    return respuesta;
+  } catch (error) {
+    console.error(error);
   }
 };
