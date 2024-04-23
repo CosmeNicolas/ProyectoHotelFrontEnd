@@ -37,9 +37,6 @@ const enviarMail = async (e) => {
   try {
     
     const response = await emailjs.send("service_vjots2t", "template_lt6fb3v", templateParams);
-    console.log('e.target', e.target);
-    console.log('e.target.user_name', e.target.user_name);
-    console.log('e.target.user_name.value', e.target.user_name.value);
     if (response.status === 200) {
    
       Swal.fire({

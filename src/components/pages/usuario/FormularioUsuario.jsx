@@ -100,7 +100,7 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
           });
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
   };

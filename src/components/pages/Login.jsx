@@ -19,7 +19,7 @@ const Login = ({ setUsuarioLogueado }) => {
         const dato = await respuesta.json();
         
         if (dato.rol === "Usuario") {
-          console.log(dato.rol)
+          
           sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol}))
           setUsuarioLogueado(dato);
           navegacion("/");
@@ -33,7 +33,6 @@ const Login = ({ setUsuarioLogueado }) => {
           });
           
         } else if (dato.rol === "Administrador") {
-          console.log(dato.rol)
           sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol,  token:dato.token}))
           setUsuarioLogueado(dato);
           navegacion("/administrador");
@@ -66,7 +65,7 @@ const Login = ({ setUsuarioLogueado }) => {
         });
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

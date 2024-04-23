@@ -9,8 +9,6 @@ const ItemHabitacion = ({
   habitacionesAdmin,
   actualizarHabitaciones,
 }) => {
-  console.log(habitacionesAdmin);
-
   const handleEliminar = async (habitacionId, numero) => {
     Swal.fire({
       html: `¿Estas seguro que deseas borrar a la habitación <span class="text-danger">${numero}</span> ?`,

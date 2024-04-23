@@ -28,7 +28,6 @@ const Inicio = () => {
       const habitacionesAPIinicio = await respuesta;
       setHabitaciones(habitacionesAPIinicio);
     } catch (error) {
-      console.log(error);
       alert("tenes un error facha");
     }
   };

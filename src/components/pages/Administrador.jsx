@@ -47,7 +47,6 @@ const Administrador = () => {
       const mostrarHabitaciones = await respuesta;
       setHabitacionesAdmin(mostrarHabitaciones);
     } catch (error) {
-      console.log(first);
       Swal.fire({
         title: "Ocurrió un error en el servidor",
         text: "Intente realizar esta acción en unos minutos",
@@ -83,7 +82,7 @@ const Administrador = () => {
       const mostrarUsuarios = await respuesta;
       setUsuarioAdmin(mostrarUsuarios);
     } catch (error) {
-      console.log(first);
+     
       Swal.fire({
         title: "Ocurrió un error en el servidor",
         text: "Intente realizar esta acción en unos minutos",
