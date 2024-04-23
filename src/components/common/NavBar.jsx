@@ -40,9 +40,9 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
             <img className="img-nav" src={logo} alt="imagen-prueba" />
           </span>
         </Navbar.Brand>
-        <div className="ms-auto">
+        <NavLink className="ms-auto" to={("/contacto")}>
           <BsFillGeoAltFill className="icono-ubicacion mx-2 d-lg-none " />
-        </div>
+        </NavLink>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
