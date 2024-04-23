@@ -14,7 +14,7 @@ export const crearUsuario = async (usuario) => {
     });
     return respuesta;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -29,7 +29,7 @@ export const iniciarSesion = async (usuario) => {
     });
     return respuesta;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 };
@@ -41,7 +41,7 @@ export const leerHabitacionesAPI = async () => {
     const listarHabitaciones = await respuesta.json();
     return listarHabitaciones;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -57,7 +57,7 @@ export const eliminarHabitacionAPI = async (id) => {
     const resultado = await respuesta.json();
     return resultado;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -68,7 +68,7 @@ export const leerUsuariosAPI = async () => {
     const listarUsuarios = await respuesta.json();
     return listarUsuarios;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -84,7 +84,7 @@ export const eliminarUsuarioAPI = async (id) => {
     });
     return respuesta;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -97,7 +97,7 @@ export const editarUsuarioApi = async (id, usuario) => {
       },
       body: JSON.stringify(usuario),
     });
-    console.log(respuesta)
+    console.error(respuesta)
     return respuesta;
   } catch (error) {
     console.error(error);

@@ -28,7 +28,6 @@ const Reserva = ({ reserva, titulo }) => {
 
   const cargarDatosHabitacion = async () => {
     const respuesta = await obtenerHabitacion(id);
-    console.log(respuesta);
     if (respuesta.status === 200) {
       const obtenerHabitacion = await respuesta.json();
       /* traer los valores de las habitaciones */
@@ -60,7 +59,6 @@ const Reserva = ({ reserva, titulo }) => {
         }
         reserva.disponible = false;
         const respuesta = await editarHabitacionApi(id, reserva);
-        console.log(respuesta);
         if (respuesta.status === 200) {
           Swal.fire({
             title: "Reserva Realizada",
@@ -82,7 +80,7 @@ const Reserva = ({ reserva, titulo }) => {
         }
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
