@@ -5,7 +5,7 @@ const URI_USUARIOS_GET = import.meta.env.VITE_API_USUARIOS_GET;
 
 export const crearUsuario = async (usuario) => {
   try {
-    const respuesta = await fetch(URI_USUARIOS + "registrar", {
+    const respuesta = await fetch(URI_USUARIOS + "/registrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
