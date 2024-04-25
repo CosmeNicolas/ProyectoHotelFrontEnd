@@ -5,11 +5,7 @@ import Swal from "sweetalert2";
 import { eliminarHabitacionAPI } from "../../../helpers/queries";
 import { Link } from "react-router-dom";
 
-const ItemHabitacion = ({
-  habitacionesAdmin,
-  actualizarHabitaciones,
-}) => {
-  console.log(habitacionesAdmin);
+const ItemHabitacion = ({habitacionesAdmin,actualizarHabitaciones}) => {
 
   const handleEliminar = async (habitacionId, numero) => {
     Swal.fire({
@@ -57,7 +53,7 @@ const ItemHabitacion = ({
     <>
       {habitacionesAdmin.map((habitacionAdmin) => (
         <tr key={habitacionAdmin._id}>
-          <td>#</td>
+          <td>{habitacionAdmin._id}</td>
           <td>{habitacionAdmin.numero}</td>
           <td>{habitacionAdmin.tipo}</td>
           <td>${habitacionAdmin.precio}</td>
@@ -82,7 +78,7 @@ const ItemHabitacion = ({
           <td>
             <Link
               className="p-3 mx-1 btn btn-warning"
-              to={`/editarHabitacion/${habitacionAdmin._id}`}
+              to={`/editarHabitacion/${habitacionAdmin._id}/`}
             >
               <FaEdit />
             </Link>

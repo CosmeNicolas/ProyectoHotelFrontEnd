@@ -1,22 +1,35 @@
 import { useEffect, useState } from "react";
+import { leerHabitacionesAPI, leerUsuariosAPI } from "../../helpers/queries";
+import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import banner from "../../assets/Wonderful3.gif";
 import SectionIConosInicio from "../common/SectionIConosInicio";
 import SectionImagenInicio from "../common/SectionImagenInicio";
 import Cardhabitaciones from "./habitaciones/CardHabitaciones";
-import { leerHabitacionesAPI } from "../../helpers/queries";
-import { Link } from "react-router-dom";
 import Opiniones from "./Opiniones";
+
 
 const Inicio = () => {
   const [habitaciones, setHabitaciones] = useState([]);
-  const usuario= JSON.parse(sessionStorage.getItem("inicioHotel")) || "";
+  const [usuarios, setUsuarios] = useState([])
+  const usuario= JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
 
   useEffect(() => {
     if(usuario){
       leerHabitacionesInicio();
+      leerUsuarios()
     }
   }, []);
+
+  const leerUsuarios = async()=>{
+    try {
+      const respuesta = await leerUsuariosAPI()
+      const usuarioApiInicio = await respuesta
+      setUsuarios(usuarioApiInicio)
+    } catch (error) {
+      console.log('error al cargar los usuarios')
+    }
+  }
 
   const leerHabitacionesInicio = async () => {
     try {
@@ -34,7 +47,6 @@ const Inicio = () => {
   };
 
   return (
-    <>
       <section className="main">
         <article>
           <img className="img-banner img-fluid w-100" src={banner} alt="" />
@@ -52,7 +64,7 @@ const Inicio = () => {
         <article id="seccionFinal">
           
           {
-            (usuario) ? (<Cardhabitaciones habitaciones={habitaciones} />)
+            (usuario) ? (<Cardhabitaciones habitaciones={habitaciones} usuariorios={usuarios} />)
             :  (
             <Card className="text-center CardInicioContainer">
             <Card.Header className="fuente-slogan-principal">Bienvenido a Rolling Resort 🛎️</Card.Header>
@@ -68,11 +80,10 @@ const Inicio = () => {
           
           }
           <hr />
-          <Opiniones></Opiniones>
+          <Opiniones/>
         </article>
         <br id="footer" />
       </section>
-    </>
   );
 };
 

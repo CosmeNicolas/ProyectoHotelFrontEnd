@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 import {
   obtenerHabitacion,
   editarHabitacionApi,
 } from "../../../helpers/queriesHabitacion";
+import Usuario from "./Usuario";
+import Swal from "sweetalert2";
 
-const Reserva = ({ reserva, titulo }) => {
+const Reserva = ({ reserva, titulo}) => {
   const {
     register,
     handleSubmit,
@@ -19,6 +20,7 @@ const Reserva = ({ reserva, titulo }) => {
   const { id } = useParams();
   const navegacion = useNavigate();
   const [imagenCargada, setImagenCargada] = useState("");
+  
 
   useEffect(() => {
     if (reserva) {
@@ -251,6 +253,7 @@ const Reserva = ({ reserva, titulo }) => {
           </Card>
         </div>
       </section>
+      <Usuario/>
     </>
   );
 };
