@@ -9,9 +9,8 @@ import { useEffect } from "react";
 
 const Usuario = () => {
   const usuario= JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
-console.log(usuario)
-const idHabitacion = useParams()
-console.log(idHabitacion)
+/* console.log(usuario) */
+
 
 useEffect(() => {
   listarHabitaciones()
@@ -20,7 +19,7 @@ useEffect(() => {
 
 const listarHabitaciones =async ()=>{
   const respuesta = await leerHabitacionesAPI()
-  console.log(respuesta)
+  /* console.log(respuesta) */
 }
 
   
@@ -30,8 +29,8 @@ const listarHabitaciones =async ()=>{
  
    <tr>
           <td>#</td>
-          <td>{usuario.email}</td>
-          <td>{usuario.usuario}</td>
+          <td>Usuario</td>
+          <td>correo@correo</td>
           <td>$5000</td>
           <td>
            {/*  {new Date(habitacionAdmin.fechaIngreso).toISOString().split("T")[0]} */}

@@ -34,15 +34,11 @@ const Inicio = () => {
   const leerHabitacionesInicio = async () => {
     try {
       const respuesta = await leerHabitacionesAPI();
-      if (respuesta.status === 200) {
-        const habitacionesAPIinicio = await respuesta;
-        setHabitaciones(habitacionesAPIinicio);
-      }
       const habitacionesAPIinicio = await respuesta;
       setHabitaciones(habitacionesAPIinicio);
     } catch (error) {
       console.log(error);
-      alert("tenes un error facha");
+      alert("Tienes un error");
     }
   };
 

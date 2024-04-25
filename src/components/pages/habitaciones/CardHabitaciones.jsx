@@ -2,7 +2,8 @@ import { Container, Card, Button, Row, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Cardhabitaciones = ({ habitaciones}) => {
-  
+  const usuario= JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
+console.log(usuario)
 
 
   return (

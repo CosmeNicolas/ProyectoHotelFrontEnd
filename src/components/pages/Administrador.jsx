@@ -71,6 +71,7 @@ const Administrador = () => {
       setCargando(true);
       const respuesta = await leerUsuariosAPI();
       const mostrarUsuarios = await respuesta;
+      console.log(mostrarUsuarios)
       setUsuarioAdmin(mostrarUsuarios);
     } catch (error) {
       console.log(error);
@@ -216,8 +217,8 @@ const Administrador = () => {
             </Tab>
           </Tabs>
         </article>
-      </Container>
       <hr />
+      </Container>
     </>
   );
 };

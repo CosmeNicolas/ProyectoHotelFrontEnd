@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useParams, useNavigate } from "react-router-dom";
-import {
-  obtenerHabitacion,
-  editarHabitacionApi,
-} from "../../../helpers/queriesHabitacion";
+import { useParams, useNavigate, Await } from "react-router-dom";
+import {obtenerHabitacion,} from "../../../helpers/queriesHabitacion";
 import Usuario from "./Usuario";
 import Swal from "sweetalert2";
+import { crearReservaAPI } from "../../../helpers/queriesReserva";
+
 
 const Reserva = ({ reserva, titulo}) => {
+  const usuario= JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
+  console.log(usuario)
   const {
     register,
     handleSubmit,
@@ -24,33 +25,44 @@ const Reserva = ({ reserva, titulo}) => {
 
   useEffect(() => {
     if (reserva) {
-      cargarDatosHabitacion();
+      cargarDatosReserva();
     }
   }, []);
 
-  const cargarDatosHabitacion = async () => {
-    const respuesta = await obtenerHabitacion(id);
-    console.log(respuesta);
-    if (respuesta.status === 200) {
-      const obtenerHabitacion = await respuesta.json();
-      /* traer los valores de las habitaciones */
-      setImagenCargada(obtenerHabitacion.imagen);
-      setValue("numero", obtenerHabitacion.numero);
-      setValue("tipo", obtenerHabitacion.tipo);
-      setValue("precio", obtenerHabitacion.precio);
-      setValue("disponible", obtenerHabitacion.disponible);
-      const fechaIngreso = new Date(obtenerHabitacion.fechaIngreso);
-      const fechaSalida = new Date(obtenerHabitacion.fechaSalida);
-      const fechaIngresoFormateada = fechaIngreso.toISOString().split("T")[0];
-      const fechaSalidaFormateada = fechaSalida.toISOString().split("T")[0];
-      setValue("fechaIngreso", fechaIngresoFormateada);
-      setValue("fechaSalida", fechaSalidaFormateada);
-    } else {
-      Swal.fire({
-        title: "Ocurrio un error",
-        text: "Intente realizar esta accion en unos minutos",
-        icon: "error",
-      });
+
+
+  const cargarDatosReserva = async () => {
+    try {
+      const respuestaHabitacion = await obtenerHabitacion(id);
+
+      if (respuestaHabitacion.status === 200) {
+        const obtenerHabitacion = await respuestaHabitacion.json();
+        console.log(obtenerHabitacion) 
+        
+        setValue('email', usuario.email)
+        setImagenCargada(obtenerHabitacion.imagen); 
+        setValue("numero", obtenerHabitacion.numero);
+        setValue("tipo", obtenerHabitacion.tipo);
+        setValue("precio", obtenerHabitacion.precio);
+        setValue("disponible", obtenerHabitacion.disponible);
+  
+        const fechaIngreso = new Date(obtenerHabitacion.fechaIngreso);
+        const fechaSalida = new Date(obtenerHabitacion.fechaSalida);
+        const fechaIngresoFormateada = fechaIngreso.toISOString().split("T")[0];
+        const fechaSalidaFormateada = fechaSalida.toISOString().split("T")[0];
+  
+        setValue("fechaIngreso", fechaIngresoFormateada);
+        setValue("fechaSalida", fechaSalidaFormateada);
+        console.log(obtenerHabitacion) 
+      } else {
+        Swal.fire({
+          title: "Ocurrió un error",
+          text: "Intente realizar esta acción en unos minutos",
+          icon: "error",
+        });
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
   const reservarHabitacion = async (reserva) => {
@@ -61,7 +73,7 @@ const Reserva = ({ reserva, titulo}) => {
           reserva.imagen = imagenCargada;
         }
         reserva.disponible = false;
-        const respuesta = await editarHabitacionApi(id, reserva);
+        const respuesta = await crearReservaAPI();
         console.log(respuesta);
         if (respuesta.status === 200) {
           Swal.fire({
@@ -102,7 +114,52 @@ const Reserva = ({ reserva, titulo}) => {
         <div className="d-flex justify-content-center ">
           <Card className="container-formulario-Reserva  p-3 my-4  d-flex flex-column align-content-center justify-content-center">
             <Form className="p-3" onSubmit={handleSubmit(reservarHabitacion)}>
-              {/* Nombre habitacion */}
+              {/* Nombre y aplelido */}
+              <Form.Group
+                className=" mb-3 text-light"
+                controlId="formNombreCompleto"
+              >
+                <Form.Label>Nombre y Apellido</Form.Label>
+                <Form.Control
+                  placeholder="Nombre completo"
+                  {...register("nombreCompleto", {
+                    required: "El nombre del cliente es obligatorio",
+                    minLength: {
+                      value: 3,
+                      message: "La cantidad mínima de caracteres es 2",
+                    },
+                    maxLength: {
+                      value: 60,
+                      message: "La cantidad máxima de caracteres es 50",
+                    },
+                  })}
+                />
+                <Form.Text className="text-danger">
+                  {errors.nombreCompleto && errors.nombreCompleto.message}
+                </Form.Text>
+              </Form.Group>
+              {/* email */}
+              <Form.Group
+                className="mb-3 text-light"
+                controlId="formUsuarioEmail"
+              >
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Ej:   Rolling@gmail.com"
+                  {...register("email", {
+                    required: "El email es un dato obligatorio",
+                    pattern: {
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                      message: "El email debe tener un formato válido",
+                    },
+                  })}
+                />
+                <Form.Text className="text-danger">
+                  {errors.email && errors.email.message}
+                </Form.Text>
+              </Form.Group>
+              {/* tipo de habitacion */}
               <Form.Group controlId="tipo" className=" mb-3 text-light">
                 <Form.Label>Tipo de Habitacion</Form.Label>
                 <Form.Select
@@ -211,7 +268,7 @@ const Reserva = ({ reserva, titulo}) => {
                 </Form.Text>
               </Form.Group>
 
-              {/* PRECiO */}
+              {/* Precio */}
               <Form.Group controlId="precio" className=" mb-3 text-light">
                 <Form.Label>Precio</Form.Label>
                 <Form.Control
