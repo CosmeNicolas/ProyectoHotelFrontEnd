@@ -1,4 +1,4 @@
-const URI_RESERVAS = import.meta.env.VITE_API_RESERVAS;
+/* const URI_RESERVAS = import.meta.env.VITE_API_RESERVAS;
 
 export const crearReservaAPI = async (nuevaReserva) => {
     try {
@@ -23,4 +23,4 @@ export const crearReservaAPI = async (nuevaReserva) => {
     } catch (error) {
       console.error(error);
     }
-  };
+  }; */

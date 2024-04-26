@@ -6,9 +6,9 @@ import { leerUsuariosAPI } from "../../helpers/queries";
 import { useEffect, useState } from "react";
 import ItemHabitacion from "./habitaciones/Itemhabitacion";
 import ItemUsuario from "./usuario/ItemUsuario";
-import Usuario from "./usuario/Usuario";
 import Swal from "sweetalert2";
 import HashLoader from "react-spinners/HashLoader";
+import ItemReservas from "./usuario/ItemReservas";
 
 const Administrador = () => {
   const [habitacionesAdmin, setHabitacionesAdmin] = useState([]);
@@ -34,24 +34,7 @@ const Administrador = () => {
     }
     setCargando(false);
   };
-
-  const mostrarHabitacionesAdmin = async () => {
-    try {
-      setCargando(true);
-      const respuesta = await leerHabitacionesAPI();
-      const mostrarHabitaciones = await respuesta;
-      setHabitacionesAdmin(mostrarHabitaciones);
-    } catch (error) {
-      console.log(first);
-      Swal.fire({
-        title: "Ocurrió un error en el servidor",
-        text: "Intente realizar esta acción en unos minutos",
-        icon: "error",
-      });
-      setCargando(false);
-    }
-  };
-
+  
   const actualizarHabitaciones = async () => {
     try {
       const habitaciones = await leerHabitacionesAPI();
@@ -65,6 +48,26 @@ const Administrador = () => {
       });
     }
   };
+
+
+  const mostrarHabitacionesAdmin = async () => {
+    try {
+      setCargando(true);
+      const respuesta = await leerHabitacionesAPI();
+      const mostrarHabitaciones = await respuesta;
+      setHabitacionesAdmin(mostrarHabitaciones);
+      await actualizarHabitaciones()
+    } catch (error) {
+      console.log(first);
+      Swal.fire({
+        title: "Ocurrió un error en el servidor",
+        text: "Intente realizar esta acción en unos minutos",
+        icon: "error",
+      });
+      setCargando(false);
+    }
+  };
+
 
   const mostrarUsuariosAdmin = async () => {
     try {
@@ -147,9 +150,7 @@ const Administrador = () => {
                   <tbody>
                     <ItemHabitacion
                       habitacionesAdmin={habitacionesAdmin}
-                      setHabitacionesAdmin={setHabitacionesAdmin}
-                      usuariosAdmin={usuariosAdmin}
-                      setUsuarioAdmin={setUsuarioAdmin}
+              actualizarHabitaciones={actualizarHabitaciones} 
                     />
                   </tbody>
                 </Table>
@@ -197,21 +198,21 @@ const Administrador = () => {
               <Table responsive striped bordered hover>
                 <thead>
                   <tr>
-                    <th>Cod</th>
-                    <th>Nombre Completo</th>
+                   
                     <th>Email</th>
                     <th>Precio</th>
                     <th>habitacion</th>
-                    <th>Usuario</th>
                     <th>Estado</th>
-                    <th>Fecha</th>
+                    <th>FechaIngreso</th>
+                    <th>Fecha de Salida</th>
                     <th>Imagen</th>
                     <th>Opciones</th>
+                
                   </tr>
                 </thead>
                 <tbody>
                   {/* Aquí puedes colocar el componente o la lógica que quieras para la pestaña de Reservas */}
-                  <Usuario />
+                  <ItemReservas  usuariosAdmin={usuariosAdmin} />
                 </tbody>
               </Table>
             </Tab>

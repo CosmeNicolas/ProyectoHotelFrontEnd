@@ -84,8 +84,7 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
               Contacto
             </NavLink>
             {/* admin y usuario */}
-            {usuarioLogueado.rol === "Administrador" ||
-            usuarioLogueado.rol === "Usuario" ? (
+            {usuarioLogueado.rol ? (
               <>
                 <NavLink
                   className="nav-link fuente-nav"

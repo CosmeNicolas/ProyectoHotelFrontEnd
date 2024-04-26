@@ -4,8 +4,11 @@ import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import { eliminarHabitacionAPI } from "../../../helpers/queries";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const ItemHabitacion = ({habitacionesAdmin,actualizarHabitaciones}) => {
+const ItemHabitacion = ({habitacionesAdmin, actualizarHabitaciones}) => {
+const [numeracion, setNumeracion] = useState(+1)
+const sumar = habitacionesAdmin
 
   const handleEliminar = async (habitacionId, numero) => {
     Swal.fire({
@@ -53,7 +56,7 @@ const ItemHabitacion = ({habitacionesAdmin,actualizarHabitaciones}) => {
     <>
       {habitacionesAdmin.map((habitacionAdmin) => (
         <tr key={habitacionAdmin._id}>
-          <td>{habitacionAdmin._id}</td>
+          <td>#</td>
           <td>{habitacionAdmin.numero}</td>
           <td>{habitacionAdmin.tipo}</td>
           <td>${habitacionAdmin.precio}</td>

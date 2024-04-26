@@ -21,6 +21,7 @@ import "./Reserva.css";
 import Galeria from "./components/pages/Galeria";
 import FormularioHabitacion from "./components/pages/habitaciones/FormularioHabitacion";
 import Reserva from "./components/pages/usuario/Reserva";
+import DetalleReserva from "./components/pages/DetalleReserva";
 
 function App() {
   const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
@@ -90,9 +91,9 @@ function App() {
               titulo="Editar Usuario"
               textoBoton="Guardar Cambios"
               modoEditar={true}
-            ></FormularioUsuario>
+            />
           }
-        ></Route>
+        />
         <Route
           exact
           path="/CrearUsuario"
@@ -101,10 +102,15 @@ function App() {
               titulo="Crear Usuario"
               textoBoton="Guardar"
               modoEditar={false}
-            />
-          }
+          /> } />
+            <Route
+            exact
+            path="/detallereserva"
+            element={
+              <DetalleReserva/>}
         />
-
+          
+            
         <Route exact path="/servicios" element={<Servicios />} />
         <Route
           exact

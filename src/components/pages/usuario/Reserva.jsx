@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useParams, useNavigate, Await } from "react-router-dom";
-import {obtenerHabitacion,} from "../../../helpers/queriesHabitacion";
-import Usuario from "./Usuario";
+import { useParams, useNavigate } from "react-router-dom";
+import {obtenerHabitacion,editarHabitacionApi} from "../../../helpers/queriesHabitacion";
 import Swal from "sweetalert2";
-import { crearReservaAPI } from "../../../helpers/queriesReserva";
-
 
 const Reserva = ({ reserva, titulo}) => {
-  const usuario= JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
-  console.log(usuario)
   const {
     register,
     handleSubmit,
@@ -25,44 +20,33 @@ const Reserva = ({ reserva, titulo}) => {
 
   useEffect(() => {
     if (reserva) {
-      cargarDatosReserva();
+      cargarDatosHabitacion();
     }
   }, []);
 
-
-
-  const cargarDatosReserva = async () => {
-    try {
-      const respuestaHabitacion = await obtenerHabitacion(id);
-
-      if (respuestaHabitacion.status === 200) {
-        const obtenerHabitacion = await respuestaHabitacion.json();
-        console.log(obtenerHabitacion) 
-        
-        setValue('email', usuario.email)
-        setImagenCargada(obtenerHabitacion.imagen); 
-        setValue("numero", obtenerHabitacion.numero);
-        setValue("tipo", obtenerHabitacion.tipo);
-        setValue("precio", obtenerHabitacion.precio);
-        setValue("disponible", obtenerHabitacion.disponible);
-  
-        const fechaIngreso = new Date(obtenerHabitacion.fechaIngreso);
-        const fechaSalida = new Date(obtenerHabitacion.fechaSalida);
-        const fechaIngresoFormateada = fechaIngreso.toISOString().split("T")[0];
-        const fechaSalidaFormateada = fechaSalida.toISOString().split("T")[0];
-  
-        setValue("fechaIngreso", fechaIngresoFormateada);
-        setValue("fechaSalida", fechaSalidaFormateada);
-        console.log(obtenerHabitacion) 
-      } else {
-        Swal.fire({
-          title: "Ocurrió un error",
-          text: "Intente realizar esta acción en unos minutos",
-          icon: "error",
-        });
-      }
-    } catch (error) {
-      console.error(error);
+  const cargarDatosHabitacion = async () => {
+    const respuesta = await obtenerHabitacion(id);
+    if (respuesta.status === 200) {
+      const obtenerHabitacion = await respuesta.json();
+      /* traer los valores de las habitaciones */
+      setImagenCargada(obtenerHabitacion.imagen);
+      setValue("email",obtenerHabitacion.email)
+      setValue("numero", obtenerHabitacion.numero);
+      setValue("tipo", obtenerHabitacion.tipo);
+      setValue("precio", obtenerHabitacion.precio);
+      setValue("disponible", obtenerHabitacion.disponible);
+      const fechaIngreso = new Date(obtenerHabitacion.fechaIngreso);
+      const fechaSalida = new Date(obtenerHabitacion.fechaSalida);
+      const fechaIngresoFormateada = fechaIngreso.toISOString().split("T")[0];
+      const fechaSalidaFormateada = fechaSalida.toISOString().split("T")[0];
+      setValue("fechaIngreso", fechaIngresoFormateada);
+      setValue("fechaSalida", fechaSalidaFormateada);
+    } else {
+      Swal.fire({
+        title: "Ocurrio un error",
+        text: "Intente realizar esta accion en unos minutos",
+        icon: "error",
+      });
     }
   };
   const reservarHabitacion = async (reserva) => {
@@ -73,8 +57,7 @@ const Reserva = ({ reserva, titulo}) => {
           reserva.imagen = imagenCargada;
         }
         reserva.disponible = false;
-        const respuesta = await crearReservaAPI();
-        console.log(respuesta);
+        const respuesta = await editarHabitacionApi(id, reserva);
         if (respuesta.status === 200) {
           Swal.fire({
             title: "Reserva Realizada",
@@ -96,7 +79,7 @@ const Reserva = ({ reserva, titulo}) => {
         }
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -115,7 +98,7 @@ const Reserva = ({ reserva, titulo}) => {
           <Card className="container-formulario-Reserva  p-3 my-4  d-flex flex-column align-content-center justify-content-center">
             <Form className="p-3" onSubmit={handleSubmit(reservarHabitacion)}>
               {/* Nombre y aplelido */}
-              <Form.Group
+             {/*  <Form.Group
                 className=" mb-3 text-light"
                 controlId="formNombreCompleto"
               >
@@ -137,7 +120,7 @@ const Reserva = ({ reserva, titulo}) => {
                 <Form.Text className="text-danger">
                   {errors.nombreCompleto && errors.nombreCompleto.message}
                 </Form.Text>
-              </Form.Group>
+              </Form.Group> */}
               {/* email */}
               <Form.Group
                 className="mb-3 text-light"
@@ -146,7 +129,7 @@ const Reserva = ({ reserva, titulo}) => {
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="email"
-                  placeholder="Ej:   Rolling@gmail.com"
+                  placeholder="Ej: Rolling@gmail.com"
                   {...register("email", {
                     required: "El email es un dato obligatorio",
                     pattern: {
@@ -310,7 +293,6 @@ const Reserva = ({ reserva, titulo}) => {
           </Card>
         </div>
       </section>
-      <Usuario/>
     </>
   );
 };
