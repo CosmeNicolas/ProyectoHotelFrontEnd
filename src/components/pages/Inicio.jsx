@@ -71,9 +71,7 @@ const Inicio = () => {
               </Card.Text>
               <Link to='/crearUsuario'  className=" btn btn-dark btnCardInicioRegistro" variant="dark">Registrate</Link>
             </Card.Body>
-           
           </Card>)
-          
           }
           <hr />
           <Opiniones/>

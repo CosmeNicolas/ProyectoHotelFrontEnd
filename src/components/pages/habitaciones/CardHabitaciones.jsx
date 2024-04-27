@@ -40,9 +40,9 @@ const Cardhabitaciones = ({ habitaciones}) => {
                       Reservar
                     </Link>
                   ) : (
-                    <Button className="opacity-25 mt-3 border-0" variant="dark">
+                    <Link className="btn btn-dark opacity-25 mt-3 border-0" variant="dark" to={`/detallereserva/${habitacion._id}`}>
                       No disponible
-                    </Button>
+                    </Link>
                   )}
                 </div>
               </Card.Body>

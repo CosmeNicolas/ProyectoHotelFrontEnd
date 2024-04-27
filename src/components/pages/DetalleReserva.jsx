@@ -1,13 +1,15 @@
 import { Container,  Card , ListGroup } from 'react-bootstrap'
-import imagen from '../../../src/assets/entrada-hotel.jpeg'
 import { obtenerHabitacion } from '../../helpers/queriesHabitacion'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 
 const DetalleReserva = () => {
-  const {id} = useParams()
-  const [reserva, setReserva] = useState([])
+  const {id} = useParams() 
+  const [reserva, setReserva] = useState({})
+  console.log(id)
+  console.log(reserva)
+
   useEffect(() => {
    mostrarReserva()
   }, [])

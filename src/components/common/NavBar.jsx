@@ -3,10 +3,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from ".././../assets/logo.jpg";
 import { BsFillGeoAltFill } from "react-icons/bs";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate, useParams} from "react-router-dom";
 import Swal from "sweetalert2";
 
 const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
+
   let estiloActivo = {
     textDecoration: "underline",
     fontWeigth: "bold",
@@ -29,8 +30,10 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
     direccionar("/");
   };
 
+  
+
   const email = usuarioLogueado.email
-  const sacarResto = email.split('@')
+  const sacarResto = email ? email.split('@') : []
   const nombreUsuario = sacarResto[0]
 
   return (
@@ -122,13 +125,13 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
             {usuarioLogueado.rol ? (
               <NavLink
                 className="nav-link text-decoration-none"
-                to="/habitaciones"
+                to={`/detallereserva/${usuarioLogueado.rol}`}
               >
                 <span className="nav-link  reserva-nav p-2">Reserva</span>
               </NavLink>
             ) : (
               <NavLink className="nav-link text-decoration-none" to="/login">
-                <span className="nav-link  reserva-nav p-2">Reserva</span>
+                <span className="nav-link  reserva-nav p-2" >Reserva</span>
               </NavLink>
             )}
           </Nav>
