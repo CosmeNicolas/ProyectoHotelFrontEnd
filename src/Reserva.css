@@ -31,3 +31,8 @@
 .fuente-formulario-Reserva {
   font-family: "Dancing Script", cursive;
 }
+
+.tituloReservaCard{
+  font-family: "Dancing Script", cursive;
+  margin-top: 10px;
+}
