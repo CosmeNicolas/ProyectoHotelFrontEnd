@@ -160,7 +160,7 @@ const Administrador = () => {
             {/* Tabla Ususarios */}
             <Tab eventKey="usuarios" title="Usuarios">
               <div className="d-flex align-items-center justify-content-between my-2">
-                <h2 className="fs-1 fw-bold titulos">Usuarios</h2>
+                <h2 className="fs-1 fw-bold titulos ">Usuarios</h2>
               </div>
               <hr />
               {cargando ? (
@@ -212,7 +212,8 @@ const Administrador = () => {
                 </thead>
                 <tbody>
                   {/* Aquí puedes colocar el componente o la lógica que quieras para la pestaña de Reservas */}
-                  <ItemReservas  usuariosAdmin={usuariosAdmin} />
+                  <ItemReservas  usuariosAdmin={usuariosAdmin}   habitacionesAdmin={habitacionesAdmin}
+              actualizarHabitaciones={actualizarHabitaciones} />
                 </tbody>
               </Table>
             </Tab>

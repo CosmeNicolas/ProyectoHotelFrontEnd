@@ -12,6 +12,8 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
     fontWeigth: "bold",
   };
 
+  console.log(usuarioLogueado)
+
   const direccionar = useNavigate();
   const logOut = () => {
     Swal.fire({
@@ -26,6 +28,10 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
     setUsuarioLogueado({});
     direccionar("/");
   };
+
+  const email = usuarioLogueado.email
+  const sacarResto = email.split('@')
+  const nombreUsuario = sacarResto[0]
 
   return (
     <Navbar
@@ -93,7 +99,7 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
                     isActive ? estiloActivo : undefined
                   }
                 >
-                  {usuarioLogueado.rol}
+                  {nombreUsuario}
                 </NavLink>
                 <Link
                   onClick={logOut}

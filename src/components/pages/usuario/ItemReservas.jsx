@@ -2,12 +2,14 @@ import {  Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { leerHabitacionesAPI } from "../../../helpers/queries";
+import { leerHabitacionesAPI, eliminarHabitacionAPI } from "../../../helpers/queries";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 
 
-const ItemReservas = ({usuariosAdmin}) => {
+
+const ItemReservas = ({usuariosAdmin ,actualizarHabitaciones}) => {
 const [mostrarReservas, setMostrarReservas] = useState([])
 console.log(usuariosAdmin)
 
@@ -15,6 +17,47 @@ useEffect(() => {
   listarHabitaciones()
 }, [])
 
+const eliminarReserva = async (habitacionId) => {
+  Swal.fire({
+    html: `¿Estas seguro que deseas borrar a la Reserva?`,
+    icon: "warning",
+    showCancelButton: true,
+    customClass: {
+      popup: "contenedor-sweet",
+    },
+    confirmButtonColor: "#B79B63",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Borrar",
+    cancelButtonText: "Cancelar",
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      try {
+        await eliminarHabitacionAPI(habitacionId);
+        Swal.fire({
+          title: "Borrado!",
+          html: `Su reserva ha sido borrada!`,
+          icon: "success",
+          customClass: {
+            popup: "contenedor-sweet",
+          },
+          confirmButtonColor: "#B79B63",
+        });
+        actualizarHabitaciones();
+      } catch (error) {
+        console.error(error);
+        Swal.fire({
+          title: "Ops!",
+          text: `Se produjo un error intente mas tarde`,
+          icon: "error",
+          customClass: {
+            popup: "contenedor-sweet",
+          },
+          confirmButtonColor: "#B79B63",
+        });
+      }
+    }
+  });
+};
 
 const listarHabitaciones = async()=>{
   const reservas = await leerHabitacionesAPI()
@@ -59,9 +102,9 @@ const listarHabitaciones = async()=>{
             <Button
               variant="danger"
               className="p-3 mx-1"
-            /*   onClick={() =>
-                handleEliminar(habitacionAdmin._id, habitacionAdmin.numero)
-              } */
+            onClick={() =>{
+              eliminarReserva(reserva._id)
+            } } 
             >
               <MdDelete />
             </Button>

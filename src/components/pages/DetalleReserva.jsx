@@ -1,9 +1,27 @@
 import { Container,  Card , ListGroup } from 'react-bootstrap'
 import imagen from '../../../src/assets/entrada-hotel.jpeg'
+import { obtenerHabitacion } from '../../helpers/queriesHabitacion'
+import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+
 
 const DetalleReserva = () => {
+  const {id} = useParams()
+  const [reserva, setReserva] = useState([])
+  useEffect(() => {
+   mostrarReserva()
+  }, [])
+
+  const mostrarReserva = async ()=>{
+  const respuesta = await obtenerHabitacion(id)
+  if(respuesta.status === 200){
+    const obtenerReserva = await respuesta.json()
+    console.log(obtenerReserva)
+    setReserva(obtenerReserva)
+  } 
+ }
+
   return (
-    
       <Container className='main'>
         <div className='mt-5 pt-2'>
           <h1 className='text-center fuente-login '>Tu Reserva🛎️</h1>
@@ -11,18 +29,17 @@ const DetalleReserva = () => {
         <section className='d-flex py-3  justify-content-center'>
           <article className=''>
           <Card  style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={imagen}  />
+            <Card.Img variant="top" src={reserva.imagen}  />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
+        <Card.Title>{reserva.tipo}</Card.Title>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+        <ListGroup.Item>Reserva con el correo de :  {reserva.email}</ListGroup.Item>
+        <ListGroup.Item>Nro. Habitacion: {reserva.numero}</ListGroup.Item>
+        <ListGroup.Item>Precio: ${reserva.precio}</ListGroup.Item>
+        <ListGroup.Item>Fecha de Ingreso: {reserva?.fechaIngreso?.slice(0, 10)}</ListGroup.Item>
+        <ListGroup.Item>Fecha de Salida: {reserva?.fechaSalida?.slice(0, 10)}</ListGroup.Item> 
+        
       </ListGroup>
       <Card.Body>
         <Card.Link href="#">Card Link</Card.Link>

@@ -6,6 +6,8 @@ import {obtenerHabitacion,editarHabitacionApi} from "../../../helpers/queriesHab
 import Swal from "sweetalert2";
 
 const Reserva = ({ reserva, titulo}) => {
+  const usuario= JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
+console.log(usuario)
   const {
     register,
     handleSubmit,
@@ -30,7 +32,11 @@ const Reserva = ({ reserva, titulo}) => {
       const obtenerHabitacion = await respuesta.json();
       /* traer los valores de las habitaciones */
       setImagenCargada(obtenerHabitacion.imagen);
-      setValue("email",obtenerHabitacion.email)
+      if(usuario.rol === 'Usuario'){
+        setValue("email",usuario.email)
+      }else{
+        setValue("email",obtenerHabitacion.email)
+      }
       setValue("numero", obtenerHabitacion.numero);
       setValue("tipo", obtenerHabitacion.tipo);
       setValue("precio", obtenerHabitacion.precio);
@@ -66,7 +72,7 @@ const Reserva = ({ reserva, titulo}) => {
               popup: "contenedor-sweet",
             },
           });
-          navegacion("/");
+          navegacion(`/detallereserva/${id}`);
         } else {
           Swal.fire({
             title: "Ocurrio un error",

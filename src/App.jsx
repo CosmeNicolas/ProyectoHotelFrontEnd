@@ -105,7 +105,7 @@ function App() {
           /> } />
             <Route
             exact
-            path="/detallereserva"
+            path="/detallereserva/:id"
             element={
               <DetalleReserva/>}
         />
