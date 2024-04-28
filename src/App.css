@@ -76,6 +76,7 @@
 .imagen-relax-inicio {
   object-fit: cover;
   width: 50%;
+  height: 550px;
 }
 
 .fuente-titulo-relax {
