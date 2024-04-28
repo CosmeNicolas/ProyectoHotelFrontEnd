@@ -9,7 +9,7 @@ import { MdDelete } from "react-icons/md";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const ItemReservas = ({ usuariosAdmin, actualizarHabitaciones }) => {
+const ItemReservas = ({ actualizarHabitaciones }) => {
   const [mostrarReservas, setMostrarReservas] = useState([]);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const ItemReservas = ({ usuariosAdmin, actualizarHabitaciones }) => {
 
   const eliminarReserva = async (habitacionId) => {
     Swal.fire({
-      html: `¿Estas seguro que deseas borrar a la Reserva?`,
+      html: `¿Estas seguro que deseas borrar la Reserva?`,
       icon: "warning",
       showCancelButton: true,
       customClass: {
@@ -42,6 +42,7 @@ const ItemReservas = ({ usuariosAdmin, actualizarHabitaciones }) => {
             confirmButtonColor: "#B79B63",
           });
           actualizarHabitaciones();
+          await listarHabitaciones();
         } catch (error) {
           console.error(error);
           Swal.fire({

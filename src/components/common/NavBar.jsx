@@ -5,8 +5,29 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from ".././../assets/logo.jpg";
 import Swal from "sweetalert2";
+import { useEffect, useRef, useState } from "react";
 
 const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
+  const [contraer, setContraer] = useState(false);
+  const navRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setExpanded(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+
+
+
   let estiloActivo = {
     textDecoration: "underline",
     fontWeigth: "bold",
@@ -37,6 +58,8 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
       data-bs-theme="dark"
       expand="lg"
       className="barraDeNavegacion"
+      constraer={contraer}
+      ref={navRef}
     >
       <Container>
         <Navbar.Brand as={Link} to="/" href="/">
@@ -48,7 +71,7 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
           <BsFillGeoAltFill className="icono-ubicacion mx-2 d-lg-none " />
         </NavLink>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav"  onClick={() => setContraer(!contraer)}/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <NavLink
