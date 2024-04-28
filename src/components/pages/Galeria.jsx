@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { Container, Row, Col, Carousel, Modal } from "react-bootstrap";
 import habitacion from "../../assets/habitacion.jpeg";
 import habitacion2 from "../../assets/habitacion2.jpeg";
@@ -11,8 +13,6 @@ import piscina from "../../assets/piscina.jpeg";
 import recepcion from "../../assets/recepcion.jpeg";
 import spa from "../../assets/spa.jpeg";
 import entradaHotel from "../../assets/entrada-hotel.jpeg";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
-import React, { useState } from "react";
 
 const Galeria = () => {
   const [imagenesGustadas, setImagenesGustadas] = useState({});
@@ -28,12 +28,12 @@ const Galeria = () => {
 
   const cerrarModal = () => {
     setMostrarModal(false);
-};
+  };
 
-const abrirModal = (index) => {
+  const abrirModal = (index) => {
     setIndiceImagenSeleccionada(index);
     setMostrarModal(true);
-};
+  };
 
   return (
     <Container className="mt-5">
@@ -102,7 +102,12 @@ const abrirModal = (index) => {
         </Col>
         <Col md={4} lg={3} sm={4}>
           <div className="galeria-item">
-            <img src={baño} alt="baño" className="img-fluid mb-3 galeria-img" onClick={() => abrirModal(4)}/>
+            <img
+              src={baño}
+              alt="baño"
+              className="img-fluid mb-3 galeria-img"
+              onClick={() => abrirModal(4)}
+            />
             <div className="icono-corazon" onClick={() => manejarGusto(4)}>
               {imagenesGustadas[4] ? <FaHeart color="red" /> : <FaRegHeart />}
             </div>
@@ -175,7 +180,12 @@ const abrirModal = (index) => {
         </Col>
         <Col md={4} lg={3} sm={4}>
           <div className="galeria-item">
-            <img src={spa} alt="spa" className="img-fluid mb-3 galeria-img" onClick={() => abrirModal(10)}/>
+            <img
+              src={spa}
+              alt="spa"
+              className="img-fluid mb-3 galeria-img"
+              onClick={() => abrirModal(10)}
+            />
             <div className="icono-corazon" onClick={() => manejarGusto(10)}>
               {imagenesGustadas[10] ? <FaHeart color="red" /> : <FaRegHeart />}
             </div>
@@ -196,95 +206,80 @@ const abrirModal = (index) => {
         </Col>
       </Row>
       <Modal show={mostrarModal} onHide={cerrarModal} centered>
-                <Modal.Body>
-                    <Carousel activeIndex={indiceImagenSeleccionada} onSelect={(selectedIndex) => setIndiceImagenSeleccionada(selectedIndex)}>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={habitacion}
-                                alt="First slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={habitacion2}
-                                alt="Second slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={habitacion3}
-                                alt="Third slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={livingHabitacion}
-                                alt="Fourth slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={baño}
-                                alt="Fifth slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={baño2}
-                                alt="Sixth slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={cafeteria}
-                                alt="Seventh slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={casino}
-                                alt="Eighth slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={piscina}
-                                alt="Ninth slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={recepcion}
-                                alt="Tenth slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={spa}
-                                alt="Eleventh slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={entradaHotel}
-                                alt="Twelfth slide"
-                            />
-                        </Carousel.Item>
-                    </Carousel>
-                </Modal.Body>
-            </Modal>
+        <Modal.Body>
+          <Carousel
+            activeIndex={indiceImagenSeleccionada}
+            onSelect={(selectedIndex) =>
+              setIndiceImagenSeleccionada(selectedIndex)
+            }
+          >
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={habitacion}
+                alt="First slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={habitacion2}
+                alt="Second slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={habitacion3}
+                alt="Third slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={livingHabitacion}
+                alt="Fourth slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="d-block w-100" src={baño} alt="Fifth slide" />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="d-block w-100" src={baño2} alt="Sixth slide" />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={cafeteria}
+                alt="Seventh slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="d-block w-100" src={casino} alt="Eighth slide" />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="d-block w-100" src={piscina} alt="Ninth slide" />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={recepcion}
+                alt="Tenth slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="d-block w-100" src={spa} alt="Eleventh slide" />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={entradaHotel}
+                alt="Twelfth slide"
+              />
+            </Carousel.Item>
+          </Carousel>
+        </Modal.Body>
+      </Modal>
     </Container>
   );
 };

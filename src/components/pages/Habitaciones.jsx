@@ -9,20 +9,17 @@ import habitacion6img from "../../assets/habitacion6.jpeg";
 import habitacion7img from "../../assets/habitacion7.jpg";
 import banio1img from "../../assets/banio1.jpeg";
 
-
 const Habitaciones = () => {
- 
   return (
     <>
       <section>
         <Container className="text-center">
-          <h2 className="texto-tituloHTop text-center">
-            Habitaciones Suite
-          </h2>
+          <h2 className="texto-tituloHTop text-center">Habitaciones Suite</h2>
           <p className="texto-textoH text-center mt-5">
             Al entrar en una habitación de lujo, uno es recibido por un ambiente
             de refinamiento y exclusividad. Los materiales de alta calidad y los
-            acabados impecables se destacan a primera vista. Es el alojamiento más lujosos y cómodos que se pueden encontrar en  nuestro hotel.
+            acabados impecables se destacan a primera vista. Es el alojamiento
+            más lujosos y cómodos que se pueden encontrar en nuestro hotel.
           </p>
         </Container>
         <Image
@@ -33,11 +30,7 @@ const Habitaciones = () => {
         />
         <Row className="descripcion-habitacion g-0 text-center">
           <Col xs={{ span: 12, order: 2 }} md={6}>
-            <Image
-              src={living1img}
-              alt="habitacionDeLujo"
-              fluid
-            />
+            <Image src={living1img} alt="habitacionDeLujo" fluid />
           </Col>
           <Col
             xs={{ span: 12, order: 1 }}
@@ -60,10 +53,12 @@ const Habitaciones = () => {
                 los detalles estéticos y arte original en las paredes.
               </li>
               <li>
-              Vistas panorámicas: Una buena vista a la montaña es esencial en una habitación suite
+                Vistas panorámicas: Una buena vista a la montaña es esencial en
+                una habitación suite
               </li>
               <li>
-              Servicios adicionales, como una bañera de hidromasaje, minibar surtido o acceso a servicios de habitación más exclusivos.
+                Servicios adicionales, como una bañera de hidromasaje, minibar
+                surtido o acceso a servicios de habitación más exclusivos.
               </li>
             </ul>
             <Link to={"/"}>
@@ -73,14 +68,16 @@ const Habitaciones = () => {
             </Link>
           </Col>
         </Row>
-        <hr className="separador-habitacion container"/>
+        <hr className="separador-habitacion container" />
 
         <Container className="text-center">
           <h2 className="texto-tituloHTop text-center">
             Habitaciones Doble superior
           </h2>
           <p className="texto-textoH text-center mt-5">
-          Las habitaciones dobles superiores para dos personas, son más grandes que las habitaciones estándar. Esto proporciona un ambiente más espacioso y cómodo para los huéspedes.
+            Las habitaciones dobles superiores para dos personas, son más
+            grandes que las habitaciones estándar. Esto proporciona un ambiente
+            más espacioso y cómodo para los huéspedes.
           </p>
         </Container>
         <Image
@@ -91,11 +88,7 @@ const Habitaciones = () => {
         />
         <Row className="descripcion-habitacion g-0 text-center">
           <Col xs={{ span: 12, order: 2 }} md={6}>
-            <Image
-              src={habitacion4img}
-              alt="habitacionDeLujo"
-              fluid
-            />
+            <Image src={habitacion4img} alt="habitacionDeLujo" fluid />
           </Col>
           <Col
             xs={{ span: 12, order: 1 }}
@@ -105,14 +98,18 @@ const Habitaciones = () => {
             <h3>Servicios de Habitaciones Dobles</h3>
             <ul>
               <li>
-              La decoración en las habitaciones dobles superiores es elegante y sofisticada. Los detalles cuidadosamente seleccionados crean un ambiente acogedor y lujoso.
+                La decoración en las habitaciones dobles superiores es elegante
+                y sofisticada. Los detalles cuidadosamente seleccionados crean
+                un ambiente acogedor y lujoso.
               </li>
               <li>
                 Confort máximo: Colchones de alta calidad, ropa de cama premium
                 y una decoración exclusiva que garantizan el máximo confort.
               </li>
               <li>
-              Las habitaciones dobles superiores a menudo ofrecen vistas panorámicas o más agradables. Puedes disfrutar de la ciudad, el mar o el paisaje circundante desde la comodidad de tu habitación
+                Las habitaciones dobles superiores a menudo ofrecen vistas
+                panorámicas o más agradables. Puedes disfrutar de la ciudad, el
+                mar o el paisaje circundante desde la comodidad de tu habitación
               </li>
             </ul>
             <Link to={"/"}>
@@ -122,13 +119,16 @@ const Habitaciones = () => {
             </Link>
           </Col>
         </Row>
-        <hr className="separador-habitacion container"/>
+        <hr className="separador-habitacion container" />
         <Container className="text-center">
           <h2 className="texto-tituloHTop text-center">
             Habitaciones Triple superior
           </h2>
           <p className="texto-textoH text-center mt-5">
-          La habitación triple puede tener tres camas individuales, lo que permite que cada huésped tenga su propio espacio para dormir. o bien, una cama doble y una individual. Esto es ideal para grupos de amigos o familias.
+            La habitación triple puede tener tres camas individuales, lo que
+            permite que cada huésped tenga su propio espacio para dormir. o
+            bien, una cama doble y una individual. Esto es ideal para grupos de
+            amigos o familias.
           </p>
         </Container>
         <Image
@@ -139,11 +139,7 @@ const Habitaciones = () => {
         />
         <Row className="descripcion-habitacion g-0 text-center">
           <Col xs={{ span: 12, order: 2 }} md={6}>
-            <Image
-              src={habitacion6img}
-              alt="habitacionDeLujo"
-              fluid
-            />
+            <Image src={habitacion6img} alt="habitacionDeLujo" fluid />
           </Col>
           <Col
             xs={{ span: 12, order: 1 }}
@@ -162,10 +158,12 @@ const Habitaciones = () => {
                 y una decoración exclusiva que garantizan el máximo confort.
               </li>
               <li>
-                Configuracion a gusto del huesped con camas simples o dobles segun necesidad
+                Configuracion a gusto del huesped con camas simples o dobles
+                segun necesidad
               </li>
               <li>
-                Espacio amplio con sillones para una estadia mas placentera, dando privacidad a cada uno de ellos.
+                Espacio amplio con sillones para una estadia mas placentera,
+                dando privacidad a cada uno de ellos.
               </li>
             </ul>
             <Link to={"/"}>
@@ -175,7 +173,7 @@ const Habitaciones = () => {
             </Link>
           </Col>
         </Row>
-        <hr className="separador-habitacion container"/>
+        <hr className="separador-habitacion container" />
 
         <Container className="text-center">
           <h2 className="texto-tituloHTop text-center">
@@ -196,11 +194,7 @@ const Habitaciones = () => {
         />
         <Row className="descripcion-habitacion g-0 text-center">
           <Col xs={{ span: 12, order: 2 }} md={6}>
-            <Image
-              src={banio1img}
-              alt="habitacionDeLujo"
-              fluid
-            />
+            <Image src={banio1img} alt="habitacionDeLujo" fluid />
           </Col>
           <Col
             xs={{ span: 12, order: 1 }}
@@ -210,13 +204,21 @@ const Habitaciones = () => {
             <h3>Servicios Habitaciones Individuales</h3>
             <ul>
               <li>
-              Las habitaciones individuales de lujo ofrecen un espacio generoso. La disposición del mobiliario y la decoración están cuidadosamente pensadas para crear un ambiente acogedor y sofisticado
+                Las habitaciones individuales de lujo ofrecen un espacio
+                generoso. La disposición del mobiliario y la decoración están
+                cuidadosamente pensadas para crear un ambiente acogedor y
+                sofisticado
               </li>
               <li>
-              Cama de alta calidad: La cama es el corazón de cualquier habitación de hotel. En las habitaciones individuales de lujo, puedes esperar una cama mas amplia de lo normal y cómoda con sábanas suaves y almohadas mullidas.
+                Cama de alta calidad: La cama es el corazón de cualquier
+                habitación de hotel. En las habitaciones individuales de lujo,
+                puedes esperar una cama mas amplia de lo normal y cómoda con
+                sábanas suaves y almohadas mullidas.
               </li>
               <li>
-              Tecnología de vanguardia: TV de pantalla plana hasta acceso a Internet de alta velocidad, estas habitaciones están equipadas con las últimas comodidades tecnológicas.
+                Tecnología de vanguardia: TV de pantalla plana hasta acceso a
+                Internet de alta velocidad, estas habitaciones están equipadas
+                con las últimas comodidades tecnológicas.
               </li>
             </ul>
             <Link to={"/"}>
@@ -226,7 +228,6 @@ const Habitaciones = () => {
             </Link>
           </Col>
         </Row>
-
       </section>
     </>
   );

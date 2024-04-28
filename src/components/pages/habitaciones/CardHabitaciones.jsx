@@ -1,7 +1,7 @@
-import { Container, Card, Button, Row, ListGroup } from "react-bootstrap";
+import { Container, Card, Row, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Cardhabitaciones = ({ habitaciones}) => {
+const Cardhabitaciones = ({ habitaciones }) => {
   return (
     <>
       <Container>
@@ -26,8 +26,9 @@ const Cardhabitaciones = ({ habitaciones}) => {
                 </Card.Title>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
-                    Disponible:{" "}
-                    {habitacion && habitacion.disponible ? "✅" : "❌"}
+                    {habitacion && habitacion.disponible
+                      ? "Disponible ✅"
+                      : "No Disponible❌"}
                   </ListGroup.Item>
                 </ListGroup>
                 <div className="text-center">
@@ -40,8 +41,12 @@ const Cardhabitaciones = ({ habitaciones}) => {
                       Reservar
                     </Link>
                   ) : (
-                    <Link className="btn btn-dark opacity-25 mt-3 border-0" variant="dark" to={`/detallereserva/${habitacion._id}`}>
-                      No disponible
+                    <Link
+                      className="btn btn-dark opacity-50 mt-3 border-0"
+                      variant="dark"
+                      to={`/detallereserva/${habitacion._id}`}
+                    >
+                      Detalle Reserva
                     </Link>
                   )}
                 </div>

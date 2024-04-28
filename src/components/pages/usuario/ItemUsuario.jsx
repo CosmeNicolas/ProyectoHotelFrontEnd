@@ -1,12 +1,11 @@
+import { eliminarUsuarioAPI, leerUsuariosAPI } from "../../../helpers/queries";
+import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
-import { eliminarUsuarioAPI, leerUsuariosAPI } from "../../../helpers/queries";
-import { Link } from "react-router-dom";
 
 const ItemUsuario = ({ usuariosAdmin, setUsuarioAdmin }) => {
-  //!-------------------- Funciones -------------------------
   const eliminarUsuario = async (id, usuario) => {
     Swal.fire({
       html: `¿Estas seguro que deseas borrar al usuario <span class="text-danger">${usuario}</span> ?`,
@@ -49,7 +48,7 @@ const ItemUsuario = ({ usuariosAdmin, setUsuarioAdmin }) => {
     });
   };
 
-  //!-------------------- Maquetado -------------------------
+
   return (
     <>
       {usuariosAdmin.map((usuarioAdmin) => (

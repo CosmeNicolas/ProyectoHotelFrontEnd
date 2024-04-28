@@ -11,39 +11,47 @@ const Login = ({ setUsuarioLogueado }) => {
     formState: { errors },
   } = useForm();
   const navegacion = useNavigate();
-  
+
   const onSubmit = async (usuario) => {
     try {
       const respuesta = await iniciarSesion(usuario);
       if (respuesta.status === 200) {
         const dato = await respuesta.json();
-        
+
         if (dato.rol === "Usuario") {
-          console.log(dato.rol)
-          sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol}))
+          sessionStorage.setItem(
+            "inicioHotel",
+            JSON.stringify({ email: dato.email, rol: dato.rol })
+          );
           setUsuarioLogueado(dato);
           navegacion("/");
           Swal.fire({
             title: `Bienvenido ${dato.usuario}`,
             icon: "success",
-            confirmButtonColor: '#B79B63',
+            confirmButtonColor: "#B79B63",
             customClass: {
-              popup: 'contenedor-sweet'
-            }
+              popup: "contenedor-sweet",
+            },
           });
-          
         } else if (dato.rol === "Administrador") {
-          console.log(dato.rol)
-          sessionStorage.setItem('inicioHotel', JSON.stringify({email: dato.email, rol: dato.rol,  token:dato.token}))
+       
+          sessionStorage.setItem(
+            "inicioHotel",
+            JSON.stringify({
+              email: dato.email,
+              rol: dato.rol,
+              token: dato.token,
+            })
+          );
           setUsuarioLogueado(dato);
           navegacion("/administrador");
           Swal.fire({
             title: `Bienvenido ${dato.usuario}`,
             icon: "success",
-            confirmButtonColor: '#B79B63',
+            confirmButtonColor: "#B79B63",
             customClass: {
-              popup: 'contenedor-sweet'
-            }
+              popup: "contenedor-sweet",
+            },
           });
         } else {
           Swal.fire({
@@ -51,18 +59,18 @@ const Login = ({ setUsuarioLogueado }) => {
             text: "Intente Nuevamente",
             icon: "error",
             customClass: {
-              popup: 'contenedor-sweet'
-            }
+              popup: "contenedor-sweet",
+            },
           });
         }
-      } else{
+      } else {
         Swal.fire({
           title: "Error al loguearse!",
           text: "Intente Nuevamente",
           icon: "error",
           customClass: {
-            popup: 'contenedor-sweet'
-          }
+            popup: "contenedor-sweet",
+          },
         });
       }
     } catch (error) {

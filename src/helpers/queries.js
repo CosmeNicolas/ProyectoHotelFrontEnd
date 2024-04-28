@@ -2,7 +2,6 @@ const URI_USUARIOS = import.meta.env.VITE_API_USUARIOS;
 const URI_HABITACIONES = import.meta.env.VITE_API_HABITACIONES;
 const URI_USUARIOS_GET = import.meta.env.VITE_API_USUARIOS_GET;
 
-
 export const crearUsuario = async (usuario) => {
   try {
     const respuesta = await fetch(URI_USUARIOS + "/registrar", {
@@ -51,8 +50,8 @@ export const eliminarHabitacionAPI = async (id) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "x-token": JSON.parse(sessionStorage.getItem("inicioHotel")).token
-      }
+        "x-token": JSON.parse(sessionStorage.getItem("inicioHotel")).token,
+      },
     });
     const resultado = await respuesta.json();
     return resultado;
@@ -72,15 +71,15 @@ export const leerUsuariosAPI = async () => {
   }
 };
 
-//! DELETE - de Usuario por id
+
 export const eliminarUsuarioAPI = async (id) => {
   try {
     const respuesta = await fetch(`${URI_USUARIOS_GET}/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "x-token": JSON.parse(sessionStorage.getItem("inicioHotel")).token
-      }
+        "x-token": JSON.parse(sessionStorage.getItem("inicioHotel")).token,
+      },
     });
     return respuesta;
   } catch (error) {
@@ -97,7 +96,7 @@ export const editarUsuarioApi = async (id, usuario) => {
       },
       body: JSON.stringify(usuario),
     });
-    console.log(respuesta)
+    console.log(respuesta);
     return respuesta;
   } catch (error) {
     console.error(error);

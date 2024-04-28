@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/common/NavBar";
 import Inicio from "./components/pages/Inicio";
 import Footer from "./components/common/Footer";
@@ -10,18 +10,18 @@ import Habitaciones from "./components/pages/Habitaciones";
 import FormularioUsuario from "./components/pages/usuario/FormularioUsuario";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import RutasAdmin from "./components/routes/RutasAdmin";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import "./QuienesSomos.css";
-import "./Administrador.css";
 import Servicios from "./components/pages/Servicios";
 import Contacto from "./components/pages/Contacto";
-import "./Usuario.css";
-import "./Reserva.css";
 import Galeria from "./components/pages/Galeria";
 import FormularioHabitacion from "./components/pages/habitaciones/FormularioHabitacion";
 import Reserva from "./components/pages/usuario/Reserva";
 import DetalleReserva from "./components/pages/DetalleReserva";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import "./QuienesSomos.css";
+import "./Administrador.css";
+import "./Usuario.css";
+import "./Reserva.css";
 
 function App() {
   const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
@@ -102,15 +102,11 @@ function App() {
               titulo="Crear Usuario"
               textoBoton="Guardar"
               modoEditar={false}
-          /> } />
-            <Route
-            exact
-            path="/detallereserva/:id"
-            element={
-              <DetalleReserva/>}
+            />
+          }
         />
-          
-            
+        <Route exact path="/detallereserva/:id" element={<DetalleReserva />} />
+
         <Route exact path="/servicios" element={<Servicios />} />
         <Route
           exact

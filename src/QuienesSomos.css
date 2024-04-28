@@ -1,25 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-/* Fuente
-font-family: "Montserrat", sans-serif;
-font-family: "Dancing Script", cursive;
-*/
-
-/* colores 
-#FFFFFF
-
-#303030
-
-#B79B63
-
-#60195D
-
-#4D4D4D
-
-#EADEC5
-
-#E6E6E6
-*/
-
 
 #root {
   min-height: 100vh;
@@ -29,25 +8,23 @@ font-family: "Dancing Script", cursive;
 
 .main {
   flex-grow: 1;
-  
 }
 
-
-.texto-somos{
+.texto-somos {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.titulo-somos{
+
+.titulo-somos {
   text-align: center;
 }
 
-.img-somos{
-	object-fit: cover;
-	height: 200px;
-  filter:grayscale()
-  
+.img-somos {
+  object-fit: cover;
+  height: 200px;
+  filter: grayscale()
 }
 
 .image-container {
@@ -61,7 +38,7 @@ font-family: "Dancing Script", cursive;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .text-overlay {
@@ -77,13 +54,11 @@ font-family: "Dancing Script", cursive;
 }
 
 .centered-text {
-  max-width: 90%; 
+  max-width: 90%;
   text-align: center;
-
-  
 }
 
-.img-somos2{
-  object-fit:cover;
+.img-somos2 {
+  object-fit: cover;
   height: 400px;
 }

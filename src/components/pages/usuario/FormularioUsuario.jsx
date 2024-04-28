@@ -1,11 +1,11 @@
 import React from "react";
-import { Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { crearUsuario } from "../../../helpers/queries";
-import Swal from "sweetalert2";
 import { editarUsuarioApi, obtenerUsuarioAPI } from "../../../helpers/queries";
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Form, Button, Card } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
   const {
@@ -82,10 +82,10 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
             title: "Usuario Creado",
             position: "center",
             icon: "success",
-            confirmButtonColor: '#B79B63',
+            confirmButtonColor: "#B79B63",
             customClass: {
-              popup: "contenedor-sweet"
-            }
+              popup: "contenedor-sweet",
+            },
           });
           navegar("/");
         } else {
@@ -93,10 +93,10 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
             title: "No se pudo crear",
             position: "center",
             icon: "error",
-            confirmButtonColor: '#B79B63',
+            confirmButtonColor: "#B79B63",
             customClass: {
-              popup: "contenedor-sweet"
-            }
+              popup: "contenedor-sweet",
+            },
           });
         }
       } catch (error) {
@@ -220,9 +220,7 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
                     {errors.password && errors.password.message}
                   </Form.Text>
                 </Form.Group>
-              ) : (
-                null
-              )}
+              ) : null}
 
               <Button
                 className="boton-formulario-Usuario my-2 ms-2"

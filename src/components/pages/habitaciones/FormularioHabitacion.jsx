@@ -1,17 +1,16 @@
-import { Button, Card, Form } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 import {
   crearHabitacionAPI,
   editarHabitacionApi,
   obtenerHabitacion,
 } from "../../../helpers/queriesHabitacion";
-import { useNavigate, useParams } from "react-router-dom";
-import Swal from "sweetalert2";
-import { useEffect } from "react";
 import { leerHabitacionesAPI } from "../../../helpers/queries";
+import { Button, Card, Form } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
-  //! ----------------------------------VARIBALES ----------------------------------------
   const {
     register,
     handleSubmit,
@@ -23,7 +22,6 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
   const { id } = useParams();
   const redireccionar = useNavigate();
 
-  //! ----------------------------------FUNCIONES ----------------------------------------
   const habitacionValida = async (habitacion) => {
     if (modoCrear === false) {
       /* PUT */
@@ -55,7 +53,6 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
         console.error("Se produjo un error intente nuevamente mas tarde");
       }
     } else {
-      /* POST */
       try {
         const crearHabitacion = await crearHabitacionAPI(habitacion);
         if (crearHabitacion.status === 201) {
@@ -138,33 +135,32 @@ const FormularioHabitacion = ({ modoCrear, titulo, textoBoton }) => {
     }
   };
 
-  //! ----------------------------------MAQUETADO ----------------------------------------
   return (
     <section className="fondo-login">
       <div className="d-flex justify-content-center mt-5">
         <Card className="p-5 container-formulario-Usuario my-5">
           <h1 className="fuente-login text-center text-light mb-5">{titulo}</h1>
           <Form className="rounded-2" onSubmit={handleSubmit(habitacionValida)}>
-          <Form.Group
-                className="mb-3 text-light"
-                controlId="formUsuarioEmail"
-              >
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Ej:   Rolling@gmail.com"
-                  {...register("email", {
-                    required: "El email es un dato obligatorio",
-                    pattern: {
-                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                      message: "El email debe tener un formato válido",
-                    },
-                  })}
-                />
-                <Form.Text className="text-danger">
-                  {errors.email && errors.email.message}
-                </Form.Text>
-              </Form.Group>
+            <Form.Group
+              className="mb-3 text-light"
+              controlId="formUsuarioEmail"
+            >
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Ej:   Rolling@gmail.com"
+                {...register("email", {
+                  required: "El email es un dato obligatorio",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                    message: "El email debe tener un formato válido",
+                  },
+                })}
+              />
+              <Form.Text className="text-danger">
+                {errors.email && errors.email.message}
+              </Form.Text>
+            </Form.Group>
             <Form.Group className="mb-4 text-light" controlId="numero">
               <Form.Label>Número de Habitación*</Form.Label>
               <Form.Control

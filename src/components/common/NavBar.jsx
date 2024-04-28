@@ -1,19 +1,16 @@
+import { BsFillGeoAltFill } from "react-icons/bs";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from ".././../assets/logo.jpg";
-import { BsFillGeoAltFill } from "react-icons/bs";
-import { Link, NavLink, useNavigate, useParams} from "react-router-dom";
 import Swal from "sweetalert2";
 
 const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
-
   let estiloActivo = {
     textDecoration: "underline",
     fontWeigth: "bold",
   };
-
-  console.log(usuarioLogueado)
 
   const direccionar = useNavigate();
   const logOut = () => {
@@ -30,11 +27,9 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
     direccionar("/");
   };
 
-  
-
-  const email = usuarioLogueado.email
-  const sacarResto = email ? email.split('@') : []
-  const nombreUsuario = sacarResto[0]
+  const email = usuarioLogueado.email;
+  const sacarResto = email ? email.split("@") : [];
+  const nombreUsuario = sacarResto[0];
 
   return (
     <Navbar
@@ -131,7 +126,7 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
               </NavLink>
             ) : (
               <NavLink className="nav-link text-decoration-none" to="/login">
-                <span className="nav-link  reserva-nav p-2" >Reserva</span>
+                <span className="nav-link  reserva-nav p-2">Reserva</span>
               </NavLink>
             )}
           </Nav>

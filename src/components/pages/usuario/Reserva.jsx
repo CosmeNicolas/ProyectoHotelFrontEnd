@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
+import {
+  obtenerHabitacion,
+  editarHabitacionApi,
+} from "../../../helpers/queriesHabitacion";
 import { Form, Button, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams, useNavigate } from "react-router-dom";
-import {obtenerHabitacion,editarHabitacionApi} from "../../../helpers/queriesHabitacion";
 import Swal from "sweetalert2";
 
-const Reserva = ({ reserva, titulo}) => {
-  const usuario= JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
-console.log(usuario)
+const Reserva = ({ reserva, titulo }) => {
+  const usuario = JSON.parse(sessionStorage.getItem("inicioHotel")) || {};
+
   const {
     register,
     handleSubmit,
@@ -18,7 +21,6 @@ console.log(usuario)
   const { id } = useParams();
   const navegacion = useNavigate();
   const [imagenCargada, setImagenCargada] = useState("");
-  
 
   useEffect(() => {
     if (reserva) {
@@ -32,10 +34,10 @@ console.log(usuario)
       const obtenerHabitacion = await respuesta.json();
       /* traer los valores de las habitaciones */
       setImagenCargada(obtenerHabitacion.imagen);
-      if(usuario.rol === 'Usuario'){
-        setValue("email",usuario.email)
-      }else{
-        setValue("email",obtenerHabitacion.email)
+      if (usuario.rol === "Usuario") {
+        setValue("email", usuario.email);
+      } else {
+        setValue("email", obtenerHabitacion.email);
       }
       setValue("numero", obtenerHabitacion.numero);
       setValue("tipo", obtenerHabitacion.tipo);
@@ -104,7 +106,7 @@ console.log(usuario)
           <Card className="container-formulario-Reserva  p-3 my-4  d-flex flex-column align-content-center justify-content-center">
             <Form className="p-3" onSubmit={handleSubmit(reservarHabitacion)}>
               {/* Nombre y aplelido */}
-             {/*  <Form.Group
+              {/*  <Form.Group
                 className=" mb-3 text-light"
                 controlId="formNombreCompleto"
               >

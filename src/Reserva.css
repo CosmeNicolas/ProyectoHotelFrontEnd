@@ -1,18 +1,16 @@
-
-
-.fondo-formulario-Reserva{
-    
+.fondo-formulario-Reserva {
   flex-grow: 1;
   background-image: url('./assets/FondoRegistro.jpg');
-  background-size:100% 100%;
+  background-size: 100% 100%;
 }
 
-.titulo-Reserva{
+.titulo-Reserva {
   margin-top: 65px;
   background: rgba(44, 46, 52, 0.529);
- width: 300px;
- border-radius: 10px;
+  width: 300px;
+  border-radius: 10px;
 }
+
 .container-formulario-Reserva {
   background: rgba(44, 46, 52, 0.529);
   box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
@@ -22,7 +20,7 @@
   width: 400px;
 }
 
-.boton-formulario-Reserva{
+.boton-formulario-Reserva {
   border: #B79B63;
   background-color: #B79B63;
   transition: background-color 0.3s ease;
@@ -32,7 +30,7 @@
   font-family: "Dancing Script", cursive;
 }
 
-.tituloReservaCard{
+.tituloReservaCard {
   font-family: "Dancing Script", cursive;
   margin-top: 10px;
 }

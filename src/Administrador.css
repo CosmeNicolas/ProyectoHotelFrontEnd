@@ -1,25 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* colores 
 
-#FFFFFF
-
-#303030
-
-#B79B63
-
-#60195D
-
-#4D4D4D
-
-#EADEC5
-
-#E6E6E6
-*/
-/* Fuente
-font-family: "Montserrat", sans-serif;
-font-family: "Dancing Script", cursive;
-*/
 .contenedorAdministrador {
   flex-grow: 1;
 }
@@ -32,7 +13,6 @@ font-family: "Dancing Script", cursive;
   background-size: cover;
   background-image: url(./assets/living1.jpg);
   background-repeat: no-repeat;
-
 }
 
 .boton-acordion {
@@ -43,7 +23,6 @@ font-family: "Dancing Script", cursive;
   font-family: "Dancing Script", cursive;
 }
 
-/*! login estilos */
 .fondo-login {
   flex-grow: 1;
   background-image: url('./assets/living3.jpg');
@@ -77,25 +56,25 @@ font-family: "Dancing Script", cursive;
 /* estilos sweet alert  */
 .contenedor-sweet {
   background: #303030;
-  color:#EADEC5;
+  color: #EADEC5;
 }
 
 /* lineas del circulo succes */
 .swal2-icon.swal2-success .swal2-success-ring {
   border-color: #B79B63;
-} 
+}
+
 /* color del tilde */
 .swal2-icon.swal2-success [class^='swal2-success-line'] {
   background-color: #B79B63;
 }
 
 /* estilo admin tabla */
-.imagen-habitacion-admin{
+.imagen-habitacion-admin {
   width: 100px;
   height: 100px;
 }
 
-/*! Estilo Crear habitacion  */
 .formularioTextArea {
   resize: none;
   overflow-y: auto;

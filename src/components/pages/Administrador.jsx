@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Container, Table, Tab, Tabs } from "react-bootstrap";
-import { BsFillCalendar2PlusFill } from "react-icons/bs";
 import { leerHabitacionesAPI } from "../../helpers/queries";
 import { leerUsuariosAPI } from "../../helpers/queries";
+import { Container, Table, Tab, Tabs } from "react-bootstrap";
+import { BsFillCalendar2PlusFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import ItemHabitacion from "./habitaciones/Itemhabitacion";
 import ItemUsuario from "./usuario/ItemUsuario";
@@ -14,8 +14,6 @@ const Administrador = () => {
   const [habitacionesAdmin, setHabitacionesAdmin] = useState([]);
   const [usuariosAdmin, setUsuarioAdmin] = useState([]);
   const [cargando, setCargando] = useState(true);
-
-    
 
   useEffect(() => {
     cargarDatosHotel();
@@ -34,7 +32,7 @@ const Administrador = () => {
     }
     setCargando(false);
   };
-  
+
   const actualizarHabitaciones = async () => {
     try {
       const habitaciones = await leerHabitacionesAPI();
@@ -49,32 +47,30 @@ const Administrador = () => {
     }
   };
 
-
   const mostrarHabitacionesAdmin = async () => {
     try {
       setCargando(true);
       const respuesta = await leerHabitacionesAPI();
       const mostrarHabitaciones = await respuesta;
       setHabitacionesAdmin(mostrarHabitaciones);
-      await actualizarHabitaciones()
+      await actualizarHabitaciones();
     } catch (error) {
-      console.log(first);
+      console.log(error);
       Swal.fire({
         title: "Ocurrió un error en el servidor",
         text: "Intente realizar esta acción en unos minutos",
         icon: "error",
       });
+    }finally{
       setCargando(false);
     }
   };
-
 
   const mostrarUsuariosAdmin = async () => {
     try {
       setCargando(true);
       const respuesta = await leerUsuariosAPI();
       const mostrarUsuarios = await respuesta;
-      console.log(mostrarUsuarios)
       setUsuarioAdmin(mostrarUsuarios);
     } catch (error) {
       console.log(error);
@@ -83,6 +79,7 @@ const Administrador = () => {
         text: "Intente realizar esta acción en unos minutos",
         icon: "error",
       });
+    }finally{
       setCargando(false);
     }
   };
@@ -111,8 +108,6 @@ const Administrador = () => {
         </div>
 
         <br />
-
-        {/* Tabla Habitaciones */}
         <article className="mx-3">
           <Tabs variant="underline" fill defaultActiveKey="habitaciones">
             <Tab eventKey="habitaciones" title="Habitaciones">
@@ -150,14 +145,12 @@ const Administrador = () => {
                   <tbody>
                     <ItemHabitacion
                       habitacionesAdmin={habitacionesAdmin}
-              actualizarHabitaciones={actualizarHabitaciones} 
+                      actualizarHabitaciones={actualizarHabitaciones}
                     />
                   </tbody>
                 </Table>
               )}
             </Tab>
-
-            {/* Tabla Ususarios */}
             <Tab eventKey="usuarios" title="Usuarios">
               <div className="d-flex align-items-center justify-content-between my-2">
                 <h2 className="fs-1 fw-bold titulos ">Usuarios</h2>
@@ -188,8 +181,6 @@ const Administrador = () => {
                 </Table>
               )}
             </Tab>
-            {/* Reservas  */}
-
             <Tab eventKey="reservas" title="Reservas">
               <div className="d-flex align-items-center justify-content-between my-2">
                 <h2 className="fs-1 fw-bold titulos">Reservas</h2>
@@ -198,7 +189,6 @@ const Administrador = () => {
               <Table responsive striped bordered hover>
                 <thead>
                   <tr>
-                   
                     <th>Email</th>
                     <th>Precio</th>
                     <th>habitacion</th>
@@ -207,19 +197,20 @@ const Administrador = () => {
                     <th>Fecha de Salida</th>
                     <th>Imagen</th>
                     <th>Opciones</th>
-                
                   </tr>
                 </thead>
                 <tbody>
-                  {/* Aquí puedes colocar el componente o la lógica que quieras para la pestaña de Reservas */}
-                  <ItemReservas  usuariosAdmin={usuariosAdmin}   habitacionesAdmin={habitacionesAdmin}
-              actualizarHabitaciones={actualizarHabitaciones} />
+                  <ItemReservas
+                    usuariosAdmin={usuariosAdmin}
+                    habitacionesAdmin={habitacionesAdmin}
+                    actualizarHabitaciones={actualizarHabitaciones}
+                  />
                 </tbody>
               </Table>
             </Tab>
           </Tabs>
         </article>
-      <hr />
+        <hr />
       </Container>
     </>
   );
