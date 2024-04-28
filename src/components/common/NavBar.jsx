@@ -14,19 +14,15 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
-        setExpanded(false);
+        setContraer(false);
       }
     };
 
     document.addEventListener("click", handleClickOutside);
-
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-
-
-
 
   let estiloActivo = {
     textDecoration: "underline",
