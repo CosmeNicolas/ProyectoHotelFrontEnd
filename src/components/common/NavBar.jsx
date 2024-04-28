@@ -8,21 +8,25 @@ import Swal from "sweetalert2";
 import { useEffect, useRef, useState } from "react";
 
 const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
-  const [contraer, setContraer] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const navRef = useRef();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
-        setContraer(false);
+        setExpanded(false);
       }
     };
 
     document.addEventListener("click", handleClickOutside);
+
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+
+
 
   let estiloActivo = {
     textDecoration: "underline",
@@ -54,7 +58,7 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
       data-bs-theme="dark"
       expand="lg"
       className="barraDeNavegacion"
-      constraer={contraer}
+      expanded={expanded}
       ref={navRef}
     >
       <Container>
@@ -67,7 +71,7 @@ const NavBar = ({ usuarioLogueado, setUsuarioLogueado }) => {
           <BsFillGeoAltFill className="icono-ubicacion mx-2 d-lg-none " />
         </NavLink>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav"  onClick={() => setContraer(!contraer)}/>
+        <Navbar.Toggle aria-controls="basic-navbar-nav"  onClick={() => setExpanded(!expanded)}/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <NavLink
