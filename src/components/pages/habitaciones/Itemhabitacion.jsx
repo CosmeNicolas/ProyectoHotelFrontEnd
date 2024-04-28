@@ -5,7 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 
-const ItemHabitacion = ({ habitacionesAdmin, actualizarHabitaciones }) => {
+const ItemHabitacion = ({habitacionesAdmin, actualizarHabitaciones}) => {
   const handleEliminar = async (habitacionId, numero) => {
     Swal.fire({
       html: `¿Estas seguro que deseas borrar a la habitación <span class="text-danger">${numero}</span> ?`,

@@ -29,9 +29,11 @@ const Administrador = () => {
         text: "Intente realizar esta acción en unos minutos",
         icon: "error",
       });
+      
     }
-    setCargando(false);
-  };
+    setCargando(false)
+  }
+  
 
   const actualizarHabitaciones = async () => {
     try {
