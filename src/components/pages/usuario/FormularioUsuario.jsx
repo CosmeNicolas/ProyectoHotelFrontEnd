@@ -136,6 +136,10 @@ const FormularioUsuario = ({ modoEditar, titulo, textoBoton }) => {
                       value: 60,
                       message: "La cantidad máxima de caracteres es 50",
                     },
+                    pattern: {
+                      value: /^[a-zA-Z\s]+$/,
+                      message: "El nombre debe contener solo letras y espacios"
+                    },
                   })}
                 />
                 <Form.Text className="text-danger">
