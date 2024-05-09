@@ -8,6 +8,7 @@ import {
   InputGroup,
   FloatingLabel,
 } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import pileta from "../../assets/pileta.jpeg";
 import { BsFillGeoAltFill } from "react-icons/bs";
 import emailjs from "@emailjs/browser";
@@ -24,7 +25,7 @@ let templateParams = {
   user_lastname: "",
 };
 
-const enviarMail = async (e) => {
+/*const enviarMail = async (e) => {
   e.preventDefault();
 
   //  valores de templateParams = valores del formulario
@@ -71,9 +72,62 @@ const enviarMail = async (e) => {
       showConfirmButton: true,
     });
   }
-};
+};*/
 
 const Contacto = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const enviarMail = async (data) => {
+    try {
+      const response = await emailjs.send(
+        "service_vjots2t",
+        "template_lt6fb3v",
+        {
+          from_name: "Hotel Rolling",
+          destinatario: data.user_email,
+          to_name: data.user_name,
+          to_lastname: data.user_lastname,
+          message: data.consulta,
+        }
+      );
+      if (response.status === 200) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "¡Mensaje enviado!",
+          text: "Su consulta se ha enviado correctamente.",
+          showConfirmButton: true,
+          confirmButtonColor: "#B79B63",
+          customClass: {
+            popup: "contenedor-sweet",
+          },
+        });
+      } else {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Error",
+          text: "Ha ocurrido un error al enviar el mensaje. Intente nuevamente más tarde.",
+          showConfirmButton: true,
+        });
+      }
+    } catch (error) {
+      console.error("error al enviar el email", error);
+
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Error",
+        text: "Ha ocurrido un error inesperado. Intente nuevamente más tarde.",
+        showConfirmButton: true,
+      });
+    }
+  };
+
   return (
     <section>
       <div>
@@ -100,16 +154,34 @@ const Contacto = () => {
               <BsFillGeoAltFill className="icono-ubicacionContacto " />
               Av. Exequiel Bustillo 2500, San Carlos de Bariloche
             </h4>
-            <Form className="text-center" onSubmit={enviarMail}>
+            <Form className="text-center" onSubmit={handleSubmit(enviarMail)}>
               <Form.Group>
                 <InputGroup className="py-3">
                   <InputGroup.Text id="nombreContacto">Nombre</InputGroup.Text>
                   <Form.Control
                     placeholder="Juan"
                     aria-label="nombre"
-                    name="user_name"
+                    {...register("user_name", {
+                      required:
+                        "El nombre del contacto es un campo obligatorio",
+                      minLength: {
+                        value: 3,
+                        message: "La cantidad mínima de caracteres es 3",
+                      },
+                      maxLength: {
+                        value: 20,
+                        message: "La cantidad máxima de caracteres es 20",
+                      },
+                      pattern: {
+                        value: /^[a-zA-Z\s]+$/,
+                        message: "Ingrese un nombre válido",
+                      },
+                    })}
                     className="color-inputs"
                   />
+                  <Form.Text className="text-danger">
+                    {errors.user_name && errors.user_name.message}
+                  </Form.Text>
                 </InputGroup>
                 <InputGroup>
                   <InputGroup.Text id="apellidoContacto">
@@ -118,9 +190,27 @@ const Contacto = () => {
                   <Form.Control
                     placeholder="Garcia"
                     aria-label="apellido"
-                    name="user_lastname"
+                    {...register("user_lastname", {
+                      required:
+                        "El apellido del contacto es un campo obligatorio",
+                      minLength: {
+                        value: 3,
+                        message: "La cantidad mínima de caracteres es 3",
+                      },
+                      maxLength: {
+                        value: 20,
+                        message: "La cantidad máxima de caracteres es 20",
+                      },
+                      pattern: {
+                        value: /^[a-zA-Z\s]+$/,
+                        message: "Ingrese un apellido válido",
+                      },
+                    })}
                     className="color-inputs"
                   />
+                  <Form.Text className="text-danger">
+                    {errors.user_lastname && errors.user_lastname.message}
+                  </Form.Text>
                 </InputGroup>
                 <InputGroup className="py-3">
                   <InputGroup.Text id="emailContacto">E-mail</InputGroup.Text>
@@ -128,18 +218,24 @@ const Contacto = () => {
                     placeholder="email@email.com"
                     aria-label="email"
                     type="email"
-                    name="user_email"
+                    {...register("user_email", { required: true })}
                     className="color-inputs"
                   />
+                  {errors.user_email && (
+                    <span className="text-danger">Este campo es requerido</span>
+                  )}
                 </InputGroup>
                 <FloatingLabel controlId="consultaContacto" label="Consulta">
                   <Form.Control
                     as="textarea"
                     placeholder="Deje su consulta"
                     style={{ height: "100px" }}
-                    name="consulta"
+                    {...register("consulta", { required: true })}
                     className="color-inputs"
                   />
+                  {errors.consulta && (
+                    <span className="text-danger">Este campo es requerido</span>
+                  )}
                 </FloatingLabel>
                 <Button
                   type="submit"
