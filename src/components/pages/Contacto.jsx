@@ -1,3 +1,4 @@
+import { useForm } from "react-hook-form";
 import {
   Button,
   Row,
@@ -8,7 +9,6 @@ import {
   InputGroup,
   FloatingLabel,
 } from "react-bootstrap";
-import { useForm } from "react-hook-form";
 import pileta from "../../assets/pileta.jpeg";
 import { BsFillGeoAltFill } from "react-icons/bs";
 import emailjs from "@emailjs/browser";
@@ -79,6 +79,7 @@ const Contacto = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const enviarMail = async (data) => {
@@ -106,6 +107,7 @@ const Contacto = () => {
             popup: "contenedor-sweet",
           },
         });
+        reset();
       } else {
         Swal.fire({
           position: "center",
@@ -129,7 +131,7 @@ const Contacto = () => {
   };
 
   return (
-    <section>
+    <section className="main">
       <div>
         <Image src={pileta} alt="pileta" className="img-piletaContacto" fluid />
         <div className="texto-tituloContacto text-center">
@@ -150,13 +152,13 @@ const Contacto = () => {
             ></iframe>
           </Col>
           <Col xs={12} sm={12} lg={6} className="texto-FormContacto py-3">
-            <h4 className="text-center ">
+            <h4 className="text-center">
               <BsFillGeoAltFill className="icono-ubicacionContacto " />
               Av. Exequiel Bustillo 2500, San Carlos de Bariloche
             </h4>
-            <Form className="text-center" onSubmit={handleSubmit(enviarMail)}>
+            <Form onSubmit={handleSubmit(enviarMail)}>
               <Form.Group>
-                <InputGroup className="py-3">
+                <InputGroup className="py-1">
                   <InputGroup.Text id="nombreContacto">Nombre</InputGroup.Text>
                   <Form.Control
                     placeholder="Juan"
@@ -179,12 +181,12 @@ const Contacto = () => {
                     })}
                     className="color-inputs"
                   />
-                  <Form.Text className="text-danger">
-                    {errors.user_name && errors.user_name.message}
-                  </Form.Text>
                 </InputGroup>
+                  <Form.Text className="text-danger d-flex flex-column">
+                    {errors.user_name && errors.user_name?.message}
+                  </Form.Text>
                 <InputGroup>
-                  <InputGroup.Text id="apellidoContacto">
+                  <InputGroup.Text className="py-1" id="apellidoContacto">
                     Apellido
                   </InputGroup.Text>
                   <Form.Control
@@ -208,34 +210,55 @@ const Contacto = () => {
                     })}
                     className="color-inputs"
                   />
+                </InputGroup>
                   <Form.Text className="text-danger">
-                    {errors.user_lastname && errors.user_lastname.message}
+                    {errors.user_lastname && errors.user_lastname?.message}
                   </Form.Text>
-                </InputGroup>
-                <InputGroup className="py-3">
-                  <InputGroup.Text id="emailContacto">E-mail</InputGroup.Text>
+                <InputGroup
+                  className=" py-1 text-light"
+                  controlId="formUsuarioEmail"
+                >
+                  <InputGroup.Text id="apellidoContacto">
+                    Email
+                  </InputGroup.Text>
                   <Form.Control
-                    placeholder="email@email.com"
-                    aria-label="email"
                     type="email"
-                    {...register("user_email", { required: true })}
-                    className="color-inputs"
+                    placeholder="Ej:   Rolling@gmail.com"
+                    {...register("user_email", {
+                      required: "El email es un dato obligatorio",
+                      pattern: {
+                        value:
+                          /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                        message: "El email debe tener un formato válido",
+                      },
+                    })}
                   />
-                  {errors.user_email && (
-                    <span className="text-danger">Este campo es requerido</span>
-                  )}
-                </InputGroup>
+                  </InputGroup>
+                  <Form.Text className="text-danger">
+                    {errors.user_email && errors.user_email?.message}
+                  </Form.Text>
+                 
                 <FloatingLabel controlId="consultaContacto" label="Consulta">
                   <Form.Control
                     as="textarea"
                     placeholder="Deje su consulta"
-                    style={{ height: "100px" }}
-                    {...register("consulta", { required: true })}
+                    style={{ height: "100px", resize: "none" }}
+                    {...register("consulta", {
+                      required: "La consulta es un campo obligatorio ",
+                      minLength: {
+                        value: 10,
+                        message: "La cantidad mínima de caracteres es 10",
+                      },
+                      maxLength: {
+                        value: 250,
+                        message: "La cantidad máxima de caracteres es 250",
+                      },
+                    })}
                     className="color-inputs"
                   />
-                  {errors.consulta && (
-                    <span className="text-danger">Este campo es requerido</span>
-                  )}
+                  <Form.Text className="text-danger">
+                    {errors.consulta && errors.consulta?.message}
+                  </Form.Text>
                 </FloatingLabel>
                 <Button
                   type="submit"
